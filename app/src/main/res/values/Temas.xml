@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Fonte_Textos_menu" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">28sp</item>
+
+    </style>
+
+</resources>
