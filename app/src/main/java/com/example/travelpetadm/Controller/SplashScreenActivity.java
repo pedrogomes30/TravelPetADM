@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.travelpetadm.MainActivity;
 import com.example.travelpetadm.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -14,20 +18,18 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        mostrarLogin();
 
-    }
 
-    private void mostrarLogin() {
-        Intent intent = new Intent(SplashScreenActivity.this, Login.class);
-        startActivity(intent);
-        finish();
+        new Timer().schedule(new TimerTask() {
 
-        Handler handle = new Handler();
-        handle.postDelayed(new Runnable() {
-            @Override public void run() {
-                mostrarLogin();
+            @Override
+            public void run() {
+                finish();
+
+                Intent intent = new Intent();
+                intent.setClass(SplashScreenActivity.this, Login.class);
+                startActivity(intent);
             }
-        }, 5000);
+        }, 2000);
     }
 }
