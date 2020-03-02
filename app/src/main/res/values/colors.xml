@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-
-
-
+    <color name="Laranja_Principal">#Ff6600</color>
+    <color name="roxo_claro">#60278B</color>
+    <color name="roxo_escuro">#46165A</color>
+    <color name="roxo_preto">#300E3D</color>
+    <color name="branco">#ffffff</color>
+    <color name="preto">#000000</color>
+    <color name="azul_escuro">#006599</color>
+    <color name="azul_claro">#2e8fc2</color>
+    <color name="azul_petroleo">#054666</color>
+    <color name="azul_petroleo_claro">#116591</color>
 </resources>

@@ -3,13 +3,31 @@
     <style name="Fonte_Textos_menu" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#fff</item>
+        <item name="android:textColor">@color/branco</item>
         <item name="android:typeface">monospace</item>
         <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">@font/fredoka_one_regular</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textSize">28sp</item>
 
+
+
+    </style>
+    <style name="Fonte_Textos_menu.laranja">
+        <item name="android:textColor">@color/Laranja_Principal</item>
+    </style>
+
+    <style name="Fonte_Textos_menores" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/branco</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/comfortaa_bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Fonte_Textos_menu.menor">
+        <item name="android:textSize">15sp</item>
     </style>
 
 </resources>
