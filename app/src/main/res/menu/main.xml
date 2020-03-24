@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_configuracao"
+        android:orderInCategory="100"
+        android:title="@string/action_configuracao"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_extrairRelatorio"
+        android:orderInCategory="100"
+        android:title="@string/action_extrairRelatorio"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sair"
+        android:orderInCategory="100"
+        android:title="@string/action_sair"
+        app:showAsAction="never" />
+</menu>

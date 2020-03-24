@@ -6,4 +6,7 @@
     <dimen name="icone_login_largura">400px</dimen>
     <dimen name="card_view_tela_inicial_largura">350dp</dimen>
     <dimen name="card_view_tela_inicial_altura">100dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

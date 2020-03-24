@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
-import com.example.travelpetadm.MainActivity;
 import com.example.travelpetadm.R;
 
 import java.util.Timer;
@@ -27,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 finish();
 
                 Intent intent = new Intent();
-                intent.setClass(SplashScreenActivity.this, Login.class);
+                intent.setClass(SplashScreenActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         }, 2000);
