@@ -33,11 +33,37 @@
         android:id="@+id/nav_donoAnimal"
         android:name="com.example.travelpetadm.ui.gallery.DonoAnimalFragment"
         android:label="@string/menu_donoAnimal"
-        tools:layout="@layout/fragment_donoanimal" />
+        tools:layout="@layout/fragment_donoanimal" >
+        <action
+            android:id="@+id/action_nav_donoAnimal_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_motorista"
         android:name="com.example.travelpetadm.ui.motorista.MotoristaFragment"
         android:label="@string/menu_motorista"
-        tools:layout="@layout/fragment_motorista" />
+        tools:layout="@layout/fragment_motorista" >
+        <action
+            android:id="@+id/action_nav_motorista_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_viagem"
+        android:name="com.example.travelpetadm.ui.viagens.ViagemFragment"
+        android:label="@string/menu_viagem"
+        tools:layout="@layout/fragment_viagem" >
+        <action
+            android:id="@+id/action_nav_motorista_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_veiculos"
+        android:name="com.example.travelpetadm.ui.veiculos.VeiculosFragment"
+        android:label="@string/menu_veiculos"
+        tools:layout="@layout/fragment_veiculos" >
+        <action
+            android:id="@+id/action_nav_motorista_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

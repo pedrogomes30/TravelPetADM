@@ -16,6 +16,15 @@
             android:id="@+id/nav_motorista"
             android:icon="@drawable/ic_menu_motorista"
             android:title="@string/menu_motorista" />
-        
+        <item
+            android:id="@+id/nav_viagem"
+            android:icon="@drawable/ic_menu_viagem"
+            android:title="@string/menu_viagem" />
+        <item
+            android:id="@+id/nav_veiculos"
+            android:icon="@drawable/ic_menu_veiculo"
+            android:title="@string/menu_veiculos" />
+
+
     </group>
 </menu>
