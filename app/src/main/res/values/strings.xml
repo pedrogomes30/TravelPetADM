@@ -8,25 +8,28 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-*/cabeçalho do drawer navigation --------------------------/**
+    */cabeçalho do drawer navigation --------------------------/**
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-*/submenu na barra de tarefas -----------------------------/**
+    */submenu na barra de tarefas -----------------------------/**
 
     <string name="action_configuracao">Configuração conta admin</string>
     <string name="action_extrairRelatorio">Extrair relatório aqui</string>
     <string name="action_sair">Sair</string>
 
-*/ textos do drawer navigation ------------------------- /**
+    */ textos do drawer navigation ------------------------- /**
 
     <string name="menu_home">Estatisticas</string>
     <string name="menu_donoAnimal">Dono Animal</string>
     <string name="menu_motorista">Motorista</string>
     <string name="menu_viagem">Viagens</string>
     <string name="menu_veiculos">Veiculos</string>
+    <string name="menu_animais">Animais</string>
+    <string name="menu_contasadm">Contas Adm</string>
+
 
     <string name="home_second">Home Second</string>
 

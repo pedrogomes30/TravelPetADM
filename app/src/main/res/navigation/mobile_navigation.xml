@@ -63,6 +63,24 @@
         android:label="@string/menu_veiculos"
         tools:layout="@layout/fragment_veiculos" >
         <action
+            android:id="@+id/action_nav_veiculos_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_animais"
+        android:name="com.example.travelpetadm.ui.animais.AnimaisFragment"
+        android:label="@string/menu_animais"
+        tools:layout="@layout/fragment_animais" >
+        <action
+            android:id="@+id/action_nav_motorista_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_contasadm"
+        android:name="com.example.travelpetadm.ui.contasAdm.ContasAdmFragment"
+        android:label="@string/menu_contasadm"
+        tools:layout="@layout/fragment_contas_adm" >
+        <action
             android:id="@+id/action_nav_motorista_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>

@@ -24,7 +24,14 @@
             android:id="@+id/nav_veiculos"
             android:icon="@drawable/ic_menu_veiculo"
             android:title="@string/menu_veiculos" />
-
+        <item
+            android:id="@+id/nav_animais"
+            android:icon="@drawable/ic_menu_animais"
+            android:title="@string/menu_animais" />
+        <item
+            android:id="@+id/nav_contasadm"
+            android:icon="@drawable/ic_menu_contasadm"
+            android:title="@string/menu_contasadm" />
 
     </group>
 </menu>
