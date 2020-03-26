@@ -30,10 +30,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.travelpetadm.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_donoAnimal"
+        android:name="com.example.travelpetadm.ui.gallery.DonoAnimalFragment"
+        android:label="@string/menu_donoAnimal"
+        tools:layout="@layout/fragment_donoAnimal" />
 
     <fragment
         android:id="@+id/nav_motorista"
