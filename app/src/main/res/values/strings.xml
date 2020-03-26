@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TravelPetADM</string>
+    <string name="app_name">Travel Pet ADM</string>
     <string name="splash_screen">Para Administradores</string>
     <string name="Login">Login</string>
     <string name="Motorista">Motorista</string>

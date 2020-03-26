@@ -1,4 +1,4 @@
-package com.example.travelpetadm.Controller;
+package com.example.travelpetadm.ui.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
