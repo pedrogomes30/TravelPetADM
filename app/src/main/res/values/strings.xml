@@ -10,8 +10,8 @@
 
     */cabeçalho do drawer navigation --------------------------/**
 
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Administrador </string>
+    <string name="nav_header_subtitle">email.teste@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
     */submenu na barra de tarefas -----------------------------/**
