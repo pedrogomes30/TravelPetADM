@@ -1,4 +1,4 @@
-package com.example.travelpetadm.ui.home;
+package com.example.travelpetadm.ui.estatisticas;
 
 import android.os.Bundle;
 

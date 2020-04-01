@@ -3,40 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_estatisticas">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.travelpetadm.ui.home.HomeFragment"
+        android:id="@+id/nav_estatisticas"
+        android:name="com.example.travelpetadm.ui.estatisticas.EstatisticasFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home">
-
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" />
-    </fragment>
-    <fragment
-        android:id="@+id/nav_home_second"
-        android:name="com.example.travelpetadm.ui.home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
-
-        <argument
-            android:name="myArg"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_estatisticas"/>
 
     <fragment
         android:id="@+id/nav_donoAnimal"
-        android:name="com.example.travelpetadm.ui.gallery.DonoAnimalFragment"
+        android:name="com.example.travelpetadm.ui.donoanimal.DonoAnimalFragment"
         android:label="@string/menu_donoAnimal"
         tools:layout="@layout/fragment_donoanimal" >
         <action
             android:id="@+id/action_nav_donoAnimal_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
 
     <fragment
@@ -46,7 +28,7 @@
         tools:layout="@layout/fragment_motorista" >
         <action
             android:id="@+id/action_nav_motorista_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
         android:id="@+id/nav_viagem"
@@ -55,7 +37,7 @@
         tools:layout="@layout/fragment_viagem" >
         <action
             android:id="@+id/action_nav_motorista_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
         android:id="@+id/nav_veiculos"
@@ -64,7 +46,7 @@
         tools:layout="@layout/fragment_veiculos" >
         <action
             android:id="@+id/action_nav_veiculos_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
         android:id="@+id/nav_animais"
@@ -73,7 +55,7 @@
         tools:layout="@layout/fragment_animais" >
         <action
             android:id="@+id/action_nav_motorista_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
         android:id="@+id/nav_contasadm"
@@ -82,6 +64,6 @@
         tools:layout="@layout/fragment_contas_adm" >
         <action
             android:id="@+id/action_nav_motorista_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_estatisticas" />
     </fragment>
 </navigation>

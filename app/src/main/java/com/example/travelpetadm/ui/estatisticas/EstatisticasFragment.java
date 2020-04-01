@@ -1,4 +1,4 @@
-package com.example.travelpetadm.ui.gallery;
+package com.example.travelpetadm.ui.estatisticas;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.travelpetadm.R;
 
-public class DonoAnimalFragment extends Fragment {
+public class EstatisticasFragment extends Fragment {
 
-    private DonoAnimalViewModel donoAnimalViewModel;
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        donoAnimalViewModel =
-                ViewModelProviders.of(this).get(DonoAnimalViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_donoanimal, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        donoAnimalViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_estatisticas, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
