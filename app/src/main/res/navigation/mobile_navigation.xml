@@ -16,8 +16,9 @@
         android:name="com.example.travelpetadm.ui.donoanimal.DonoAnimalFragment"
         android:label="@string/menu_donoAnimal"
         tools:layout="@layout/fragment_donoanimal" >
+
         <action
-            android:id="@+id/action_nav_donoAnimal_to_nav_home"
+            android:id="@+id/action_nav_donoAnimal_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
 
@@ -26,8 +27,9 @@
         android:name="com.example.travelpetadm.ui.motorista.MotoristaFragment"
         android:label="@string/menu_motorista"
         tools:layout="@layout/fragment_motorista" >
+
         <action
-            android:id="@+id/action_nav_motorista_to_nav_home"
+            android:id="@+id/action_nav_motorista_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
@@ -35,8 +37,9 @@
         android:name="com.example.travelpetadm.ui.viagens.ViagemFragment"
         android:label="@string/menu_viagem"
         tools:layout="@layout/fragment_viagem" >
+
         <action
-            android:id="@+id/action_nav_motorista_to_nav_home"
+            android:id="@+id/action_nav_viagem_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
@@ -44,8 +47,9 @@
         android:name="com.example.travelpetadm.ui.veiculos.VeiculosFragment"
         android:label="@string/menu_veiculos"
         tools:layout="@layout/fragment_veiculos" >
+
         <action
-            android:id="@+id/action_nav_veiculos_to_nav_home"
+            android:id="@+id/action_nav_veiculos_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
@@ -53,17 +57,59 @@
         android:name="com.example.travelpetadm.ui.animais.AnimaisFragment"
         android:label="@string/menu_animais"
         tools:layout="@layout/fragment_animais" >
+
         <action
-            android:id="@+id/action_nav_motorista_to_nav_home"
+            android:id="@+id/action_nav_animais_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
         android:id="@+id/nav_contasadm"
         android:name="com.example.travelpetadm.ui.contasAdm.ContasAdmFragment"
         android:label="@string/menu_contasadm"
-        tools:layout="@layout/fragment_contas_adm" >
+        tools:layout="@layout/fragment_contas_adm" >>
         <action
-            android:id="@+id/action_nav_motorista_to_nav_home"
+            android:id="@+id/action_nav_contasadm_to_nav_estatisticas"
+            app:destination="@id/nav_estatisticas" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.travelpetadm.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" >
+
+        <action
+            android:id="@+id/action_nav_about_to_nav_estatisticas"
+            app:destination="@id/nav_estatisticas" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_configuracao"
+        android:name="com.example.travelpetadm.ui.configuracao.ConfiguracaoFragment"
+        android:label="@string/menu_configuracao"
+        tools:layout="@layout/fragment_configuracao" >
+
+        <action
+            android:id="@+id/action_nav_configuracao_to_nav_estatisticas"
+            app:destination="@id/nav_estatisticas" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_log"
+        android:name="com.example.travelpetadm.ui.log.LogFragment"
+        android:label="@string/menu_log"
+        tools:layout="@layout/fragment_log" >
+
+        <action
+            android:id="@+id/action_nav_log_to_nav_estatisticas"
+            app:destination="@id/nav_estatisticas" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_sair"
+        android:name="com.example.travelpetadm.ui.sair.SairFragment"
+        android:label="@string/menu_sair"
+        tools:layout="@layout/fragment_sair" >
+
+        <action
+            android:id="@+id/action_nav_sair_to_nav_estatisticas"
             app:destination="@id/nav_estatisticas" />
     </fragment>
 </navigation>
