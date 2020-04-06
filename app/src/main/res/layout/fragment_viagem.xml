@@ -6,15 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.viagens.ViagemFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="174dp"
-        android:layout_height="53dp"
-        android:text="FRAGMENT VIAGEM"
-        android:textAppearance="@style/Fonte_Textos_menores"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

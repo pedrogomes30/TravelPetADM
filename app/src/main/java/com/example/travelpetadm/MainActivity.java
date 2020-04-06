@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_configuracao,
                 R.id.nav_log,
                 R.id.nav_about,
-                R.id.action_sair)
+                R.id.nav_sair)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
