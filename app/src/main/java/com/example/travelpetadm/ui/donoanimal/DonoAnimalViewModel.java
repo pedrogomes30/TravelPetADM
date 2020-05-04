@@ -10,7 +10,7 @@ public class DonoAnimalViewModel extends ViewModel {
 
     public DonoAnimalViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("IMPLEMENTAR FRAGMENT");
     }
 
     public LiveData<String> getText() {

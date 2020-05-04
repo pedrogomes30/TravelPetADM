@@ -1,4 +1,4 @@
-package com.example.travelpetadm.ui.animais;
+package com.example.travelpetadm.ui.configuracao;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import com.example.travelpetadm.R;
 
-public class AnimaisFragment extends Fragment {
+public class configuracaoFragment extends Fragment {
 
-    private AnimaisViewModel mViewModel;
+    private ConfiguracaoViewModel mViewModel;
 
-    public static AnimaisFragment newInstance() {
-        return new AnimaisFragment();
+    public static configuracaoFragment newInstance() {
+        return new configuracaoFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.animais_fragment, container, false);
+        return inflater.inflate(R.layout.configuracao_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(AnimaisViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ConfiguracaoViewModel.class);
         // TODO: Use the ViewModel
     }
 

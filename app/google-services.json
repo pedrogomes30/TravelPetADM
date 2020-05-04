@@ -1,0 +1,133 @@
+{
+  "project_info": {
+    "project_number": "845807082620",
+    "firebase_url": "https://travelpet-783e8.firebaseio.com",
+    "project_id": "travelpet-783e8",
+    "storage_bucket": "travelpet-783e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845807082620:android:8979dfd619175b68dc7df9",
+        "android_client_info": {
+          "package_name": "com.example.travelpet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845807082620-mr1km27a720dhsnc9ubp024g3mmlpucb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "42cb74252b60d3a5feeec649cbe6689b92fd2e3f"
+          }
+        },
+        {
+          "client_id": "845807082620-r6d07rbutnl6mt986v14edjiid2vhrhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "e021b506b234019dc5370f426eadc06dd5e718f5"
+          }
+        },
+        {
+          "client_id": "845807082620-oois02m4lo9t9hdtbldfbv1djg3nnmdo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "f4060d2e407021f43ccc8fe7a9ae17fbe8d8c3a6"
+          }
+        },
+        {
+          "client_id": "845807082620-0mssuh5fiiearscj0v849m9hfvjv5c10.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "b6ce489b77ce578515ff7bec9a372686cd6ee40c"
+          }
+        },
+        {
+          "client_id": "845807082620-055mkj2ujqsdthleidgj0eu28lleudhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "20d281e6b06757ac3b757aecc85ce41e37232267"
+          }
+        },
+        {
+          "client_id": "845807082620-407s88jl9cd615mvsqv1gpqltjqamjnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "41bcffd8bc46369a1b0105e04f4d9cc2d759a2d3"
+          }
+        },
+        {
+          "client_id": "845807082620-ufavqg7r0hr9i164q0btpal6lmcjjsdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "83306753c694c4a6bc4b1a373d708a85c0f549d3"
+          }
+        },
+        {
+          "client_id": "845807082620-ejpfv432ll4o1cf378gehdamk95mqh5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUjAiJRPJ6CcPKWskn2CQcyigqMpg0u6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845807082620-ejpfv432ll4o1cf378gehdamk95mqh5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845807082620:android:6bbd5f28b468dbdcdc7df9",
+        "android_client_info": {
+          "package_name": "com.example.travelpetadm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845807082620-83q3emqje5hfsrigm8fu8kjl5cmsm3m2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpetadm",
+            "certificate_hash": "f4060d2e407021f43ccc8fe7a9ae17fbe8d8c3a6"
+          }
+        },
+        {
+          "client_id": "845807082620-ejpfv432ll4o1cf378gehdamk95mqh5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUjAiJRPJ6CcPKWskn2CQcyigqMpg0u6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845807082620-ejpfv432ll4o1cf378gehdamk95mqh5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

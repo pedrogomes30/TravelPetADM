@@ -31,6 +31,10 @@
             android:id="@+id/nav_animais"
             android:icon="@drawable/ic_menu_animais"
             android:title="@string/menu_animais" />
+         <item
+             android:id="@+id/nav_especies"
+             android:icon="@drawable/ic_menu_especie"
+             android:title="@string/menu_especies" />
         <item
             android:id="@+id/nav_contasadm"
             android:icon="@drawable/ic_menu_contasadm"

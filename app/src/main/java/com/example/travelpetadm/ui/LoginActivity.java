@@ -1,4 +1,4 @@
-package com.example.travelpetadm.ui.Controller;
+package com.example.travelpetadm.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +9,14 @@ import android.widget.Button;
 
 import com.example.travelpetadm.MainActivity;
 import com.example.travelpetadm.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
+
     private Button bt_login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

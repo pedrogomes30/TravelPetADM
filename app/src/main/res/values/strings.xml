@@ -17,7 +17,8 @@
     */submenu na barra de tarefas -----------------------------/**
 
     <string name="action_configuracao">Configuração conta admin</string>
-    <string name="action_extrairRelatorio">Extrair relatório aqui</string>
+    <string name="action_salvar">salvar</string>
+    <string name="action_adicionar">adicionar</string>
     <string name="action_sair">Sair</string>
 
     */ textos do drawer navigation ------------------------- /**
@@ -35,12 +36,19 @@
     <string name="menu_log">Log de Alteracoes</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_sair">Sair</string>
+    <string name="menu_especies">Especies</string>
 
     <string name="descricao">Os donos de animais têm por muitas vezes transportar seu animal para diferentes locais ou comércios especializados. Com o crescente aumento do mercado pet, seu transporte se torna escasso por falta de motoristas que permitam este transporte e veículos despreparados para o mesmo. A ideia e propor um aplicativo que gerencie uma viagem de um animal e forneça segurança e agilidade neste tipo de transporte.</string>
 
     <string name="home_second">Home Second</string>
 
+    <string name="salvarAlerta">Link com firebase não criado!</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">IMPLEMENTAR FRAGMENT!!!!!!!!!!!!</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="confirmar_senha">confirmar senha</string>
+    <string name="senha">senha</string>
 </resources>

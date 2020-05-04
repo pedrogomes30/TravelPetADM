@@ -63,6 +63,16 @@
             app:destination="@id/nav_estatisticas" />
     </fragment>
     <fragment
+        android:id="@+id/nav_especies"
+        android:name="com.example.travelpetadm.ui.especies.EspecieFragment"
+        android:label="@string/menu_especies"
+        tools:layout="@layout/fragment_especie" >
+
+        <action
+            android:id="@+id/action_nav_animais_to_nav_estatisticas"
+            app:destination="@id/nav_estatisticas" />
+    </fragment>
+    <fragment
         android:id="@+id/nav_contasadm"
         android:name="com.example.travelpetadm.ui.contasAdm.ContasAdmFragment"
         android:label="@string/menu_contasadm"
@@ -76,7 +86,7 @@
         android:id="@+id/nav_about"
         android:name="com.example.travelpetadm.ui.about.AboutFragment"
         android:label="@string/menu_about"
-        tools:layout="@layout/fragment_about" >
+        >
 
         <action
             android:id="@+id/action_nav_about_to_nav_estatisticas"
