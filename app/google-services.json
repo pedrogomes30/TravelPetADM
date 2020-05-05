@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "845807082620-ldc5km9qmqinid0dcaflq8butqn7fe93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelpet",
+            "certificate_hash": "e3a9de7b8722cac948d15f83eb588ad011038ba5"
+          }
+        },
+        {
           "client_id": "845807082620-mr1km27a720dhsnc9ubp024g3mmlpucb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -93,7 +101,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:845807082620:android:6bbd5f28b468dbdcdc7df9",
+        "mobilesdk_app_id": "1:845807082620:android:c7c4d44e3e3da689dc7df9",
         "android_client_info": {
           "package_name": "com.example.travelpetadm"
         }

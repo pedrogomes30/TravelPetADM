@@ -1,5 +1,6 @@
-package com.example.travelpetadm.ui.viagens;
+package com.example.travelpetadm.ui.TipoAnimal;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,12 +16,10 @@ import android.widget.Toast;
 
 import com.example.travelpetadm.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ViagemFragment extends Fragment {
 
-    public ViagemFragment() {
+public class TipoAnimalFragment extends Fragment {
+
+    public TipoAnimalFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +28,7 @@ public class ViagemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_viagem, container, false);
+        View view = inflater.inflate(R.layout.fragment_especie, container, false);
         setHasOptionsMenu(true);
         return view;
     }
@@ -37,7 +36,7 @@ public class ViagemFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.main2, menu);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -46,7 +45,12 @@ public class ViagemFragment extends Fragment {
             case R.id.action_salvar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.action_adicionar:
+                Intent intent = new Intent(getActivity(), CadastroTipoAnimal.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

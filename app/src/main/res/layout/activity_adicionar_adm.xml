@@ -6,69 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".ui.contasAdm.AdicionarAdmActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/roxo_claro"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastro ADM"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu"
+            android:textColor="@color/Laranja_Principal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="6dp"
+            android:text="@string/email"
+            android:textAppearance="@style/Fonte_Textos_menores" />
+
+        <EditText
             android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/e_mail" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="6dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/Fonte_Textos_menores" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="@string/senha"
+            android:textAppearance="@style/Fonte_Textos_menores" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/textSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/senha" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="6dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textAppearance="@style/Fonte_Textos_menores" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="@string/confirmar_senha"
+            android:textAppearance="@style/Fonte_Textos_menores" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/textConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/confirmar_senha" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="6dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textAppearance="@style/Fonte_Textos_menores" />
 
-    <Button
-        android:id="@+id/btSalvar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/action_salvar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="Nome"
+            android:textAppearance="@style/Fonte_Textos_menores" />
+
+        <EditText
+            android:id="@+id/textNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textAppearance="@style/Fonte_Textos_menores" />
+
+        <Button
+            android:id="@+id/btSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/action_salvar"
+            android:textAppearance="@style/Fonte_Textos_menores" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

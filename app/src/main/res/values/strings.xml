@@ -36,7 +36,7 @@
     <string name="menu_log">Log de Alteracoes</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_sair">Sair</string>
-    <string name="menu_especies">Especies</string>
+    <string name="menu_TipoAnimal">Tipos de Animal</string>
 
     <string name="descricao">Os donos de animais têm por muitas vezes transportar seu animal para diferentes locais ou comércios especializados. Com o crescente aumento do mercado pet, seu transporte se torna escasso por falta de motoristas que permitam este transporte e veículos despreparados para o mesmo. A ideia e propor um aplicativo que gerencie uma viagem de um animal e forneça segurança e agilidade neste tipo de transporte.</string>
 
@@ -51,4 +51,9 @@
     <string name="password">Password</string>
     <string name="confirmar_senha">confirmar senha</string>
     <string name="senha">senha</string>
+    <string name="descri_o">Descrição</string>
+    <string name="raca">Raca</string>
+    <string name="especie">Especie</string>
+    <string name="login">Login</string>
+    <string name="Name">Nome</string>
 </resources>

@@ -64,8 +64,8 @@
     </fragment>
     <fragment
         android:id="@+id/nav_especies"
-        android:name="com.example.travelpetadm.ui.especies.EspecieFragment"
-        android:label="@string/menu_especies"
+        android:name="com.example.travelpetadm.ui.TipoAnimal.TipoAnimalFragment"
+        android:label="@string/menu_TipoAnimal"
         tools:layout="@layout/fragment_especie" >
 
         <action
