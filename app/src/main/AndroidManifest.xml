@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.travelpetadm">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_adm"
@@ -9,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.TipoAnimal.CadastroTipoAnimal"></activity>
+        <activity android:name=".ui.Login.RecuperarSenha"></activity>
+        <activity android:name=".ui.TipoAnimal.CadastroTipoAnimal" />
         <activity android:name=".ui.contasAdm.AdicionarAdmActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.SplashScreenActivity">
+        <activity android:name=".ui.Login.LoginActivity" />
+        <activity android:name=".ui.Login.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

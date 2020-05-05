@@ -1,6 +1,5 @@
 package com.example.travelpetadm.ui.sair;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,8 +11,6 @@ import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.ui.LoginActivity;
-import com.example.travelpetadm.ui.contasAdm.AdicionarAdmActivity;
 
 /**
  * A simple {@link Fragment} subclass.
