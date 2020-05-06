@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.ui.TipoAnimal.CadastroTipoAnimal;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +31,6 @@ public class ContasAdmFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_contas_adm, container, false);
-        setHasOptionsMenu(true);
         return view;
     }
 
@@ -41,13 +39,14 @@ public class ContasAdmFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main2, menu);
+        setHasOptionsMenu(true);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
-                Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_adicionar:
                 Intent intent = new Intent(getActivity(), AdicionarAdmActivity.class);

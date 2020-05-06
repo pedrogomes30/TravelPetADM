@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.ui.MainActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,12 +27,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                finish();
-
-                Intent intent = new Intent();
-                intent.setClass(SplashScreenActivity.this, LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
-
+                finish();
             }
         }, 2000);
     }

@@ -38,7 +38,12 @@
     <string name="menu_sair">Sair</string>
     <string name="menu_TipoAnimal">Tipos de Animal</string>
 
-    <string name="descricao">Os donos de animais têm por muitas vezes transportar seu animal para diferentes locais ou comércios especializados. Com o crescente aumento do mercado pet, seu transporte se torna escasso por falta de motoristas que permitam este transporte e veículos despreparados para o mesmo. A ideia e propor um aplicativo que gerencie uma viagem de um animal e forneça segurança e agilidade neste tipo de transporte.</string>
+    <string name="descricao">Os donos de animais têm por muitas vezes transportar
+        seu animal para diferentes locais ou comércios especializados. Com o
+        crescente aumento do mercado pet, seu transporte se torna escasso por
+        falta de motoristas que permitam este transporte e veículos despreparados
+        para o mesmo. A ideia e propor um aplicativo que gerencie uma viagem de
+        um animal e forneça segurança e agilidade neste tipo de transporte.</string>
 
     <string name="home_second">Home Second</string>
 
@@ -46,7 +51,7 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">IMPLEMENTAR FRAGMENT!!!!!!!!!!!!</string>
+    <string name="hello_blank_fragment">Em Construção</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
     <string name="confirmar_senha">confirmar senha</string>
@@ -54,6 +59,12 @@
     <string name="descri_o">Descrição</string>
     <string name="raca">Raca</string>
     <string name="especie">Especie</string>
-    <string name="login">Login</string>
+    <string name="login">Acesse sua conta</string>
     <string name="Name">Nome</string>
+    <string name="salvar">salvar</string>
+    <string name="cadastro_adm">Cadastro ADM</string>
+    <string name="cadastre_abaixo_um_novo_administrador_da_travelpet">Cadastre abaixo um novo administrador da TravelPet</string>
+    <string name="nome">Nome</string>
+    <string name="recuperar_a_senha">Recuperar a senha</string>
+    <string name="por_favor_para_que_consigamos_recuperar_sua_senha_informe_seu_e_mail_abaxo_para_que_possamos_enviar_o_link_para_recupera_o_de_senha">Por favor, para que consigamos recuperar sua senha, informe seu e-mail abaxo para que possamos enviar o link para recuperação de senha</string>
 </resources>

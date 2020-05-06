@@ -12,10 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".ui.Login.RecuperarSenha"></activity>
-        <activity android:name=".ui.TipoAnimal.CadastroTipoAnimal" />
         <activity android:name=".ui.contasAdm.AdicionarAdmActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/NoActionBar" />
         <activity android:name=".ui.Login.LoginActivity" />

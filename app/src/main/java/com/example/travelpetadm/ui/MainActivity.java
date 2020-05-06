@@ -1,4 +1,4 @@
-package com.example.travelpetadm;
+package com.example.travelpetadm.ui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;

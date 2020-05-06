@@ -66,7 +66,7 @@
         android:id="@+id/nav_especies"
         android:name="com.example.travelpetadm.ui.TipoAnimal.TipoAnimalFragment"
         android:label="@string/menu_TipoAnimal"
-        tools:layout="@layout/fragment_especie" >
+        tools:layout="@layout/fragment_tipo_animal" >
 
         <action
             android:id="@+id/action_nav_animais_to_nav_estatisticas"
