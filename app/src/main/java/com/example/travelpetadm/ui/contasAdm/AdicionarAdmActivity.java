@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 public class AdicionarAdmActivity extends AppCompatActivity {
     private TextView textEmail, textSenha, textNome;
     private Button btSalvar;
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private FirebaseAuth auth;
     private Adm adm;
 
     @Override
@@ -39,7 +39,7 @@ public class AdicionarAdmActivity extends AppCompatActivity {
         textEmail = findViewById(R.id.textEmail);
         textSenha = findViewById(R.id.textSenha);
         textNome = findViewById(R.id.textNome);
-        btSalvar = findViewById(R.id.btSalvar);
+        btSalvar = findViewById(R.id.btSalvarRec);
     }
 
     private void eventoclickes() {

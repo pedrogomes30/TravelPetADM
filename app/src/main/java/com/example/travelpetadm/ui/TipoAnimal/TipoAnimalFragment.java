@@ -22,6 +22,7 @@ import com.example.travelpetadm.ui.contasAdm.AdicionarAdmActivity;
  */
 public class TipoAnimalFragment extends Fragment {
 
+
     public TipoAnimalFragment() {
         // Required empty public constructor
     }
@@ -40,8 +41,7 @@ public class TipoAnimalFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main2, menu);
-        setHasOptionsMenu(true);
-    }
+        }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação
