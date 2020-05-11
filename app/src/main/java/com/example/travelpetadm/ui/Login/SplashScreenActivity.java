@@ -1,19 +1,17 @@
 package com.example.travelpetadm.ui.Login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.ui.MainActivity;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class SplashScreenActivity extends AppCompatActivity {
-
     private ProgressBar progressBar;
 
     @Override
@@ -21,16 +19,13 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         progressBar=findViewById(R.id.progressBar);
-
-
-        new Timer().schedule(new TimerTask() {
-
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getBaseContext(),LoginActivity.class));
                 finish();
             }
-        }, 2000);
+        },1000);
+
     }
 }

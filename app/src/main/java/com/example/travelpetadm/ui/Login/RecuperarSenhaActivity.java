@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RecuperarSenha extends AppCompatActivity {
+public class RecuperarSenhaActivity extends AppCompatActivity {
 private TextView textEmail;
 private Button btSalvar;
 private FirebaseAuth auth;
@@ -48,7 +48,7 @@ private FirebaseAuth auth;
     }
 
     private void resetSenha (String email){
-        auth.sendPasswordResetEmail(email).addOnCompleteListener(RecuperarSenha.this, new OnCompleteListener<Void>() {
+        auth.sendPasswordResetEmail(email).addOnCompleteListener(RecuperarSenhaActivity.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

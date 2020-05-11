@@ -17,8 +17,9 @@
     */submenu na barra de tarefas -----------------------------/**
 
     <string name="action_configuracao">Configuração conta admin</string>
-    <string name="action_salvar">salvar</string>
-    <string name="action_adicionar">adicionar</string>
+    <string name="action_salvar">Extrair Relatório</string>
+    <string name="action_procurar">Procurar</string>
+    <string name="action_adicionar">Adicionar</string>
     <string name="action_sair">Sair</string>
 
     */ textos do drawer navigation ------------------------- /**
@@ -56,7 +57,6 @@
     <string name="password">Password</string>
     <string name="confirmar_senha">confirmar senha</string>
     <string name="senha">senha</string>
-    <string name="descri_o">Descrição</string>
     <string name="raca">Raca</string>
     <string name="especie">Especie</string>
     <string name="login">Acesse sua conta</string>
@@ -69,4 +69,13 @@
     <string name="por_favor_para_que_consigamos_recuperar_sua_senha_informe_seu_e_mail_abaxo_para_que_possamos_enviar_o_link_para_recupera_o_de_senha">Por favor, para que consigamos recuperar sua senha, informe seu e-mail abaxo para que possamos enviar o link para recuperação de senha</string>
     <string name="aperte_o_porquinho_para_deslogar">Aperte o porquinho para deslogar :)</string>
     <string name="logout">Logout</string>
+    <string name="tipo_animal">Tipo Animal</string>
+    <string name="adicione_ou_edite_no_banco_de_dados_uma_esp_cie_ou_ra_a_de_animal">Adicione ou edite no banco de dados uma espécie ou raça de animal.</string>
+    <string name="descri_o">Descrição</string>
+    <string name="acesse_sua_conta">Acesse sua conta</string>
+    <string name="e_mail">E-mail</string>
+    <string name="senha2">Senha</string>
+    <string name="esqueci_minha_senha">Esqueci minha senha</string>
+    <string name="todo">TODO</string>
+    <string name="enviar">Enviar</string>
 </resources>

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.ui.TipoAnimal.AdicionarTipoAnimalActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,8 +50,11 @@ public class ContasAdmFragment extends Fragment {
                 Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_adicionar:
-                Intent intent = new Intent(getActivity(), AdicionarAdmActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), AdicionarAdmActivity.class));
+                break;
+            case R.id.action_procurar:
+                Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
+
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +26,8 @@ public class AdicionarAdmActivity extends AppCompatActivity {
     private Button btSalvar;
     private FirebaseAuth auth;
     private Adm adm;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class AdicionarAdmActivity extends AppCompatActivity {
                     adm.setEmail(email);
                     adm.setNome(nome);
                     adm.setSenha(senha);
+                    adm.setIdAdm(Encriptador.codificarBase64(email));
                     criarADM();
                 }
             }
@@ -68,10 +73,12 @@ public class AdicionarAdmActivity extends AppCompatActivity {
         @Override
         public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()){
+                String idAdm = Encriptador.codificarBase64(adm.getEmail());
+                adm.setIdAdm(idAdm);
+                adm.salvar();
                 alert("Usuário cadastrado com sucesso");
-                textNome.setText("");
-                textEmail.setText("");
-                textSenha.setText("");
+
+                finish();
             }else{
                 try{
                     throw task.getException();

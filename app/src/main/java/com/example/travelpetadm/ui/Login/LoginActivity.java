@@ -20,8 +20,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView textEmail, textSenha,textResetSenha;
@@ -59,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         textResetSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,RecuperarSenha.class);
+                Intent intent = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,10 +78,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         auth = Conexao.getFirebaseAuth();
-        if(auth.getCurrentUser()!=null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
+        if(Conexao.usuarioLogin()){
+            startActivity(new Intent(getBaseContext(),MainActivity.class));
             alert("Bem vindo novamente!" );
+            finish();
         };
     }
 

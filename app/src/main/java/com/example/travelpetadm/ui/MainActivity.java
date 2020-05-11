@@ -1,28 +1,15 @@
 package com.example.travelpetadm.ui;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Menu;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -34,9 +21,11 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private TextView nomeAdm,emailAdm;
+    private String nome, email;
     private FirebaseAuth auth;
-    private FirebaseUser user;
-    TextView email;
+    private FirebaseUser adm    ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         iniciarComponentes();
+        recuperarAdm();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -67,26 +57,28 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    public void recuperarAdm(){
+        //FirebaseUser adm = AdmDAO.getIdentificadorAdm();
 
 
     }
 public void iniciarComponentes(){
+        nomeAdm = findViewById(R.id.nomeAdm);
+        emailAdm = findViewById(R.id.emailAdm);
 
 }
+
     @Override
     protected void onStart() {
         super.onStart();
         auth = Conexao.getFirebaseAuth();
-        user = Conexao.getFirebaseUser();
-        verificarUser();
+        adm = Conexao.getFirebaseUser();
+        /*nome = adm.
+        nomeAdm.setText(email);*/
     }
-        private  void verificarUser(){
-        if(user == null){
-            //finish();
-        }else{
 
-        }
-        }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -94,6 +86,9 @@ public void iniciarComponentes(){
                 || super.onSupportNavigateUp();
     }
 
+    public void alert(String msg){
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT);
+    }
 
 
 }
