@@ -2,10 +2,12 @@
 
         <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-        <solid android:color="@android:color/transparent" />
+        <solid android:color="@color/roxo_escuro" />
 
         <stroke
             android:width="0.5dp"
-            android:color="@color/branco" />
+            android:color="@color/branco"
+            android:background = "@color/roxo_escuro"/>
+
 
     </shape>

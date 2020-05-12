@@ -53,6 +53,7 @@ private FirebaseAuth auth;
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     alert("e-mail enviado!");
+                    finish();
                 }try {
 
                 }catch (Exception e){

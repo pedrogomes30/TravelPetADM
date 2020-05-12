@@ -8,6 +8,8 @@ public class TipoAnimal {
     private String especie;
     private String nomeRacaAnimal;
     private String descricao;
+    private String nomeCientificoRacaAnimal;
+
 
     public TipoAnimal() {
     }
@@ -46,4 +48,18 @@ public class TipoAnimal {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public void setNomeRacaAnimal(String nomeRacaAnimal) {
+        this.nomeRacaAnimal = nomeRacaAnimal;
+    }
+
+    public String getNomeCientificoRacaAnimal() {
+        return nomeCientificoRacaAnimal;
+    }
+
+    public void setNomeCientificoRacaAnimal(String nomeCientificoRacaAnimal) {
+        this.nomeCientificoRacaAnimal = nomeCientificoRacaAnimal;
+    }
+
+
 }

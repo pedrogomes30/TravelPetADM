@@ -59,6 +59,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         descricao.setText("");
         alert("Novo Tipo de animal cadastrado!");
         tipoanimal.salvar();
+
     }
 
     //validador de campos em branco

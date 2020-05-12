@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/roxo_escuro"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/roxo_escuro"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:padding="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/roxo_escuro"
-            android:orientation="vertical">
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/imageEspecie"
+                android:layout_width="54dp"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/margem"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_especie_spinner" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="189dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textEspecieList"
@@ -30,9 +41,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/margem"
+                    android:backgroundTintMode="screen"
+                    android:gravity="clip_vertical"
+                    android:paddingLeft="5dp"
                     android:text="@string/especie"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textSize="14sp" />/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />/>
                 />
 
                 <TextView
@@ -41,29 +56,36 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/margem"
+                    android:backgroundTintMode="screen"
+                    android:gravity="clip_vertical"
+                    android:paddingLeft="5dp"
                     android:text="@string/raca"
-                    android:textAlignment="textEnd"
+                    android:textAlignment="textStart"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textSize="14sp" /><![CDATA[
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textDescricaoList"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/margem"
+                    android:backgroundTintMode="screen"
+                    android:foregroundTint="@color/branco"
+                    android:paddingLeft="5dp"
+                    android:text="Descrição"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="12sp" /><![CDATA[
 
                 />/>
             ]]>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textDescricaoList"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_weight="1"
-                android:background="@drawable/margem"
-                android:foregroundTint="@color/branco"
-                android:text="Descrição"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/Fonte_Textos_menores"
-                android:textSize="14sp" />
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView><![CDATA[
+    </androidx.cardview.widget.CardView>
+    <![CDATA[
 
     />
 

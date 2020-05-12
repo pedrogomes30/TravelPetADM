@@ -1,6 +1,5 @@
 package com.example.travelpetadm.ui.TipoAnimal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
@@ -27,7 +27,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.EventListener;
 import java.util.List;
 
 /**
@@ -36,9 +35,10 @@ import java.util.List;
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;
     private AdapterListaTipoAnimal adapterListaTipoAnimal;
-    private List<TipoAnimal> tipoAnimal = new ArrayList<>();
-    private DatabaseReference tipoAnimalRef  = Conexao.getFirebaseDatabase();
+    private ArrayList<TipoAnimal> tiposAnimais =new ArrayList<>() ;
+    private DatabaseReference tipoAnimalRef;
     private ValueEventListener valueEventListenerListaTipoAnimal;
+    private ProgressBar progresso;
 
 
     public TipoAnimalFragment() {
@@ -72,34 +72,36 @@ public class TipoAnimalFragment extends Fragment {
 
     public void iniciarComponentes(View view){
         recyclerView = view.findViewById(R.id.listaAnimais);
+        tipoAnimalRef  = Conexao.getFirebaseDatabase().child("racaAnimal").child("cachorro");
+        progresso = view.findViewById(R.id.progresso);
     }
 
     public void iniciarReciclerView(View view){
+
         //configurar Adapter
-        adapterListaTipoAnimal = new AdapterListaTipoAnimal(tipoAnimal,getContext());
+        adapterListaTipoAnimal = new AdapterListaTipoAnimal(tiposAnimais,getActivity());
+
         //Configurar RecyclerView
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterListaTipoAnimal);
     }
 
     public void recuperarTipoAnimal (){
-        tipoAnimalRef.child("racaAnimal");
         valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                tipoAnimal.clear();
-                for(DataSnapshot dados:dataSnapshot.getChildren()){
-                    Log.i("dados","retorno" +dados.toString());
+            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dados: dataSnapshot.getChildren()){
+                                TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                                tiposAnimais.add(tipoAnimal);
+                                progresso.setVisibility(View.VISIBLE);
+
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+                adapterListaTipoAnimal.notifyDataSetChanged();
+                progresso.setVisibility(View.GONE);
+            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
+
     }
 
 
@@ -123,11 +125,14 @@ public class TipoAnimalFragment extends Fragment {
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
                 break;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void Alert(String msg){
         Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+
     }
+
 }
