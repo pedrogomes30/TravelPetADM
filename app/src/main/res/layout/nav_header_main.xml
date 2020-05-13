@@ -13,7 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
-        android:id="@+id/nomeAdm"
+        android:id="@+id/nomePerfilAdm"
         android:layout_width="391dp"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -21,7 +21,7 @@
         android:textAppearance="@style/Fonte_Textos_menu" />
 
     <TextView
-        android:id="@+id/emailAdm"
+        android:id="@+id/emailPerfilAdm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_header_subtitle"

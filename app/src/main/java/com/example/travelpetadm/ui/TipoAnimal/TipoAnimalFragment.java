@@ -8,33 +8,33 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;
-    private AdapterListaTipoAnimal adapterListaTipoAnimal;
+    private AdapterListaTipoAnimal adapterListaAdm;
     private ArrayList<TipoAnimal> tiposAnimais =new ArrayList<>() ;
     private DatabaseReference tipoAnimalRef;
     private ValueEventListener valueEventListenerListaTipoAnimal;
@@ -72,39 +72,91 @@ public class TipoAnimalFragment extends Fragment {
 
     public void iniciarComponentes(View view){
         recyclerView = view.findViewById(R.id.listaAnimais);
-        tipoAnimalRef  = Conexao.getFirebaseDatabase().child("racaAnimal").child("cachorro");
+        tipoAnimalRef  = Conexao.getFirebaseDatabase().child("racaAnimal");
         progresso = view.findViewById(R.id.progresso);
     }
 
-    public void iniciarReciclerView(View view){
+    public void iniciarReciclerView(View view) {
 
         //configurar Adapter
-        adapterListaTipoAnimal = new AdapterListaTipoAnimal(tiposAnimais,getActivity());
+        adapterListaAdm = new AdapterListaTipoAnimal(tiposAnimais, getActivity());
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapterListaTipoAnimal);
+        recyclerView.setAdapter(adapterListaAdm);
+
+        //Configurar evento de clique
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getActivity(),
+                        recyclerView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                TipoAnimal tipoAnimalSel =  tiposAnimais.get(position);
+                                Intent i =  new Intent(getActivity(),AdicionarTipoAnimalActivity.class);
+                                i.putExtra("EditarTipoAnimal",tipoAnimalSel);
+                                startActivity(i);
+                                 }
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                            }
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            }
+                        }
+                )
+        );
     }
 
     public void recuperarTipoAnimal (){
         valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dados: dataSnapshot.getChildren()){
-                                TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                                tiposAnimais.add(tipoAnimal);
-                                progresso.setVisibility(View.VISIBLE);
-
+                tiposAnimais.clear();
+                //RECUPERA AS RACAS CADASTRADAS DENTRO DE AVES
+                DataSnapshot ave = dataSnapshot.child("ave");
+                for(DataSnapshot dados: ave.getChildren()){
+                   TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                    tiposAnimais.add(tipoAnimal);
+                    progresso.setVisibility(View.VISIBLE);
                 }
-                adapterListaTipoAnimal.notifyDataSetChanged();
+                //RECUPERA AS RACAS CADASTRADAS DENTRO DE CACHORROS
+                DataSnapshot cachorro = dataSnapshot.child("cachorro");
+                for(DataSnapshot dados: cachorro.getChildren()){
+                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                    tiposAnimais.add(tipoAnimal);
+                    progresso.setVisibility(View.VISIBLE);
+                }
+                //RECUPERA AS RACAS CADASTRADAS DENTRO DE GATOS
+                DataSnapshot gato = dataSnapshot.child("gato");
+                for(DataSnapshot dados: gato.getChildren()){
+                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                    tiposAnimais.add(tipoAnimal);
+                    progresso.setVisibility(View.VISIBLE);
+                }
+                //RECUPERA AS RACAS CADASTRADAS DENTRO DE REPTIL
+                DataSnapshot reptil = dataSnapshot.child("reptil");
+                for(DataSnapshot dados: reptil.getChildren()){
+                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                    tiposAnimais.add(tipoAnimal);
+                    progresso.setVisibility(View.VISIBLE);
+                }
+                //RECUPERA AS RACAS CADASTRADAS DENTRO DE ROEDOR
+                DataSnapshot roedor = dataSnapshot.child("roedor");
+                for(DataSnapshot dados: roedor.getChildren()){
+                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
+                    tiposAnimais.add(tipoAnimal);
+                    progresso.setVisibility(View.VISIBLE);
+                }
+
+                adapterListaAdm.notifyDataSetChanged();
                 progresso.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
 
     }
-
-
 
 
     @Override

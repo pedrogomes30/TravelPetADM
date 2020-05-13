@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.TipoAnimal.AdicionarTipoAnimalActivity"></activity>
+        <activity android:name=".ui.contasAdm.InfoAdmActivity"></activity>
+        <activity android:name=".ui.TipoAnimal.AdicionarTipoAnimalActivity" />
         <activity android:name=".ui.Login.RecuperarSenhaActivity" />
         <activity android:name=".ui.contasAdm.AdicionarAdmActivity" />
         <activity

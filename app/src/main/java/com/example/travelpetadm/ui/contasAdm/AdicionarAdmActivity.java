@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AdicionarAdmActivity extends AppCompatActivity {
     private TextView textEmail, textSenha, textNome;
@@ -54,7 +55,7 @@ public class AdicionarAdmActivity extends AppCompatActivity {
                 String email = textEmail.getText().toString().trim();
                 String senha = textSenha.getText().toString().trim();
                 String nome = textNome.getText().toString().trim();
-                if(vailadarDados(email,senha,nome)){
+                if(validarDados(email,senha,nome)){
                     adm = new Adm();
                     adm.setEmail(email);
                     adm.setNome(nome);
@@ -76,9 +77,9 @@ public class AdicionarAdmActivity extends AppCompatActivity {
                 String idAdm = Encriptador.codificarBase64(adm.getEmail());
                 adm.setIdAdm(idAdm);
                 adm.salvar();
-                alert("Usuário cadastrado com sucesso");
+                alert(adm.getNome());
 
-                finish();
+                //finish();
             }else{
                 try{
                     throw task.getException();
@@ -99,7 +100,7 @@ public class AdicionarAdmActivity extends AppCompatActivity {
 
 
     //validar os campos
-    private boolean vailadarDados(String email, String senha,String nome){
+    private boolean validarDados(String email, String senha,String nome){
         if(!nome.isEmpty()){
             if(!email.isEmpty()){
                 if(!senha.isEmpty()){

@@ -5,6 +5,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView nomeAdm,emailAdm;
     private String nome, email;
     private FirebaseAuth auth;
-    private FirebaseUser adm    ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         iniciarComponentes();
-        recuperarAdm();
+        //recuperarAdm();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -60,13 +59,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void recuperarAdm(){
-        //FirebaseUser adm = AdmDAO.getIdentificadorAdm();
+        FirebaseUser adm = Adm.getAdmAtual();
+        nomeAdm.setText(adm.getDisplayName());
+
 
 
     }
 public void iniciarComponentes(){
-        nomeAdm = findViewById(R.id.nomeAdm);
-        emailAdm = findViewById(R.id.emailAdm);
+        nomeAdm = findViewById(R.id.nomePerfilAdm);
+        emailAdm = findViewById(R.id.emailPerfilAdm);
 
 }
 
@@ -74,9 +75,8 @@ public void iniciarComponentes(){
     protected void onStart() {
         super.onStart();
         auth = Conexao.getFirebaseAuth();
-        adm = Conexao.getFirebaseUser();
-        /*nome = adm.
-        nomeAdm.setText(email);*/
+
+
     }
 
     @Override

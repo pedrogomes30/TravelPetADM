@@ -1,5 +1,7 @@
 package com.example.travelpetadm.Model;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.travelpetadm.DAO.Conexao;
@@ -12,7 +14,9 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
-public class Adm {
+import java.io.Serializable;
+
+public class Adm implements Serializable {
     private String idAdm,nome,email,senha;
     private String tipoPerfil = "Administrador"; //identificador para tipo de usuário padrão,
     // usuario "administradorROOT" não pode ser excluido do sistema.
@@ -28,6 +32,7 @@ public class Adm {
         DatabaseReference adm = firebaseRef.child("adm").child(getIdAdm());
         adm.setValue(this);
     }
+
     //converte o e-mail do usuário em base64 para se ter o ID através do email codificado
     // -- Importar para a classe DAO
     public static  String getIdentificadorAdm (){
@@ -42,11 +47,11 @@ public class Adm {
         return adm.getCurrentUser();
     }
     //Metodo para recuperar o nome do usuário --importar par aa classe DAO
+
     public static boolean atualizarNomeUsuario (String nome){
     try{
         FirebaseUser adm = getAdmAtual();
-        UserProfileChangeRequest profile = new UserProfileChangeRequest
-                .Builder()
+        UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                 .setDisplayName(nome)
                 .build();
 
@@ -54,14 +59,14 @@ public class Adm {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(!task.isSuccessful()){
-
+                    Log.d("PERFIL", "Erro ao atualizar perfil");
                 }
             }
         });
         return true;
         }catch(Exception e){
-        e.printStackTrace();
-        return false;
+            e.printStackTrace();
+            return false;
         }
     }
 

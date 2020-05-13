@@ -1,13 +1,11 @@
 package com.example.travelpetadm.ui.TipoAnimal;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,28 +38,28 @@ public void onBindViewHolder(MyViewHolder holder, int position) {
     holder.raca.setText(String.valueOf(tipoAnimal.getNomeRacaAnimal()));
     holder.descricao.setText(tipoAnimal.getDescricao());
 
+    if(tipoAnimal.getEspecie()!= null) {
 
-    Log.i("REFERENCIA CLASSSE   ",holder.especie.toString());
-
-    switch(holder.especie.toString()){
-        case "androidx.appcompat.widget.AppCompatTextView{69669d4 V.ED..... ......ID 0,0-0,0 #7f090147 app:id/textEspecieList}":
-            holder.imageEspecie.setImageResource(R.drawable.ic_ave_spinner);
-            break;
-        case "cachorro":
-            holder.imageEspecie.setImageResource(R.drawable.ic_cachorro_spinner);
-            break;
-        case "gato":
-            holder.imageEspecie.setImageResource(R.drawable.ic_gato_spinner);
-            break;
-        case "reptil":
-            holder.imageEspecie.setImageResource(R.drawable.ic_reptil_spinner);
-            break;
-        case "roedor":
-            holder.imageEspecie.setImageResource(R.drawable.ic_roedor_spinner);
-            break;
-        default:
-            holder.imageEspecie.setImageResource(R.drawable.ic_especie_spinner);
-            break;
+        switch (tipoAnimal.getEspecie()) {
+            case "ave":
+                holder.imageEspecie.setImageResource(R.drawable.ic_ave_spinner);
+                break;
+            case "cachorro":
+                holder.imageEspecie.setImageResource(R.drawable.ic_cachorro_spinner);
+                break;
+            case "gato":
+                holder.imageEspecie.setImageResource(R.drawable.ic_gato_spinner);
+                break;
+            case "reptil":
+                holder.imageEspecie.setImageResource(R.drawable.ic_reptil_spinner);
+                break;
+            case "roedor":
+                holder.imageEspecie.setImageResource(R.drawable.ic_roedor_spinner);
+                break;
+            default:
+                holder.imageEspecie.setImageResource(R.drawable.ic_especie_spinner);
+                break;
+        }
     }
 
 

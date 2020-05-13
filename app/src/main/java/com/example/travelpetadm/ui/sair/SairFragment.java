@@ -30,29 +30,13 @@ public class SairFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        auth.logOut();
+        Intent intent = new Intent(getActivity(),LoginActivity.class );
+        startActivity(intent);
+        getActivity().finish();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sair, container, false);
-
         return view;
 
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        porcoSair();
-    }
-
-    public void porcoSair(){
-        porquinho = getView().findViewById(R.id.porcoSair);
-        porquinho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                auth.logOut();
-                Intent intent = new Intent(getActivity(),LoginActivity.class );
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
     }
 }

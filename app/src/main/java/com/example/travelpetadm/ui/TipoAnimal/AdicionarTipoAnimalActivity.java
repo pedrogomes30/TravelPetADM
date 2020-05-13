@@ -13,7 +13,7 @@ import com.example.travelpetadm.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AdicionarTipoAnimalActivity extends AppCompatActivity {
-    private TextInputEditText especie, raca, descricao;
+    private TextView especie, raca, descricao;
     private Button btSalvar;
     private TipoAnimal tipoanimal;
     private String especieS,racaS,descricaoS;
@@ -33,6 +33,14 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         raca = findViewById(R.id.textRaca);
         descricao = findViewById(R.id.textObservacao);
         btSalvar = findViewById(R.id.btSalvarTA);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+             tipoanimal = (TipoAnimal)bundle.getSerializable("EditarTipoAnimal");
+            especie.setText(tipoanimal.getEspecie());
+            raca.setText(tipoanimal.getNomeRacaAnimal());
+            descricao.setText((tipoanimal.getDescricao()));
+            }
         }
 
     //eventos de click na tela
@@ -54,12 +62,12 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         tipoanimal.setEspecie(especie.getText().toString());
         tipoanimal.setRaca(raca.getText().toString());
         tipoanimal.setDescricao(descricao.getText().toString());
+        alert("animal " + raca.getText().toString() + " salvo com sucesso! ");
         especie.setText("");
         raca.setText("");
         descricao.setText("");
-        alert("Novo Tipo de animal cadastrado!");
         tipoanimal.salvar();
-
+        finish();
     }
 
     //validador de campos em branco

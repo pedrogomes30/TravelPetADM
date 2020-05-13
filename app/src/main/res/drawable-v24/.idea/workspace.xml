@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d80e1abc-2a87-458d-ac9b-09d48d3bb5d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/helper/RecyclerItemClickListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/AdapterListaAdm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/InfoAdmActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../layout/activity_info_adm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../layout/list_view_adm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/Model/Adm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/Model/Adm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/Model/TipoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/Model/TipoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/Login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/Login/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/Login/RecuperarSenhaActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/Login/RecuperarSenhaActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/AdapterListaTipoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/AdapterListaTipoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/AdicionarTipoAnimalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/AdicionarTipoAnimalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/TipoAnimalFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/TipoAnimal/TipoAnimalFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/AdicionarAdmActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/AdicionarAdmActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/ContasAdmFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/contasAdm/ContasAdmFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/sair/SairFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/travelpetadm/ui/sair/SairFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ic_cachorro_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ic_cachorro_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ic_especie_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ic_especie_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ic_gato_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ic_gato_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ic_reptil_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ic_reptil_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ic_roedor_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ic_roedor_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_cadastro_tipo_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_cadastro_tipo_animal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/fragment_contas_adm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/fragment_contas_adm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/fragment_tipo_animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/fragment_tipo_animal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/list_view_tipoanimal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/list_view_tipoanimal.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="1brptWK4i7MYppXXBtGbktUzZgL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d80e1abc-2a87-458d-ac9b-09d48d3bb5d6" name="Default Changelist" comment="" />
+      <created>1589400281037</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589400281037</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -25,7 +25,7 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/emailAdm"
+        android:id="@+id/emailPerfilAdm"
         style="@style/Fonte_Textos_menu"
         android:text="@string/splash_screen"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,6 +47,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAdm"
+        app:layout_constraintTop_toBottomOf="@+id/emailPerfilAdm"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

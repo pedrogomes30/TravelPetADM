@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     // INICIAR COMPONENTES
     private void iniciarComponenentes(){
         bt_login = findViewById(R.id.bt_Login);
-        textEmail = findViewById(R.id.textEmail);
+        textEmail = findViewById(R.id.textNome);
         textSenha = findViewById(R.id.textSenha);
         textResetSenha = findViewById(R.id.textResetSenha);
         auth = FirebaseAuth.getInstance();

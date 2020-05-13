@@ -78,4 +78,6 @@
     <string name="esqueci_minha_senha">Esqueci minha senha</string>
     <string name="todo">TODO</string>
     <string name="enviar">Enviar</string>
+    <string name="tipoperfil">TipoPerfil</string>
+
 </resources>

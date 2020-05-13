@@ -4,7 +4,9 @@ import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.helper.Encriptador;
 import com.google.firebase.database.DatabaseReference;
 
-public class TipoAnimal {
+import java.io.Serializable;
+
+public class TipoAnimal implements Serializable {
     private String especie;
     private String nomeRacaAnimal;
     private String descricao;
