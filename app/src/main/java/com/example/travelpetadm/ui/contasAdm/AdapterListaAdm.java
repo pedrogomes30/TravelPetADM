@@ -36,7 +36,7 @@ public class AdapterListaAdm extends RecyclerView.Adapter<AdapterListaAdm.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Adm adm = adms.get(position);
         holder.email.setText(adm.getEmail());
-        holder.nome.setText(String.valueOf(adm.getNome()));
+        holder.nome.setText(adm.getNome());
         holder.tipoPerfil.setText(adm.getTipoPerfil());
     }
 
@@ -46,16 +46,16 @@ public class AdapterListaAdm extends RecyclerView.Adapter<AdapterListaAdm.MyView
         return adms.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView email, nome, tipoPerfil;
 
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            email = itemView.findViewById(R.id.textEmail);
-            nome = itemView.findViewById(R.id.textNome);
-            tipoPerfil = itemView.findViewById(R.id.textTipoPerfil);
+            email = itemView.findViewById(R.id.textEmailListADM);
+            nome = itemView.findViewById(R.id.textNomeListaADM);
+            tipoPerfil = itemView.findViewById(R.id.textTipoPerfilListaADM);
 
         }
     }

@@ -55,7 +55,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/textNome"
+            android:id="@+id/textNomeCadAdm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
@@ -78,7 +78,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/textEmail"
+            android:id="@+id/textEmailCadAdm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
@@ -99,7 +99,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/textSenha"
+            android:id="@+id/textSenhaCadAdm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
@@ -110,7 +110,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btSalvarRec"
+            android:id="@+id/btSalvarCadAdm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

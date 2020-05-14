@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaAnimais"
+                android:id="@+id/listaTiposAnimais"
                 android:layout_width="match_parent"
                 android:layout_height="718dp"
                 android:elevation="10dp"
@@ -30,7 +30,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
-        android:id="@+id/progresso"
+        android:id="@+id/progressoTipoAnimal"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

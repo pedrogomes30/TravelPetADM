@@ -41,10 +41,10 @@ public class AdicionarAdmActivity extends AppCompatActivity {
     }//END ON CREATE
 
     private void inicializarComponentes() {
-        textEmail = findViewById(R.id.textEmail);
-        textSenha = findViewById(R.id.textSenha);
-        textNome = findViewById(R.id.textNome);
-        btSalvar = findViewById(R.id.btSalvarRec);
+        textEmail = findViewById(R.id.textEmailCadAdm);
+        textSenha = findViewById(R.id.textSenhaCadAdm);
+        textNome = findViewById(R.id.textNomeCadAdm);
+        btSalvar = findViewById(R.id.btSalvarCadAdm);
     }
 
     private void eventoclickes() {

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.travelpetadm.Model.Adm;
-import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
 
 public class InfoAdmActivity extends AppCompatActivity {
@@ -17,9 +16,9 @@ public class InfoAdmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_adm);
         Bundle bundle = getIntent().getExtras();
-        nome = findViewById(R.id.textNome);
+        /*nome = findViewById(R.id.textSobrenomeListaDA);
         email = findViewById(R.id.textEmail);
-        tipoPerfil = findViewById(R.id.textTipoPerfil);
+        tipoPerfil = findViewById(R.id.textTipoPerfil);*/
 
         if(bundle != null){
             adm = (Adm)bundle.getSerializable("ExibirAdm");

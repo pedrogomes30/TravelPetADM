@@ -22,6 +22,7 @@ import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
+import com.example.travelpetadm.ui.donoanimal.AdapterDonoAnimal;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,23 +44,36 @@ public class ContasAdmFragment extends Fragment {
     public ContasAdmFragment() {}
 
     @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        admRef.removeEventListener(valueEventListenerAdm);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_contas_adm, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
-        recuperarTipoAnimal();
         iniciarReciclerView(view);
+        recuperarAdm();
         return view;
     }
+
     public void iniciarComponentes(View view){
         recyclerView = view.findViewById(R.id.listaAdm);
         admRef  = Conexao.getFirebaseDatabase().child("adm");
         progresso = view.findViewById(R.id.progressAdm);
     }
 
-    public void recuperarTipoAnimal (){
+    public void recuperarAdm (){
         valueEventListenerAdm = admRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 adms.clear();

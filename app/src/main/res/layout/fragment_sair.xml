@@ -5,30 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.sair.SairFragment">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/branco"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/porcoSair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/branco"
-            android:contentDescription="@string/logout"
-            android:src="@drawable/porquinhosair" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/aperte_o_porquinho_para_deslogar"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-</LinearLayout>
+    tools:context=".ui.sair.SairFragment"/>

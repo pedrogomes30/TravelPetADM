@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/roxo_escuro"
+        android:background="@drawable/margem"
         android:orientation="horizontal"
         android:padding="3dp">
 
@@ -17,11 +18,11 @@
             android:id="@+id/imageView"
             android:layout_width="35dp"
             android:layout_height="36dp"
-            app:srcCompat="@drawable/ic_email_login"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/ic_email_login" />
 
         <TextView
-            android:id="@+id/textNome"
+            android:id="@+id/textNomeListaADM"
             android:layout_width="0dp"
             android:layout_height="36dp"
             android:layout_weight="1"
@@ -37,7 +38,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textEmail"
+                android:id="@+id/textEmailListADM"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -49,7 +50,7 @@
                 tools:ignore="RtlCompat" />
 
             <TextView
-                android:id="@+id/textTipoPerfil"
+                android:id="@+id/textTipoPerfilListaADM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tipoperfil"

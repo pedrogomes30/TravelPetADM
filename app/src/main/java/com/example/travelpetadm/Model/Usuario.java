@@ -1,17 +1,51 @@
 package com.example.travelpetadm.Model;
 
-public class Pessoa {
-    private String id,nome,sobrenome,cpf,email;
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+    private String id,nome,sobrenome,cpf,email,status,tipoUsuario, reputacao, telefone ;
     private Double avaliacao,longitude,latitude;
     private Carteira carteira;
     private Endereco endereco;
 
     //CONSTRUTOR -----------------------------------
 
-    public Pessoa() {
+    public Usuario() {
     }
 
     //GETTERS AND SETTERS --------------------------
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public String getReputacao() {
+        return reputacao;
+    }
+
+    public void setReputacao(String reputacao) {
+        this.reputacao = reputacao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;

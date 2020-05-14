@@ -1,4 +1,8 @@
 package com.example.travelpetadm.Model;
 
-public class Motorista {
+import java.io.Serializable;
+
+public class Motorista extends Usuario implements Serializable {
+
+
 }

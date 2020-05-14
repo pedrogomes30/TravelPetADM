@@ -1,8 +1,10 @@
 package com.example.travelpetadm.Model;
 
-public class DonoAnimal  extends Pessoa{
+import java.io.Serializable;
+
+public class DonoAnimal  extends Usuario implements Serializable {
     private Animal animal;
-    private String fotoPerfilUrl;
+    private String fotoUsuarioUrl;
 
     //CONSTRUTOR -----------------------------------------------------------
 
@@ -19,11 +21,11 @@ public class DonoAnimal  extends Pessoa{
         this.animal = animal;
     }
 
-    public String getFotoPerfilUrl() {
-        return fotoPerfilUrl;
+    public String getFotoUsuarioUrl() {
+        return fotoUsuarioUrl;
     }
 
-    public void setFotoPerfilUrl(String fotoPerfilUrl) {
-        this.fotoPerfilUrl = fotoPerfilUrl;
+    public void setFotoUsuarioUrl(String fotoUsuarioUrl) {
+        this.fotoUsuarioUrl = fotoUsuarioUrl;
     }
 }

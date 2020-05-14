@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar); recuperarAdm();
         iniciarComponentes();
-        //recuperarAdm();
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -60,7 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void recuperarAdm(){
         FirebaseUser adm = Adm.getAdmAtual();
-        nomeAdm.setText(adm.getDisplayName());
+        if(adm.getDisplayName() == null){
+        alert("usuário com nome de perfil" );
+        }else
+            alert("sem nome perfil");
+
+        //nomeAdm.setText(adm.getDisplayName());
 
 
 

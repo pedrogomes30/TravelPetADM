@@ -29,34 +29,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;
-    private AdapterListaTipoAnimal adapterListaAdm;
+    private AdapterListaTipoAnimal adapterListaTipoAnimal;
     private ArrayList<TipoAnimal> tiposAnimais =new ArrayList<>() ;
     private DatabaseReference tipoAnimalRef;
     private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
 
-
     public TipoAnimalFragment() {
         // Required empty public constructor
     }
-    @Override
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
-        recuperarTipoAnimal();
         iniciarReciclerView(view);
         return view;
     }
-
 
     @Override
     public void onStart() {
@@ -71,21 +64,21 @@ public class TipoAnimalFragment extends Fragment {
     }
 
     public void iniciarComponentes(View view){
-        recyclerView = view.findViewById(R.id.listaAnimais);
+        recyclerView = view.findViewById(R.id.listaTiposAnimais);
         tipoAnimalRef  = Conexao.getFirebaseDatabase().child("racaAnimal");
-        progresso = view.findViewById(R.id.progresso);
+        progresso = view.findViewById(R.id.progressoTipoAnimal);
     }
 
     public void iniciarReciclerView(View view) {
 
         //configurar Adapter
-        adapterListaAdm = new AdapterListaTipoAnimal(tiposAnimais, getActivity());
+        adapterListaTipoAnimal = new AdapterListaTipoAnimal(tiposAnimais, getActivity());
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapterListaAdm);
+        recyclerView.setAdapter(adapterListaTipoAnimal);
 
         //Configurar evento de clique
         recyclerView.addOnItemTouchListener(
@@ -110,6 +103,7 @@ public class TipoAnimalFragment extends Fragment {
                 )
         );
     }
+
 
     public void recuperarTipoAnimal (){
         valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
@@ -151,14 +145,14 @@ public class TipoAnimalFragment extends Fragment {
                     progresso.setVisibility(View.VISIBLE);
                 }
 
-                adapterListaAdm.notifyDataSetChanged();
+                adapterListaTipoAnimal.notifyDataSetChanged();
                 progresso.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
 
     }
 
-
+    //ITENS DE MENU
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -181,7 +175,7 @@ public class TipoAnimalFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //METODO ALERTA DE MENSSAGENS
     private void Alert(String msg){
         Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
 

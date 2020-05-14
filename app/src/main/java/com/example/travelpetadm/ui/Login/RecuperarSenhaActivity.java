@@ -30,7 +30,7 @@ private FirebaseAuth auth;
 
     private void iniciandoComponentes(){
         textEmail = findViewById(R.id.textEmailRec);
-        btSalvar  = findViewById(R.id.btSalvarRec);
+        btSalvar  = findViewById(R.id.btEnviarRec);
     }
 
     private void eventoClick(){
