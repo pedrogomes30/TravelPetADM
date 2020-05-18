@@ -39,7 +39,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
              tipoanimal = (TipoAnimal)bundle.getSerializable("EditarTipoAnimal");
             especie.setText(tipoanimal.getEspecie());
             raca.setText(tipoanimal.getNomeRacaAnimal());
-            descricao.setText((tipoanimal.getDescricao()));
+            descricao.setText(String.valueOf( tipoanimal.getDescricao()));
             }
         }
 

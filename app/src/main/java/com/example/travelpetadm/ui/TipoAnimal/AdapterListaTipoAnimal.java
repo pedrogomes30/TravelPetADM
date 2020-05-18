@@ -24,15 +24,15 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
         this.context = context;
         }
 
-@Override
-public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_tipoanimal, parent, false);
         return new MyViewHolder(itemLista);
         }
 
 
-@Override
-public void onBindViewHolder(MyViewHolder holder, int position) {
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, int position) {
     TipoAnimal tipoAnimal = tiposAnimais.get(position);
     holder.especie.setText(tipoAnimal.getEspecie());
     holder.raca.setText(String.valueOf(tipoAnimal.getNomeRacaAnimal()));

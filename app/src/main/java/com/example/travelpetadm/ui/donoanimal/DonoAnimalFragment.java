@@ -27,6 +27,7 @@ import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.example.travelpetadm.ui.TipoAnimal.AdicionarTipoAnimalActivity;
 import com.example.travelpetadm.ui.contasAdm.AdapterListaAdm;
 import com.example.travelpetadm.ui.contasAdm.InfoAdmActivity;
+import com.example.travelpetadm.ui.donoanimal.InfoDonoAnimalActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -113,10 +114,10 @@ public class DonoAnimalFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                /*DonoAnimal donoAnimalSel =  donosAnimais.get(position);
+                                DonoAnimal donoAnimalSel =  donosAnimais.get(position);
                                 Intent i =  new Intent(getActivity(), InfoDonoAnimalActivity.class);
                                 i.putExtra("ExibirDonoAnimal",donoAnimalSel);
-                                startActivity(i);*/
+                                startActivity(i);
                             }
                             @Override
                             public void onLongItemClick(View view, int position) {

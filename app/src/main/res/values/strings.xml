@@ -49,9 +49,12 @@
     <string name="home_second">Home Second</string>
 
     <string name="salvarAlerta">Link com firebase não criado!</string>
+    */Info Perfil Dono Animal /**
+    <string name="abaPerfil">Perfil</string>
+    <string name="abaAnimais">Animais</string>
+    <string name="abaViagens">Viagens</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Em Construção</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>

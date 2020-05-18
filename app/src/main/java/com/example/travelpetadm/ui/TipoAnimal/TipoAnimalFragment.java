@@ -37,13 +37,11 @@ public class TipoAnimalFragment extends Fragment {
     private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
 
-    public TipoAnimalFragment() {
-        // Required empty public constructor
-    }
+    public  TipoAnimalFragment() {    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,
+                             @NonNull Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
@@ -109,41 +107,15 @@ public class TipoAnimalFragment extends Fragment {
         valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 tiposAnimais.clear();
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE AVES
-                DataSnapshot ave = dataSnapshot.child("ave");
-                for(DataSnapshot dados: ave.getChildren()){
-                   TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                    tiposAnimais.add(tipoAnimal);
-                    progresso.setVisibility(View.VISIBLE);
+
+                for(DataSnapshot dados: dataSnapshot.getChildren()) {
+                    for (DataSnapshot especie : dados.getChildren()) {
+                        TipoAnimal tipoAnimal = especie.getValue(TipoAnimal.class);
+                        tiposAnimais.add(tipoAnimal);
+                        progresso.setVisibility(View.VISIBLE);
+                    }
                 }
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE CACHORROS
-                DataSnapshot cachorro = dataSnapshot.child("cachorro");
-                for(DataSnapshot dados: cachorro.getChildren()){
-                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                    tiposAnimais.add(tipoAnimal);
-                    progresso.setVisibility(View.VISIBLE);
-                }
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE GATOS
-                DataSnapshot gato = dataSnapshot.child("gato");
-                for(DataSnapshot dados: gato.getChildren()){
-                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                    tiposAnimais.add(tipoAnimal);
-                    progresso.setVisibility(View.VISIBLE);
-                }
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE REPTIL
-                DataSnapshot reptil = dataSnapshot.child("reptil");
-                for(DataSnapshot dados: reptil.getChildren()){
-                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                    tiposAnimais.add(tipoAnimal);
-                    progresso.setVisibility(View.VISIBLE);
-                }
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE ROEDOR
-                DataSnapshot roedor = dataSnapshot.child("roedor");
-                for(DataSnapshot dados: roedor.getChildren()){
-                    TipoAnimal tipoAnimal = dados.getValue(TipoAnimal.class);
-                    tiposAnimais.add(tipoAnimal);
-                    progresso.setVisibility(View.VISIBLE);
-                }
+
 
                 adapterListaTipoAnimal.notifyDataSetChanged();
                 progresso.setVisibility(View.GONE);

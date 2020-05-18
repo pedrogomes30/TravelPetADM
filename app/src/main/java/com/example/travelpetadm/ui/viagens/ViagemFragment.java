@@ -15,9 +15,7 @@ import android.widget.Toast;
 
 import com.example.travelpetadm.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class ViagemFragment extends Fragment {
 
     public ViagemFragment() {

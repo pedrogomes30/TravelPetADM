@@ -16,9 +16,9 @@ public class InfoAdmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_adm);
         Bundle bundle = getIntent().getExtras();
-        /*nome = findViewById(R.id.textSobrenomeListaDA);
-        email = findViewById(R.id.textEmail);
-        tipoPerfil = findViewById(R.id.textTipoPerfil);*/
+        nome = findViewById(R.id.textPerfilNomeADM);
+        email = findViewById(R.id.textPerfilEmailADM);
+        tipoPerfil = findViewById(R.id.textPerfilTipoPerfilADM);
 
         if(bundle != null){
             adm = (Adm)bundle.getSerializable("ExibirAdm");

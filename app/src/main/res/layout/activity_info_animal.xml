@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.animais.InfoAnimalActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/roxo_escuro"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageInfoAnimal"
+                android:layout_width="166dp"
+                android:layout_height="189dp"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_especie_spinner" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="8dp">
+
+                <TextView
+                    android:id="@+id/textInfoAnimalNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoAnimalEspecie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Especie"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoAnimalRaca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/raca"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoAnimalIDAnimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Id Animal"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoAnimalDA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dono Animal"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoAnimalPorte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Porte Animal"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/roxo_preto"
+            android:text="Descricao"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textInfoAnimalDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="208dp"
+            android:text="Descricao"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/roxo_preto"
+            android:text="Viagens realizadas"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaInfoAnimaisViagens"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
