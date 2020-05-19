@@ -57,7 +57,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/textEspecie"
+            android:id="@+id/textEditarTAEspecie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/branco"
@@ -73,7 +73,7 @@
             android:textAppearance="@style/Fonte_Textos_menores" />
 
         <EditText
-            android:id="@+id/textRaca"
+            android:id="@+id/textEditarTARaca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/branco"
@@ -89,7 +89,7 @@
             android:textAppearance="@style/Fonte_Textos_menores" />
 
         <EditText
-            android:id="@+id/textObservacao"
+            android:id="@+id/textEditarTAObservacao"
             android:layout_width="match_parent"
             android:layout_height="298dp"
             android:background="@color/branco"

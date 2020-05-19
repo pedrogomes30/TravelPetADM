@@ -92,10 +92,10 @@ public class AnimaisFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                               /* Animal animalSel =  animais.get(position);
-                                Intent i =  new Intent(getActivity(), AdicionarTipoAnimalActivity.class);
+                               Animal animalSel =  animais.get(position);
+                                Intent i =  new Intent(getActivity(), InfoAnimalActivity.class);
                                 i.putExtra("ExibirAnimal",animalSel);
-                                startActivity(i);*/
+                                startActivity(i);
                             }
                             @Override
                             public void onLongItemClick(View view, int position) {
