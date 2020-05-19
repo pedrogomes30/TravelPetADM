@@ -1,5 +1,6 @@
 package com.example.travelpetadm.ui.veiculos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -87,10 +88,10 @@ public class VeiculosFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                               /* Animal animalSel =  animais.get(position);
-                                Intent i =  new Intent(getActivity(), AdicionarTipoAnimalActivity.class);
-                                i.putExtra("ExibirAnimal",animalSel);
-                                startActivity(i);*/
+                                Veiculo veiculoSel =  veiculos.get(position);
+                                Intent i =  new Intent(getActivity(),InfoVeiculosActivity.class);
+                                i.putExtra("ExibirVeiculo",veiculoSel);
+                                startActivity(i);
                             }
                             @Override
                             public void onLongItemClick(View view, int position) {

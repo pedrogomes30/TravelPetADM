@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.veiculos.InfoVeiculosActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/roxo_escuro"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageInfoVeiculos"
+                android:layout_width="166dp"
+                android:layout_height="189dp"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_menu_veiculo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="8dp">
+
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Marca"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Modelo"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Id Veiculo"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoMotorista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Motorista"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/roxo_preto"
+            android:text="Configuração"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btAbrirCrvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/margem"
+                android:text="Exibir CRVL" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/margem"
+                android:text="Aprovar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/roxo_preto"
+            android:text="Viagens realizadas"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaInfoVeiculosViagens"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
