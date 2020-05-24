@@ -108,49 +108,61 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="match_parent"
+        <ScrollView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="Animais cadastrados"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja"
-            android:textSize="18sp" />
+            android:scrollbarStyle="insideInset">
 
-        <FrameLayout
-            android:layout_width="401dp"
-            android:layout_height="wrap_content">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaPerfilDAAnimal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="Viagens realizadas"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/roxo_preto"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Animais cadastrados"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Fonte_Textos_menu.laranja"
+                    android:textSize="18sp" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <FrameLayout
+                    android:layout_width="401dp"
+                    android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaPerfilDAViagens"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </FrameLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listaPerfilDAAnimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/roxo_preto"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Viagens realizadas"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Fonte_Textos_menu.laranja"
+                    android:textSize="18sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listaPerfilDAViagens"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 

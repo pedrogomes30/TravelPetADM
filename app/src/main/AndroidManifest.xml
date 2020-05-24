@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.veiculos.InfoVeiculosActivity"></activity>
+        <activity android:name=".ui.viagens.InfoViagensActivity"></activity>
+        <activity android:name=".ui.veiculos.InfoVeiculosActivity" />
         <activity android:name=".ui.animais.InfoAnimalActivity" />
         <activity android:name=".ui.donoanimal.InfoDonoAnimalActivity" />
         <activity android:name=".ui.contasAdm.InfoAdmActivity" />
