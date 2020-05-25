@@ -32,7 +32,7 @@
     <string name="menu_veiculos">Veiculos</string>
     <string name="menu_animais">Animais</string>
     <string name="menu_contasadm">Contas Adm</string>
-    <string name="titulopreferencias">Preferencias Administrativas</string>
+    <string name="titulopreferencias">Administrativo</string>
     <string name="menu_configuracao">Configurações de conta</string>
     <string name="menu_log">Log de Alteracoes</string>
     <string name="menu_about">Sobre</string>

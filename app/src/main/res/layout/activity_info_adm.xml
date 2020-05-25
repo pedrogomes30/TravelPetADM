@@ -4,91 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.contasAdm.InfoAdmActivity"  >
-
-<LinearLayout
-android:layout_width="0dp"
-android:layout_height="0dp"
-android:background="@color/roxo_escuro"
-android:orientation="vertical"
-android:padding="5dp"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dp">
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="170dp"
-        android:layout_height="185dp"
-        app:srcCompat="@drawable/ic_email_login" />
+    android:background="@color/roxo_escuro"
+    tools:context=".ui.contasAdm.InfoAdmActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="181dp"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/fundo_margem_preta"
         android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingTop="8dp">
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textPerfilNomeADM"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="170dp"
+                android:layout_height="185dp"
+                android:background="@drawable/fundo_margem_preta"
+                app:srcCompat="@drawable/ic_email_login" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="181dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/textPerfilNomeADM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome"
+                    android:textAppearance="@style/Fonte_Textos_menu"
+                    android:textColor="@color/preto"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textPerfilEmailADM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/e_mail"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textPerfilTipoPerfilADM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tipoperfil"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fundo_menu_roxo"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Interações deste Administrador"
+            android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textPerfilEmailADM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/e_mail"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textSize="14sp" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/fundo_margem_preta">
 
-        <TextView
-            android:id="@+id/textPerfilTipoPerfilADM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tipoperfil"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textSize="14sp" />
-
+            <ListView
+                android:id="@+id/listaPerfilADMlog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </FrameLayout>
 
     </LinearLayout>
-</LinearLayout>
-
-<TextView
-    android:id="@+id/textView20"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/roxo_preto"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp"
-    android:text="Interações deste Administrador"
-    android:textAlignment="center"
-    android:textAppearance="@style/Fonte_Textos_menu"
-    android:textSize="18sp" />
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="490dp">
-
-        <ListView
-            android:id="@+id/listaPerfilADMlog"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-    </FrameLayout>
-
-</LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

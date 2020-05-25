@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
     android:orientation="vertical"
-    tools:context=".ui.donoanimal.DonoAnimalFragment" >
+    android:padding="5dp"
+    tools:context=".ui.donoanimal.DonoAnimalFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/fundo_margem_preta"
         android:fillViewport="true">
 
         <androidx.recyclerview.widget.RecyclerView

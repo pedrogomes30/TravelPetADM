@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
     tools:context=".ui.veiculos.InfoVeiculosActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/roxo_escuro"
+        android:background="@drawable/fundo_margem_preta"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +30,8 @@
                 android:id="@+id/imageInfoVeiculos"
                 android:layout_width="166dp"
                 android:layout_height="189dp"
-                android:padding="5dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/fundo_margem_preta"
                 app:srcCompat="@drawable/ic_menu_veiculo" />
 
             <LinearLayout
@@ -45,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="Marca"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -53,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="Modelo"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -61,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:text="Id Veiculo"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -69,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Motorista"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -77,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="Status"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -86,7 +94,10 @@
             android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/fundo_menu_roxo"
             android:text="Configuração"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu.laranja"
@@ -101,16 +112,20 @@
                 android:id="@+id/btAbrirCrvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/margem"
+                android:background="@drawable/botao_azul"
                 android:text="Exibir CRVL" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/margem"
+                android:background="@drawable/botao_azul"
                 android:text="Aprovar" />
         </LinearLayout>
 
@@ -118,7 +133,9 @@
             android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/fundo_menu_roxo"
             android:text="Viagens realizadas"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu.laranja"
@@ -127,7 +144,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaInfoVeiculosViagens"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:background="@drawable/fundo_margem_preta" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

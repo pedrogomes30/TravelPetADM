@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/roxo_escuro"
+    android:padding="5dp"
     tools:context=".ui.viagens.ViagemFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaAnimais"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@drawable/fundo_margem_preta" />
 
     <ProgressBar
         android:id="@+id/progressoAnimal"

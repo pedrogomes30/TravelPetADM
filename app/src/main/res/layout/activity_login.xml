@@ -4,44 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/roxo_escuro"
+    android:foregroundGravity="center"
+    app:layout_anchorGravity="center"
     tools:context=".ui.Login.LoginActivity">
 
     <ImageView
         android:id="@+id/Logo_Tela_login"
         android:layout_width="253dp"
-        android:layout_height="153dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="186dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/todo"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo_travel_pet_laranja"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_logo_travel_pet_laranja" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/roxo_escuro"
+        android:id="@+id/linearLayout2"
+        android:layout_width="395dp"
+        android:layout_height="343dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
         android:orientation="vertical"
+        android:transitionGroup="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo_Tela_login"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/Logo_Tela_login">
 
         <TextView
             android:id="@+id/textLogin"
-            android:layout_width="311dp"
+            android:layout_width="342dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="166dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="150dp"
-            android:text="@string/acesse_sua_conta" />
+            android:gravity="center"
+            android:text="@string/acesse_sua_conta"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView"
@@ -55,20 +66,22 @@
             android:text="@string/e_mail"
             android:textAlignment="textStart"
             android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/branco"
+            android:textColor="@color/preto"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/textEmailLoginAdm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:autofillHints=""
+            android:background="@drawable/fundo_margem_preta"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textColor="@color/branco"
+            android:padding="3dp"
+            android:textColor="@color/preto"
             android:textSize="14sp" />
 
         <TextView
@@ -83,20 +96,22 @@
             android:text="@string/senha2"
             android:textAlignment="textStart"
             android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/branco"
+            android:textColor="@color/preto"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/textSenhaLoginAdm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:autofillHints=""
+            android:background="@drawable/fundo_margem_preta"
             android:ems="10"
             android:inputType="textPassword"
-            android:textColor="@color/branco"
+            android:padding="3dp"
+            android:textColor="@color/preto"
             android:textSize="14sp" />
 
         <TextView
@@ -104,12 +119,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="@string/esqueci_minha_senha"
             android:textAlignment="textEnd"
             android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/branco"
+            android:textColor="@color/preto"
             android:textSize="12sp" />
 
         <Button
@@ -118,7 +133,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/botao_azul"

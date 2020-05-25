@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:background="@drawable/fundo_margem_preta"
     android:orientation="vertical"
     android:padding="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/margem"
         android:orientation="horizontal"
-        android:padding="3dp">
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -30,6 +31,7 @@
             android:paddingStart="5dp"
             android:text="@string/nome"
             android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -46,6 +48,7 @@
                 android:text="@string/e_mail"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
                 android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
@@ -55,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tipoperfil"
                 android:textAlignment="textEnd"
+                android:textColor="@color/preto"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>

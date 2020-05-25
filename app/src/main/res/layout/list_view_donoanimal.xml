@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@drawable/fundo_margem_preta"
     android:padding="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/roxo_escuro"
         android:orientation="horizontal">
 
         <ImageView
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nome"
+                android:textColor="@color/preto"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -38,17 +40,19 @@
 
                 <TextView
                     android:id="@+id/textSobrenomeListaDA"
-                    android:layout_width="245dp"
+                    android:layout_width="229dp"
                     android:layout_height="wrap_content"
-                    android:text="Sobrenome" />
+                    android:text="Sobrenome"
+                    android:textColor="@color/preto" />
 
                 <TextView
                     android:id="@+id/textCidadeListaDA"
                     android:layout_width="108dp"
                     android:layout_height="match_parent"
                     android:paddingRight="3dp"
-                    android:text="cidade"
-                    android:textAlignment="textEnd" />
+                    android:text="Status"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/preto" />
             </LinearLayout>
 
         </LinearLayout>

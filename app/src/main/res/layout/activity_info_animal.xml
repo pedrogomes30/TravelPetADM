@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
     tools:context=".ui.animais.InfoAnimalActivity">
 
     <LinearLayout
@@ -13,8 +14,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/roxo_escuro"
+        android:background="@drawable/fundo_margem_preta"
         android:orientation="vertical"
+        android:padding="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +31,8 @@
                 android:id="@+id/imageInfoAnimal"
                 android:layout_width="166dp"
                 android:layout_height="189dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/fundo_margem_preta"
                 android:padding="5dp"
                 app:srcCompat="@drawable/ic_especie_spinner" />
 
@@ -45,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nome"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -53,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:text="Especie"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -61,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/raca"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -69,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="Id Animal"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -77,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:text="Dono Animal"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
@@ -85,6 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Porte Animal"
                     android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -94,7 +104,7 @@
             android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
+            android:background="@drawable/fundo_menu_roxo"
             android:text="Descricao"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu.laranja"
@@ -104,6 +114,9 @@
             android:id="@+id/textInfoAnimalDescricao"
             android:layout_width="match_parent"
             android:layout_height="208dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/fundo_margem_preta"
             android:text="Descricao"
             android:textAlignment="textStart" />
 
@@ -111,7 +124,7 @@
             android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/roxo_preto"
+            android:background="@drawable/fundo_menu_roxo"
             android:text="Viagens realizadas"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu.laranja"
@@ -120,7 +133,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaInfoAnimaisViagens"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/fundo_margem_preta" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

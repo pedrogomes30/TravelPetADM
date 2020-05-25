@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/roxo_escuro"
     tools:context=".ui.Login.RecuperarSenhaActivity">
 
     <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/roxo_escuro"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/fundo_margem_preta"
         android:orientation="vertical"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:text="@string/por_favor_para_que_consigamos_recuperar_sua_senha_informe_seu_e_mail_abaxo_para_que_possamos_enviar_o_link_para_recupera_o_de_senha"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/preto" />
 
         <TextView
             android:id="@+id/textView4"
@@ -52,28 +53,32 @@
             android:drawableStart="@drawable/ic_email_login"
             android:drawablePadding="5dp"
             android:text="@string/email"
-            android:textColor="@color/branco"
+            android:textColor="@color/preto"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/textEmailRec"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:autofillHints=""
+            android:background="@drawable/fundo_margem_preta"
             android:ems="10"
             android:inputType="textEmailAddress"
+            android:paddingLeft="5dp"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/btEnviarRec"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:background="@drawable/botao_normal_azul"
             android:text="@string/enviar" />
     </LinearLayout>
 

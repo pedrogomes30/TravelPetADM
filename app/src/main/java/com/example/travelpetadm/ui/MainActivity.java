@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_animais,
                 R.id.nav_especies,
                 R.id.nav_contasadm,
-                R.id.nav_configuracao,
-                R.id.nav_log,
                 R.id.nav_about,
                 R.id.nav_sair)
                 .setDrawerLayout(drawer)

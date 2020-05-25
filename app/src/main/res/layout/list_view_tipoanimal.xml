@@ -4,27 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="2dp"
+    android:layout_margin="2dp"
+    android:background="@color/branco"
     android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp">
+        android:background="@drawable/fundo_margem_preta"
+        android:elevation="5dp"
+        app:cardBackgroundColor="@color/branco">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/margem">
+            android:background="@drawable/fundo_margem_preta">
 
             <ImageView
                 android:id="@+id/imageEspecie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:contentDescription="@string/todo"
                 android:padding="5dp"
-                app:srcCompat="@drawable/ic_especie_spinner"
-                android:contentDescription="@string/todo" />
+                app:srcCompat="@drawable/ic_especie_spinner" />
 
             <TextView
                 android:id="@+id/textRacaList"
@@ -37,6 +40,7 @@
                 android:text="@string/raca"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
                 android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
@@ -51,6 +55,7 @@
                 android:text="@string/especie"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
+    android:padding="5dp"
     tools:context=".ui.TipoAnimal.TipoAnimalFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -14,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/fundo_margem_preta"
             android:gravity="center"
             android:orientation="vertical">
 
