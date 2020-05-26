@@ -16,8 +16,25 @@ public class Viagem implements Serializable {
     private String origem;
     private String porteAnimal;
     private String ID;
+    private String marcaVeiculo, modeloVeiculo;
 
     public Viagem() {
+    }
+
+    public String getMarcaVeiculo() {
+        return marcaVeiculo;
+    }
+
+    public void setMarcaVeiculo(String marcaVeiculo) {
+        this.marcaVeiculo = marcaVeiculo;
+    }
+
+    public String getModeloVeiculo() {
+        return modeloVeiculo;
+    }
+
+    public void setModeloVeiculo(String modeloVeiculo) {
+        this.modeloVeiculo = modeloVeiculo;
     }
 
     public String getID() {

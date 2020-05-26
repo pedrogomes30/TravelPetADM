@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/roxo_escuro"
     android:orientation="vertical"
     android:padding="5dp"
     tools:context=".ui.viagens.InfoViagensActivity">
@@ -11,6 +12,276 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/roxo_escuro"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_marginTop="5dp"
+        android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="informações de viagem"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fundo_margem_preta"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ID: "
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto" />
+
+            <TextView
+                android:id="@+id/textInfoViagemID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Dono de Animal :"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemDA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Animal :"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Porte : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemPorte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Destino : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Origem : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemOrigem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distancia : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemDistancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora inicio : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemHI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hora Fim : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemHf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Motorista"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemMotorista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Veiculo : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemVeiculoMarca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modelo : "
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto" />
+
+        <TextView
+            android:id="@+id/textInfoViagemVeiculoModelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:paddingLeft="5dp"
+            android:textAppearance="@style/Fonte_Textos_menores"
+            android:textColor="@color/preto"
+            android:textSize="14sp" />
+    </LinearLayout>
 </LinearLayout>

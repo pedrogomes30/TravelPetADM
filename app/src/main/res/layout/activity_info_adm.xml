@@ -78,12 +78,12 @@
             android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fundo_menu_roxo"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:text="Interações deste Administrador"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu"
+            android:textColor="@color/Laranja_Principal"
             android:textSize="18sp" />
 
         <FrameLayout

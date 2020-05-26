@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".ui.viagens.InfoViagensActivity"></activity>
         <activity android:name=".ui.veiculos.InfoVeiculosActivity" />
         <activity android:name=".ui.animais.InfoAnimalActivity" />

@@ -8,17 +8,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.travelpetadm.Model.Veiculo;
+import com.example.travelpetadm.Model.Viagem;
 import com.example.travelpetadm.R;
 
 public class InfoViagensActivity extends AppCompatActivity {
-    private ImageView imageInfoVeiculo;
-    private TextView textInfoVeiculoMarca,
-            textInfoVeiculoModelo,
-            textInfoVeiculoID,
-            textInfoVeiculoMotorista,
-            textInfoVeiculoStatus;
-    private RecyclerView listaInfoVeiculosViagens;
-    private Veiculo veiculo;
+    private TextView
+            textInfoViagemID,
+            textInfoViagemDA,
+            textInfoViagemAnimal,
+            textInfoViagemPorte,
+            textInfoViagemData,
+            textInfoViagemDestino,
+            textInfoViagemOrigem,
+            textInfoViagemDistancia,
+            textInfoViagemHI,
+            textInfoViagemHf,
+            textInfoViagemMotorista,
+            textInfoViagemVeiculoMarca,
+            textInfoViagemVeiculoModelo;
+    private Viagem viagem;
 
 
     @Override
@@ -31,24 +39,38 @@ public class InfoViagensActivity extends AppCompatActivity {
 
 
     public void iniciarComponentes(){
-        textInfoVeiculoMarca             = findViewById(R.id.textInfoVeiculoMarca);
-        textInfoVeiculoModelo            = findViewById(R.id.textInfoVeiculoModelo);
-        textInfoVeiculoID                = findViewById(R.id.textInfoVeiculoID);
-        textInfoVeiculoMotorista         = findViewById(R.id.textInfoVeiculoMotorista);
-        textInfoVeiculoStatus            = findViewById(R.id.textInfoVeiculoStatus);
-        //...
-        listaInfoVeiculosViagens     = findViewById(R.id.listaInfoVeiculosViagens);
+                textInfoViagemID                    = findViewById(R.id.textInfoViagemID);
+                textInfoViagemDA                    = findViewById(R.id.textInfoViagemDA);
+                textInfoViagemAnimal                = findViewById(R.id.textInfoViagemAnimal);
+                textInfoViagemPorte                 = findViewById(R.id.textInfoViagemPorte);
+                textInfoViagemData                  = findViewById(R.id.textInfoViagemData);
+                textInfoViagemDestino               = findViewById(R.id.textInfoViagemDestino);
+                textInfoViagemOrigem                = findViewById(R.id.textInfoViagemOrigem);
+                textInfoViagemDistancia             = findViewById(R.id.textInfoViagemDistancia);
+                textInfoViagemHI                    = findViewById(R.id.textInfoViagemHI);
+                textInfoViagemHf                    = findViewById(R.id.textInfoViagemHf);
+                textInfoViagemMotorista             = findViewById(R.id.textInfoViagemMotorista);
+                textInfoViagemVeiculoMarca          = findViewById(R.id.textInfoViagemVeiculoMarca);
+                textInfoViagemVeiculoModelo         = findViewById(R.id.textInfoViagemVeiculoModelo);
     }
+
     public void iniciarBundle(){
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            veiculo = (Veiculo) bundle.getSerializable("ExibirVeiculo");
-            //imageInfoanimal = animal.getFotoAnimal();
-            textInfoVeiculoMarca.setText(veiculo.getMarcaVeiculo());
-            textInfoVeiculoModelo.setText(veiculo.getModeloVeiculo());
-            textInfoVeiculoID.setText(veiculo.getIdVeiculo());
-            textInfoVeiculoMotorista.setText(veiculo.getIdVeiculo());
-            textInfoVeiculoStatus.setText(veiculo.getStatus());
+            viagem = (Viagem) bundle.getSerializable("ExibirViagem");
+                    textInfoViagemID.setText(viagem.getID());
+                    textInfoViagemDA.setText(viagem.getDonoAnimal());
+                    textInfoViagemAnimal.setText(viagem.getAnimal());
+                    textInfoViagemPorte.setText(viagem.getPorteAnimal());
+                    textInfoViagemData.setText(viagem.getData());
+                    textInfoViagemDestino.setText(viagem.getDestino());
+                    textInfoViagemOrigem.setText(viagem.getOrigem());
+                    textInfoViagemDistancia.setText(viagem.getDistancia());
+                    textInfoViagemHI.setText(viagem.getHoraInicio());
+                    textInfoViagemHf.setText(viagem.getHoraFim());
+                    textInfoViagemMotorista.setText(viagem.getMotorista());
+                    textInfoViagemVeiculoMarca.setText(viagem.getMarcaVeiculo());
+                    textInfoViagemVeiculoModelo.setText((viagem.getModeloVeiculo()));
 
         }
     }

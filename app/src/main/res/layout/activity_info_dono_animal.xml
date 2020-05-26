@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -132,7 +133,6 @@
                     android:id="@+id/textView20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/fundo_menu_roxo"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:text="Animais cadastrados"
@@ -157,7 +157,6 @@
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/fundo_menu_roxo"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:text="Viagens realizadas"
