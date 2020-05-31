@@ -27,7 +27,6 @@ public class AdapterDonoAnimal extends RecyclerView.Adapter<AdapterDonoAnimal.My
         this.context = context;
     }
 
-
     @NonNull
     @Override
     public AdapterDonoAnimal.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

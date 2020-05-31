@@ -69,8 +69,8 @@ public class InfoViagensActivity extends AppCompatActivity {
                     textInfoViagemHI.setText(viagem.getHoraInicio());
                     textInfoViagemHf.setText(viagem.getHoraFim());
                     textInfoViagemMotorista.setText(viagem.getMotorista());
-                    textInfoViagemVeiculoMarca.setText(viagem.getMarcaVeiculo());
-                    textInfoViagemVeiculoModelo.setText((viagem.getModeloVeiculo()));
+                    textInfoViagemVeiculoMarca.setText(viagem.getIDVeiculo());
+
 
         }
     }

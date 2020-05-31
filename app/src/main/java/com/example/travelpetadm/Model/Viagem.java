@@ -5,44 +5,37 @@ import java.io.Serializable;
 public class Viagem implements Serializable {
 
     private String animal;
-    private String custo;
+    private String custoViagem;
     private String data;
     private String destino;
     private String distancia;
-    private String donoAnimal;
+    private String IDDonoAnimal;
     private String horaInicio;
     private String horaFim;
-    private String motorista;
+    private String IDMotorista;
     private String origem;
     private String porteAnimal;
-    private String ID;
-    private String marcaVeiculo, modeloVeiculo;
+    private String IDViagem;
+    private String IDVeiculo;
 
     public Viagem() {
     }
 
-    public String getMarcaVeiculo() {
-        return marcaVeiculo;
+    public String getIDVeiculo() {
+        return IDVeiculo;
     }
 
-    public void setMarcaVeiculo(String marcaVeiculo) {
-        this.marcaVeiculo = marcaVeiculo;
+    public void setIDVeiculo(String IDVeiculo) {
+        this.IDVeiculo = IDVeiculo;
     }
 
-    public String getModeloVeiculo() {
-        return modeloVeiculo;
+
+    public String getIDViagem() {
+        return IDViagem;
     }
 
-    public void setModeloVeiculo(String modeloVeiculo) {
-        this.modeloVeiculo = modeloVeiculo;
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setIDViagem(String ID) {
+        this.IDViagem = ID;
     }
 
     public String getAnimal() {
@@ -53,12 +46,12 @@ public class Viagem implements Serializable {
         this.animal = animal;
     }
 
-    public String getCusto() {
-        return custo;
+    public String getCustoViagem() {
+        return custoViagem;
     }
 
-    public void setCusto(String  custo) {
-        this.custo = custo;
+    public void setCustoViagem(String  custoViagem) {
+        this.custoViagem = custoViagem;
     }
 
     public String getData() {
@@ -85,12 +78,12 @@ public class Viagem implements Serializable {
         this.distancia = distancia;
     }
 
-    public String getDonoAnimal() {
-        return donoAnimal;
+    public String getIDDonoAnimal() {
+        return IDDonoAnimal;
     }
 
-    public void setDonoAnimal(String donoAnimal) {
-        this.donoAnimal = donoAnimal;
+    public void setIDDonoAnimal(String IDDonoAnimal) {
+        this.IDDonoAnimal = IDDonoAnimal;
     }
 
     public String getHoraInicio() {
@@ -109,12 +102,12 @@ public class Viagem implements Serializable {
         this.horaFim = horaFim;
     }
 
-    public String getMotorista() {
-        return motorista;
+    public String getIDMotorista() {
+        return IDMotorista;
     }
 
-    public void setMotorista(String motorista) {
-        this.motorista = motorista;
+    public void setIDMotorista(String IDMotorista) {
+        this.IDMotorista = IDMotorista;
     }
 
     public String getOrigem() {

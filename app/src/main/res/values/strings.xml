@@ -17,7 +17,7 @@
     */submenu na barra de tarefas -----------------------------/**
 
     <string name="action_configuracao">Configuração conta admin</string>
-    <string name="action_salvar">Extrair Relatório</string>
+    <string name="action_salvar">Extrair XLS</string>
     <string name="action_procurar">Procurar</string>
     <string name="action_adicionar">Adicionar</string>
     <string name="action_sair">Sair</string>
