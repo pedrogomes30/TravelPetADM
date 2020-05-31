@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,18 +15,21 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.travelpetadm.R;
 
 public class EstatisticasFragment extends Fragment {
-    private WebView webView;
+
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_estatisticas, container, false);
-
-             webView = (WebView)view.findViewById(R.id.webEstatisticas);
-             webView.getSettings().setJavaScriptEnabled(true);
-             webView.setWebViewClient(new WebViewClient());
-             webView.loadUrl("https://docs.google.com/spreadsheets/d/1W2sHWU6bMAKE7LGgSMlyN-dZ1OK9x3om5SHz2Ub5tdI/edit?usp=sharing");
-
-             return view;
+        homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_estatisticas, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
+            }
+        });
+        return root;
     }
-
 }
