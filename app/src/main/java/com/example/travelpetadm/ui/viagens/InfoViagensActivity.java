@@ -58,8 +58,8 @@ public class InfoViagensActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             viagem = (Viagem) bundle.getSerializable("ExibirViagem");
-                    textInfoViagemID.setText(viagem.getID());
-                    textInfoViagemDA.setText(viagem.getDonoAnimal());
+                    textInfoViagemID.setText(viagem.getIDViagem());
+                    textInfoViagemDA.setText(viagem.getIDDonoAnimal());
                     textInfoViagemAnimal.setText(viagem.getAnimal());
                     textInfoViagemPorte.setText(viagem.getPorteAnimal());
                     textInfoViagemData.setText(viagem.getData());
@@ -68,7 +68,7 @@ public class InfoViagensActivity extends AppCompatActivity {
                     textInfoViagemDistancia.setText(viagem.getDistancia());
                     textInfoViagemHI.setText(viagem.getHoraInicio());
                     textInfoViagemHf.setText(viagem.getHoraFim());
-                    textInfoViagemMotorista.setText(viagem.getMotorista());
+                    textInfoViagemMotorista.setText(viagem.getIDMotorista());
                     textInfoViagemVeiculoMarca.setText(viagem.getIDVeiculo());
 
 

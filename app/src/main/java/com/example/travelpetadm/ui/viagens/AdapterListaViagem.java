@@ -34,11 +34,11 @@ public class AdapterListaViagem extends RecyclerView.Adapter <AdapterListaViagem
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
        Viagem viagem = viagens.get(position);
-        holder.textListViagemID.setText(viagem.getID());
+        holder.textListViagemID.setText(viagem.getIDViagem());
         holder.textListViagemData.setText(viagem.getData());
-        holder.textListViagemDA.setText(viagem.getDonoAnimal());
-        holder.textListViagemMO.setText(viagem.getMotorista());
-        holder.textListViagemValor.setText(String.valueOf(viagem.getCusto()));
+        holder.textListViagemDA.setText(viagem.getIDDonoAnimal());
+        holder.textListViagemMO.setText(viagem.getIDMotorista());
+        holder.textListViagemValor.setText(String.valueOf(viagem.getCustoViagem()));
         holder.textListViagemDistacia.setText(viagem.getDistancia());
     }
 
