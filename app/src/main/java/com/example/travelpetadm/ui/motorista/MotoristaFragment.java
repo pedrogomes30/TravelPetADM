@@ -20,22 +20,12 @@ import com.example.travelpetadm.R;
 
 public class MotoristaFragment extends Fragment {
 
-    private MotoristaViewModel motoristaViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        motoristaViewModel =
-                ViewModelProviders.of(this).get(MotoristaViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_motorista, container, false);
-        final TextView textView = root.findViewById(R.id.text_motorista);
-        motoristaViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        setHasOptionsMenu(true);
-        return root;
+        View view = inflater.inflate(R.layout.fragment_donoanimal, container, false);
+        return view;
     }
     //BOTAO DE MENU
     @Override

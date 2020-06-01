@@ -193,10 +193,10 @@ public class ViagemFragment extends Fragment {
                     Viagem viagem = dados.getValue(Viagem.class);
                     // inserindo os dados na planilha
                     Row row1 = sheet.createRow(indicador);
-                    cell = row1.createCell(0);cell.setCellValue(viagem.getID());
-                    cell = row1.createCell(1);cell.setCellValue(viagem.getDonoAnimal());
+                    cell = row1.createCell(0);cell.setCellValue(viagem.getIDViagem());
+                    cell = row1.createCell(1);cell.setCellValue(viagem.getIDDonoAnimal());
                     cell = row1.createCell(2);cell.setCellValue(viagem.getAnimal());
-                    cell = row1.createCell(3);cell.setCellValue(viagem.getMotorista());
+                    cell = row1.createCell(3);cell.setCellValue(viagem.getIDMotorista());
                     cell = row1.createCell(4);cell.setCellValue(viagem.getIDVeiculo());
                     cell = row1.createCell(5);cell.setCellValue(viagem.getData());
                     cell = row1.createCell(6);cell.setCellValue(viagem.getOrigem());
@@ -205,7 +205,7 @@ public class ViagemFragment extends Fragment {
                     cell = row1.createCell(9);cell.setCellValue(viagem.getHoraInicio());
                     cell = row1.createCell(10);cell.setCellValue(viagem.getHoraFim());
                     cell = row1.createCell(11);cell.setCellValue(viagem.getPorteAnimal());
-                    cell = row1.createCell(12);cell.setCellValue(viagem.getCusto());
+                    cell = row1.createCell(12);cell.setCellValue(viagem.getCustoViagem());
                     indicador++;
                 }
                 //salvando a planilha criada no diretorio do dispositivo
