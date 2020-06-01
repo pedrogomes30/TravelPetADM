@@ -51,12 +51,10 @@ public class TipoAnimalFragment extends Fragment {
     private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
 
-
     public  TipoAnimalFragment() {    }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,
-                             @NonNull Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,@NonNull Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
@@ -168,7 +166,6 @@ public class TipoAnimalFragment extends Fragment {
     private void Alert(String msg){
         Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
     }
-
 
     public void gerarXLS(){
             valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {

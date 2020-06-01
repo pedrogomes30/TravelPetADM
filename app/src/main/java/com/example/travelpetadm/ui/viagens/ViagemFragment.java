@@ -1,5 +1,6 @@
 package com.example.travelpetadm.ui.viagens;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -207,6 +208,7 @@ public class ViagemFragment extends Fragment {
                     cell = row1.createCell(11);cell.setCellValue(viagem.getPorteAnimal());
                     cell = row1.createCell(12);cell.setCellValue(viagem.getCustoViagem());
                     indicador++;
+
                 }
                 //salvando a planilha criada no diretorio do dispositivo
                 File file = new File(getActivity().getFilesDir(),"Viagem.xls");
@@ -238,5 +240,8 @@ public class ViagemFragment extends Fragment {
                 progressoViagem.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
+    }
+    public void alerta(String string) {
+        Toast.makeText(getActivity().getApplicationContext(), string, Toast.LENGTH_SHORT).show();
     }
 }
