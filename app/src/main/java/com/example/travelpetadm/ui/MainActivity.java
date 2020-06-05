@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_estatisticas,
+                R.id.nav_avaliacao,
                 R.id.nav_donoAnimal,
                 R.id.nav_motorista,
                 R.id.nav_viagem,

@@ -25,7 +25,7 @@
     */ textos do drawer navigation ------------------------- /**
 
     <string name="titulogerenciamento">Gerenciamento</string>
-    <string name="menu_home">Estatisticas</string>
+    <string name="menu_home">Avaliacoes</string>
     <string name="menu_donoAnimal">Dono Animal</string>
     <string name="menu_motorista">Motorista</string>
     <string name="menu_viagem">Viagens</string>

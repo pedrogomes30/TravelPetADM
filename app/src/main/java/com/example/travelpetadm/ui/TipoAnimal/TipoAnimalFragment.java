@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,12 +51,12 @@ public class TipoAnimalFragment extends Fragment {
     private DatabaseReference tipoAnimalRef;
     private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
-
+    View view;
     public  TipoAnimalFragment() {    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,@NonNull Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
+        view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
         iniciarReciclerView(view);
@@ -149,10 +150,10 @@ public class TipoAnimalFragment extends Fragment {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
-                gerarXLS();
+                new GeradorXls("TipoAnimal", view.getContext());
                 break;
             case R.id.action_adicionar:
-                startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
+                adicionarTipoAnimal();
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
@@ -167,74 +168,7 @@ public class TipoAnimalFragment extends Fragment {
         Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
     }
 
-    public void gerarXLS(){
-            valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int indicador = 1;
-                Workbook wb = new HSSFWorkbook();
-                Cell cell= null;
-                CellStyle cellStyle =wb.createCellStyle();
-                cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
-                Sheet sheet = null;
-                sheet = wb.createSheet("Tipo de animal cadastrados");
-
-                //construindo linhas de indicados de atributo
-                Row row = sheet.createRow(0);
-
-                cell = row.createCell(0);cell.setCellValue("Espécie");cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
-                cell = row.createCell(1);cell.setCellValue("Raça");cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
-                cell = row.createCell(2);cell.setCellValue("Descrição");cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
-
-                //adicionando o conteudo
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    for (DataSnapshot dados2 : dados.getChildren()) {
-                        TipoAnimal tipoAnimal = dados2.getValue(TipoAnimal.class);
-
-                        // inserindo os dados na planilha
-                        Row row1 = sheet.createRow(indicador);
-
-                        cell = row1.createCell(0);cell.setCellValue(tipoAnimal.getEspecie());
-                        cell = row1.createCell(1);cell.setCellValue(tipoAnimal.getNomeRacaAnimal());
-                        cell = row1.createCell(2);cell.setCellValue(tipoAnimal.getDescricao());
-                        indicador++;
-
-                    }
-                }
-
-                //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(getActivity().getFilesDir(),"Tipo de Animais.xls");
-                FileOutputStream outputStream = null;
-
-                try{
-                    outputStream = new FileOutputStream (file);
-                    wb.write(outputStream);
-
-                    //compartilhar a planilha gerada
-                    if(file.exists()) { // verifica se existe o arquivo
-                        Context context = getActivity().getApplicationContext();
-                        Uri patch = FileProvider.getUriForFile(context,"com.example.travelpetadm.fileprovider",file);
-                        Intent compartilharRel = new Intent(Intent.ACTION_SEND);
-                        compartilharRel.setType("text/xls");
-                        compartilharRel.putExtra(Intent.EXTRA_SUBJECT,  "Dados Tipos de animais");
-                        compartilharRel.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        compartilharRel.putExtra(Intent.EXTRA_STREAM,patch);
-                        startActivity(Intent.createChooser(compartilharRel, "compartilhar Dados Tipo de animal"));
-                        progresso.setVisibility(View.VISIBLE);
-                    }
-
-
-                }catch (IOException e) {
-                    e.printStackTrace();
-                    try {
-                        outputStream.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                progresso.setVisibility(View.GONE);
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-
+    public void adicionarTipoAnimal(){
+        startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
     }
 }

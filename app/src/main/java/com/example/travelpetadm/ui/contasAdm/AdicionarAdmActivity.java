@@ -79,7 +79,7 @@ public class AdicionarAdmActivity extends AppCompatActivity {
                 adm.salvar();
                 alert(adm.getNome());
 
-                //finish();
+                finish();
             }else{
                 try{
                     throw task.getException();

@@ -27,6 +27,7 @@ import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.Model.Viagem;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.example.travelpetadm.ui.veiculos.AdapterListaVeiculos;
 import com.example.travelpetadm.ui.veiculos.InfoVeiculosActivity;
@@ -56,6 +57,7 @@ public class ViagemFragment extends Fragment {
     private DatabaseReference viagemRef;
     private ValueEventListener valueEventListenerViagem;
     private ProgressBar progressoViagem;
+    View view;
 
     public ViagemFragment() {}
 
@@ -64,7 +66,7 @@ public class ViagemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_viagem, container, false);
+        view = inflater.inflate(R.layout.fragment_viagem, container, false);
         setHasOptionsMenu(true);
         iniciarComponentes(view);
         iniciarReciclerView(view);
@@ -125,6 +127,7 @@ public class ViagemFragment extends Fragment {
     }
 
     public void recuperarViagem () {
+
         valueEventListenerViagem = viagemRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -156,91 +159,12 @@ public class ViagemFragment extends Fragment {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
-
+                new GeradorXls("Viagem",view.getContext());
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-    public void gerarXLS(){
-        valueEventListenerViagem = viagemRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int indicador = 1;
-                Workbook wb = new HSSFWorkbook();
-                Cell cell= null;
-                CellStyle cellStyle =wb.createCellStyle();
-                cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
-                Sheet sheet = null;
-                sheet = wb.createSheet("Viagens Realizadas");
-                //construindo linhas de indicados de atributo
-                Row row = sheet.createRow(0);
-                cell = row.createCell(0);cell.setCellValue("ID Viagem");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
-                cell = row.createCell(1);cell.setCellValue("ID DonoAnimal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
-                cell = row.createCell(2);cell.setCellValue("ID Animal");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
-                cell = row.createCell(3);cell.setCellValue("ID Motorista");          cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
-                cell = row.createCell(4);cell.setCellValue("ID veiculo");            cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
-                cell = row.createCell(5);cell.setCellValue("data");                  cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
-                cell = row.createCell(6);cell.setCellValue("Origem");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
-                cell = row.createCell(7);cell.setCellValue("Destino");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
-                cell = row.createCell(8);cell.setCellValue("Distancia");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
-                cell = row.createCell(9);cell.setCellValue("Hora Inicio");           cell.setCellStyle(cellStyle);sheet.setColumnWidth(9,(10*200));
-                cell = row.createCell(10);cell.setCellValue("Hora Fim");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(10,(10*200));
-                cell = row.createCell(11);cell.setCellValue("Porte animal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(11,(10*200));
-                cell = row.createCell(12);cell.setCellValue("custo");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(12,(10*200));
 
-
-                //adicionando o conteudo
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    Viagem viagem = dados.getValue(Viagem.class);
-                    // inserindo os dados na planilha
-                    Row row1 = sheet.createRow(indicador);
-                    cell = row1.createCell(0);cell.setCellValue(viagem.getIDViagem());
-                    cell = row1.createCell(1);cell.setCellValue(viagem.getIDDonoAnimal());
-                    cell = row1.createCell(2);cell.setCellValue(viagem.getAnimal());
-                    cell = row1.createCell(3);cell.setCellValue(viagem.getIDMotorista());
-                    cell = row1.createCell(4);cell.setCellValue(viagem.getIDVeiculo());
-                    cell = row1.createCell(5);cell.setCellValue(viagem.getData());
-                    cell = row1.createCell(6);cell.setCellValue(viagem.getOrigem());
-                    cell = row1.createCell(7);cell.setCellValue(viagem.getDestino());
-                    cell = row1.createCell(8);cell.setCellValue(viagem.getDistancia());
-                    cell = row1.createCell(9);cell.setCellValue(viagem.getHoraInicio());
-                    cell = row1.createCell(10);cell.setCellValue(viagem.getHoraFim());
-                    cell = row1.createCell(11);cell.setCellValue(viagem.getPorteAnimal());
-                    cell = row1.createCell(12);cell.setCellValue(viagem.getCustoViagem());
-                    indicador++;
-
-                }
-                //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(getActivity().getFilesDir(),"Viagem.xls");
-                FileOutputStream outputStream = null;
-                try{
-                    outputStream = new FileOutputStream (file);
-                    wb.write(outputStream);
-                    //compartilhar a planilha gerada
-                    if(file.exists()) { // verifica se existe o arquivo
-                        Context context = getActivity().getApplicationContext();
-                        Uri patch = FileProvider.getUriForFile(context,"com.example.travelpetadm.fileprovider",file);
-                        Intent compartilharRel = new Intent(Intent.ACTION_SEND);
-                        compartilharRel.setType("text/xls");
-                        compartilharRel.putExtra(Intent.EXTRA_SUBJECT,  "Viagem");
-                        compartilharRel.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        compartilharRel.putExtra(Intent.EXTRA_STREAM,patch);
-                        startActivity(Intent.createChooser(compartilharRel, "compartilhar Dados de Viagem"));
-                        progressoViagem.setVisibility(View.VISIBLE);
-                    }
-
-                }catch (IOException e) {
-                    e.printStackTrace();
-                    try {
-                        outputStream.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                progressoViagem.setVisibility(View.GONE);
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-    }
     public void alerta(String string) {
         Toast.makeText(getActivity().getApplicationContext(), string, Toast.LENGTH_SHORT).show();
     }

@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
     private String id,nome,sobrenome,cpf,email,status,tipoUsuario, reputacao, telefone ;
     private Double avaliacao,longitude,latitude;
-    private Carteira carteira;
     private Endereco endereco;
 
     //CONSTRUTOR -----------------------------------
@@ -109,14 +108,6 @@ public class Usuario implements Serializable {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
-    }
-
-    public Carteira getCarteira() {
-        return carteira;
-    }
-
-    public void setCarteira(Carteira carteira) {
-        this.carteira = carteira;
     }
 
     public Endereco getEndereco() {

@@ -11,6 +11,7 @@ public class TipoAnimal implements Serializable {
     private String nomeRacaAnimal;
     private String descricao;
     private String nomeCientificoRacaAnimal;
+    private  String iconeEspecieUrl;
 
 
     public TipoAnimal() {
@@ -63,5 +64,11 @@ public class TipoAnimal implements Serializable {
         this.nomeCientificoRacaAnimal = nomeCientificoRacaAnimal;
     }
 
+    public String getIconeEspecieUrl() {
+        return iconeEspecieUrl;
+    }
 
+    public void setIconeEspecieUrl(String iconeEspecieUrl) {
+        this.iconeEspecieUrl = iconeEspecieUrl;
+    }
 }

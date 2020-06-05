@@ -140,12 +140,14 @@ public class ContasAdmFragment extends Fragment {
                 )
         );
     }
+
     //BOTÔES DE MENU
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main2, menu);
         }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação
@@ -154,7 +156,7 @@ public class ContasAdmFragment extends Fragment {
                 gerarXLS();
                 break;
             case R.id.action_adicionar:
-                startActivity(new Intent(getActivity(), AdicionarAdmActivity.class));
+                adicionarAdm();
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
@@ -163,6 +165,7 @@ public class ContasAdmFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void gerarXLS(){
         valueEventListenerAdm = admRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -221,6 +224,10 @@ public class ContasAdmFragment extends Fragment {
                 progresso.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
+    }
+
+    public void adicionarAdm(){
+        startActivity(new Intent(getActivity(), AdicionarAdmActivity.class));
     }
 
 }

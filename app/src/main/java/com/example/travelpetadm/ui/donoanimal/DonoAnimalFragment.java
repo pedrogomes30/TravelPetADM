@@ -27,6 +27,7 @@ import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.DonoAnimal;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.example.travelpetadm.ui.TipoAnimal.AdicionarTipoAnimalActivity;
 import com.example.travelpetadm.ui.contasAdm.AdapterListaAdm;
@@ -157,7 +158,7 @@ public class DonoAnimalFragment extends Fragment {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
-                gerarXLS();
+                new GeradorXls("DonoAnimal", getActivity().getApplicationContext());
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
@@ -166,7 +167,7 @@ public class DonoAnimalFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    public void gerarXLS(){
+    /*public void gerarXLS(){
         valueEventListenerDonoAnimal = donoAnimalRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -213,19 +214,8 @@ public class DonoAnimalFragment extends Fragment {
                 try{
                     outputStream = new FileOutputStream (file);
                     wb.write(outputStream);
+                    compartilharXls(file);
 
-                    //compartilhar a planilha gerada
-                    if(file.exists()) { // verifica se existe o arquivo
-                        Context context = getActivity().getApplicationContext();
-                        Uri patch = FileProvider.getUriForFile(context,"com.example.travelpetadm.fileprovider",file);
-                        Intent compartilharRel = new Intent(Intent.ACTION_SEND);
-                        compartilharRel.setType("text/xls");
-                        compartilharRel.putExtra(Intent.EXTRA_SUBJECT,  "Dados Tipos de animais");
-                        compartilharRel.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        compartilharRel.putExtra(Intent.EXTRA_STREAM,patch);
-                        startActivity(Intent.createChooser(compartilharRel, "compartilhar Dados Tipo de animal"));
-                        progresso.setVisibility(View.VISIBLE);
-                    }
 
 
                 }catch (IOException e) {
@@ -241,4 +231,19 @@ public class DonoAnimalFragment extends Fragment {
         });
 
     }
+    public void compartilharXls(File file) {
+
+        //compartilhar a planilha gerada
+        if (file.exists()) { // verifica se existe o arquivo
+            Context context = getActivity().getApplicationContext();
+            Uri patch = FileProvider.getUriForFile(context, "com.example.travelpetadm.fileprovider", file);
+            Intent compartilharRel = new Intent(Intent.ACTION_SEND);
+            compartilharRel.setType("text/xls");
+            compartilharRel.putExtra(Intent.EXTRA_SUBJECT, "Dados Tipos de animais");
+            compartilharRel.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            compartilharRel.putExtra(Intent.EXTRA_STREAM, patch);
+            startActivity(Intent.createChooser(compartilharRel, "compartilhar Dados Tipo de animal"));
+            progresso.setVisibility(View.VISIBLE);
+        }
+    }*/
 }

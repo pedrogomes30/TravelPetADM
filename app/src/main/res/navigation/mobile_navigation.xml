@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_estatisticas">
+    app:startDestination="@+id/nav_avaliacao">
 
     <fragment
-        android:id="@+id/nav_estatisticas"
-        android:name="com.example.travelpetadm.ui.estatisticas.EstatisticasFragment"
+        android:id="@+id/nav_avaliacao"
+        android:name="com.example.travelpetadm.ui.Avaliacao.AvaliacaoFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_estatisticas"/>
+        tools:layout="@layout/fragment_avaliacao"/>
 
     <fragment
         android:id="@+id/nav_donoAnimal"
@@ -19,7 +19,7 @@
 
         <action
             android:id="@+id/action_nav_donoAnimal_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@+id/nav_avaliacao" />
     </fragment>
 
     <fragment
@@ -30,7 +30,7 @@
 
         <action
             android:id="@+id/action_nav_motorista_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@+id/nav_avaliacao" />
     </fragment>
     <fragment
         android:id="@+id/nav_viagem"
@@ -40,7 +40,7 @@
 
         <action
             android:id="@+id/action_nav_viagem_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@+id/nav_avaliacao" />
     </fragment>
     <fragment
         android:id="@+id/nav_veiculos"
@@ -50,7 +50,7 @@
 
         <action
             android:id="@+id/action_nav_veiculos_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@+id/nav_avaliacao" />
     </fragment>
     <fragment
         android:id="@+id/nav_animais"
@@ -60,7 +60,7 @@
 
         <action
             android:id="@+id/action_nav_animais_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@+id/nav_avaliacao" />
     </fragment>
     <fragment
         android:id="@+id/nav_especies"
@@ -70,7 +70,7 @@
 
         <action
             android:id="@+id/action_nav_animais_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@id/nav_avaliacao" />
     </fragment>
     <fragment
         android:id="@+id/nav_contasadm"
@@ -79,7 +79,7 @@
         tools:layout="@layout/fragment_contas_adm" >>
         <action
             android:id="@+id/action_nav_contasadm_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@id/nav_avaliacao" />
     </fragment>
 
     <fragment
@@ -90,7 +90,7 @@
 
         <action
             android:id="@+id/action_nav_about_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@id/nav_avaliacao" />
     </fragment>
 
 
@@ -102,6 +102,6 @@
 
         <action
             android:id="@+id/action_nav_sair_to_nav_estatisticas"
-            app:destination="@id/nav_estatisticas" />
+            app:destination="@id/nav_avaliacao" />
     </fragment>
 </navigation>
