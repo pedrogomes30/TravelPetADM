@@ -3,7 +3,7 @@ package com.example.travelpetadm.Model;
 import java.io.Serializable;
 
 public class DonoAnimal  extends Usuario implements Serializable {
-      private String fotoUsuarioUrl;
+      private String fotoPerfilUrl;
 
     //CONSTRUTOR -----------------------------------------------------------
 
@@ -12,11 +12,12 @@ public class DonoAnimal  extends Usuario implements Serializable {
 
     //GETTERS AND SETTERS ----------------------------------------------------
 
-    public String getFotoUsuarioUrl() {
-        return fotoUsuarioUrl;
+
+    public String getFotoPerfilUrl() {
+        return fotoPerfilUrl;
     }
 
-    public void setFotoUsuarioUrl(String fotoUsuarioUrl) {
-        this.fotoUsuarioUrl = fotoUsuarioUrl;
+    public void setFotoPerfilUrl(String fotoPerfilUrl) {
+        this.fotoPerfilUrl = fotoPerfilUrl;
     }
 }

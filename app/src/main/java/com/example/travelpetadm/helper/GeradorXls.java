@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.Model.Adm;
+import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.DonoAnimal;
 import com.example.travelpetadm.Model.Motorista;
 import com.example.travelpetadm.Model.TipoAnimal;
@@ -42,16 +44,19 @@ public class GeradorXls extends AppCompatActivity {
         this.context = context;
         switch(classe){
             case "Adm":
+                xlsAdm();
                 break;
             case "Animal":
+                xlsAnimal();
                 break;
             case "Avaliacao":
+                //implementar
                 break;
             case "DonoAnimal":
                 xlsDonoAnimal();
                 break;
             case "Endereco":
-
+                //implementar
                 break;
             case "Motorista":
                 xlsMotorista();
@@ -99,7 +104,6 @@ public class GeradorXls extends AppCompatActivity {
                 cell = row.createCell(7);cell.setCellValue("Status");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
                 cell = row.createCell(8);cell.setCellValue("UrlFotoPerfil");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
 
-                alert("criou as colunas");
 
                 //adicionando o conteudo
                 for(DataSnapshot dados: dataSnapshot.getChildren()) {
@@ -114,15 +118,15 @@ public class GeradorXls extends AppCompatActivity {
                     cell = row1.createCell(5);cell.setCellValue(String.valueOf(donoAnimal.getAvaliacao()));
                     cell = row1.createCell(6);cell.setCellValue(donoAnimal.getTelefone());
                     cell = row1.createCell(7);cell.setCellValue(donoAnimal.getStatus());
-                    cell = row1.createCell(8);cell.setCellValue(donoAnimal.getFotoUsuarioUrl());
+                    cell = row1.createCell(8);cell.setCellValue(donoAnimal.getFotoPerfilUrl());
                     indicador++;
-                    alert("baixou os dados");
+
 
                 }
                 //salvando a planilha criada no diretorio do dispositivo
                 File file = new File(getFilesDir(),"Dono Animais.xls");
                 FileOutputStream outputStream = null;
-                alert("criou o arquivo" );
+
 
                 try{
                     outputStream = new FileOutputStream (file);
@@ -395,6 +399,114 @@ public class GeradorXls extends AppCompatActivity {
                     outputStream = new FileOutputStream (file);
                     wb.write(outputStream);
                     compartilharXls(file);
+                }catch (IOException e) {
+                    e.printStackTrace();
+                    try {
+                        outputStream.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+    }
+
+    public void xlsAdm(){
+        ref = Conexao.getFirebaseDatabase().child("adm");
+        listener = ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int indicador = 1;
+                Workbook wb = new HSSFWorkbook();
+                Cell cell= null;
+                CellStyle cellStyle =wb.createCellStyle();
+                cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
+                Sheet sheet = null;
+                sheet = wb.createSheet("Administradores Cadastrados");
+                //construindo linhas de indicados de atributo
+                Row row = sheet.createRow(0);
+                cell = row.createCell(0);cell.setCellValue("ID Adm");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
+                cell = row.createCell(1);cell.setCellValue("Nome");                 cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
+                cell = row.createCell(2);cell.setCellValue("Email");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
+                cell = row.createCell(3);cell.setCellValue("Tipo de Perfil");       cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
+
+                //adicionando o conteudo
+                for(DataSnapshot dados: dataSnapshot.getChildren()) {
+                    Adm adm = dados.getValue(Adm.class);
+                    // inserindo os dados na planilha
+                    Row row1 = sheet.createRow(indicador);
+                    cell = row1.createCell(0);cell.setCellValue(adm.getIdAdm());
+                    cell = row1.createCell(1);cell.setCellValue(adm.getNome());
+                    cell = row1.createCell(2);cell.setCellValue(adm.getEmail());
+                    cell = row1.createCell(3);cell.setCellValue(adm.getTipoPerfil());
+                    indicador++;
+                }
+                //salvando a planilha criada no diretorio do dispositivo
+                File file = new File(context.getFilesDir(),"Adm.xls");
+                FileOutputStream outputStream = null;
+                try{
+                    outputStream = new FileOutputStream (file);
+                    wb.write(outputStream);
+                    compartilharXls(file);
+                }catch (IOException e) {
+                    e.printStackTrace();
+                    try {
+                        outputStream.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+    }
+
+    public void xlsAnimal(){
+        ref= Conexao.getFirebaseDatabase().child("animais");
+        listener = ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int indicador = 1;
+                Workbook wb = new HSSFWorkbook();
+                Cell cell= null;
+                CellStyle cellStyle =wb.createCellStyle();
+                cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
+                Sheet sheet = null;
+                sheet = wb.createSheet("Animais Cadastrados");
+                //construindo linhas de indicados de atributo
+                Row row = sheet.createRow(0);
+                cell = row.createCell(0);cell.setCellValue("ID Animal");            cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
+                cell = row.createCell(1);cell.setCellValue("ID DonoAnimal");        cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
+                cell = row.createCell(2);cell.setCellValue("Nome do Animal");       cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
+                cell = row.createCell(3);cell.setCellValue("Especie");              cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
+                cell = row.createCell(4);cell.setCellValue("Raça");                 cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
+                cell = row.createCell(5);cell.setCellValue("Porte do Animal");      cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
+                cell = row.createCell(6);cell.setCellValue("Observação do Animal"); cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
+                cell = row.createCell(7);cell.setCellValue("URL Foto do Animal");   cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
+                //adicionando o conteudo
+                for(DataSnapshot dados: dataSnapshot.getChildren()) {
+                    for (DataSnapshot dados2 : dados.getChildren()) {
+                        Animal animal = dados2.getValue(Animal.class);
+                        // inserindo os dados na planilha
+                        Row row1 = sheet.createRow(indicador);
+                        cell = row1.createCell(0);cell.setCellValue(animal.getIdAnimal());
+                        cell = row1.createCell(1);cell.setCellValue(animal.getIdUsuario());
+                        cell = row1.createCell(2);cell.setCellValue(animal.getNomeAnimal());
+                        cell = row1.createCell(3);cell.setCellValue(animal.getEspecieAnimal());
+                        cell = row1.createCell(4);cell.setCellValue(animal.getRacaAnimal());
+                        cell = row1.createCell(5);cell.setCellValue(animal.getPorteAnimal());
+                        cell = row1.createCell(6);cell.setCellValue(animal.getObservacaoAnimal());
+                        cell = row1.createCell(7);cell.setCellValue(animal.getFotoAnimal());
+                        indicador++;
+                    }
+                }
+                //salvando a planilha criada no diretorio do dispositivo
+                File file = new File(context.getFilesDir(),"Animais.xls");
+                FileOutputStream outputStream = null;
+                try{
+                    outputStream = new FileOutputStream (file);
+                    wb.write(outputStream);
+                    compartilharXls(file);
+
                 }catch (IOException e) {
                     e.printStackTrace();
                     try {
