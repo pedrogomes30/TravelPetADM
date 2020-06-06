@@ -52,6 +52,6 @@ dependencies {
     implementation files('libs\\poi-ooxml-3.15.jar')
     implementation files('libs\\poi-ooxml-schemas-3.15.jar')
     //noinspection GradleCompatible
-    compile 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
