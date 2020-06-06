@@ -85,6 +85,7 @@ public class VeiculosFragment extends Fragment {
         veiculoRef  = Conexao.getFirebaseDatabase().child("veiculos");
         progressoVeiculo = view.findViewById(R.id.progressoVeiculo);
     }
+
     public void iniciarReciclerView(View view) {
 
         //configurar Adapter
@@ -119,6 +120,7 @@ public class VeiculosFragment extends Fragment {
                 )
         );
     }
+
     public void recuperarVeiculo (){
         valueEventListenerVeiculo = veiculoRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -138,12 +140,14 @@ public class VeiculosFragment extends Fragment {
         });
 
     }
+
     //BOTAO DE MENU
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main, menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação

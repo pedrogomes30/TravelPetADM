@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.helper.GeradorXls;
@@ -52,6 +53,7 @@ public class TipoAnimalFragment extends Fragment {
     private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
     View view;
+
     public  TipoAnimalFragment() {    }
 
     @Override
@@ -77,7 +79,7 @@ public class TipoAnimalFragment extends Fragment {
 
     public void iniciarComponentes(View view){
         recyclerView = view.findViewById(R.id.listaTiposAnimais);
-        tipoAnimalRef  = Conexao.getFirebaseDatabase().child("racaAnimal");
+        tipoAnimalRef  = TipoAnimalDAO.getTipoAnimalDatabase();
         progresso = view.findViewById(R.id.progressoTipoAnimal);
     }
 
@@ -116,21 +118,19 @@ public class TipoAnimalFragment extends Fragment {
         );
     }
 
-
     public void recuperarTipoAnimal (){
         valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 tiposAnimais.clear();
 
                 for(DataSnapshot dados: dataSnapshot.getChildren()) {
+                    //TipoAnimal tipoAnimal = dados.child("URLIcone").getValue(TipoAnimal.class);
                     for (DataSnapshot especie : dados.getChildren()) {
                         TipoAnimal tipoAnimal = especie.getValue(TipoAnimal.class);
                         tiposAnimais.add(tipoAnimal);
                         progresso.setVisibility(View.VISIBLE);
                     }
                 }
-
-
                 adapterListaTipoAnimal.notifyDataSetChanged();
                 progresso.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
@@ -167,6 +167,7 @@ public class TipoAnimalFragment extends Fragment {
     private void Alert(String msg){
         Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
     }
+
 
     public void adicionarTipoAnimal(){
         startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));

@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
+import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.ui.Login.LoginActivity;
 import com.example.travelpetadm.ui.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,23 +19,45 @@ public class Conexao {
     private static FirebaseAuth.AuthStateListener authStateListener;
     private static FirebaseUser firebaseUser;
     private static DatabaseReference firebaseRef;
-    private static StorageReference firebaseStorage;
-    private Conexao() {}
+    /*private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;
+    private static DatabaseReference firebaseRef;*/
 
+    //Nome de cada nó do firebase --------------------------------------------------------------
+    public static String adm =              "adm",
+                         animal =           "animais",
+                         avaliacao =        "avaliacao",
+                         donoAnimal =       "donoAnimal",
+                         enderecoDA =       "enderecosDonoAnimal",
+                         enderecoMO =       "enderecosMotorista",
+                         motorista =        "motorista",
+                         tipoAnimal =       "racaAnimal",
+                         veiculo =          "veiculo",
+                         viagem =           "viagem";
+
+    // FUNÇÕES BASE DO FIREBASE ----------------------------------------------------------------------
+            //referencia firebase Storage
+    private static StorageReference firebaseStorage;
+            //referencia firebase  Database
     public static DatabaseReference getFirebaseDatabase(){
         if(firebaseRef==null){
             firebaseRef = FirebaseDatabase.getInstance().getReference();
         }
         return firebaseRef;
     }
-
+            //inicia a autenticação
     public static FirebaseAuth getFirebaseAuth(){
         if (firebaseAuth == null){
             inicializarFirebaseAuth();
         }
         return  firebaseAuth;
     }
-
+            //Referencia aos usuários conectados
     private static void inicializarFirebaseAuth() {
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -48,25 +71,24 @@ public class Conexao {
         };
         firebaseAuth.addAuthStateListener(authStateListener);
     }
-
+            //pega o atual usuário conectado
     public static FirebaseUser getFirebaseUser(){
         return firebaseUser;
 
     }
-
+            //desloga o atual usuário conectado
     public static void logOut(){
         firebaseAuth.signOut();
 
     }
-
-    //verifica usuário logado
+            //verifica usuário logado
     public static boolean usuarioLogin(){
         if(firebaseAuth.getCurrentUser()!=null){
             return true;
         }else{return false;}
 
     }
-
+            //pega a referencia do storage
     public static StorageReference getFirebaseStorage(){
         if (firebaseStorage == null){
             inicializarFirebaseAuth();

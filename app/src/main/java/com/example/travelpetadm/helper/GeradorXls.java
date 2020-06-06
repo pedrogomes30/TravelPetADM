@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.DonoAnimal;
@@ -51,12 +52,14 @@ public class GeradorXls extends AppCompatActivity {
                 break;
             case "Avaliacao":
                 //implementar
+                xlsAvaliacao();
                 break;
             case "DonoAnimal":
                 xlsDonoAnimal();
                 break;
             case "Endereco":
                 //implementar
+                xlsEndereço();
                 break;
             case "Motorista":
                 xlsMotorista();
@@ -147,7 +150,7 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsTipoAnimal(){
-        ref = Conexao.getFirebaseDatabase().child("racaAnimal");
+        ref = TipoAnimalDAO.getTipoAnimalDatabase();
         listener = ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -517,6 +520,16 @@ public class GeradorXls extends AppCompatActivity {
                 }
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
+    }
+
+    //IMPLEMENTAR
+    public void xlsEndereço(){
+
+    }
+
+    //IMPLEMENTAR
+    public void xlsAvaliacao(){
+
     }
 
     //compartilhar a planilha gerada

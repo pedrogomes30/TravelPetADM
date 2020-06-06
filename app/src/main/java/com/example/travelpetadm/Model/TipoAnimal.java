@@ -1,6 +1,7 @@
 package com.example.travelpetadm.Model;
 
 import com.example.travelpetadm.DAO.Conexao;
+import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.helper.Encriptador;
 import com.google.firebase.database.DatabaseReference;
 
@@ -19,12 +20,7 @@ public class TipoAnimal implements Serializable {
 
     //salva o tipo animal no banco de dados -- importar em uma classe DAO
     public void salvar(){
-
-        DatabaseReference reference = Conexao.getFirebaseDatabase();
-        reference.child("racaAnimal")
-              .child(especie)
-              .child(nomeRacaAnimal)
-              .setValue(this);
+        TipoAnimalDAO.salvarTipoAnimal(this);
     }
 
     //getters and setters
