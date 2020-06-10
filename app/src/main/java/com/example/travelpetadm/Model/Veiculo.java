@@ -14,6 +14,8 @@ public class Veiculo implements Serializable {
     private String status;
     private String fotoCRVLurl;
 
+    public Veiculo() {    }
+
     public String getStatus() {
         return status;
     }

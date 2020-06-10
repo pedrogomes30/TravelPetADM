@@ -12,16 +12,14 @@ public class TipoAnimal implements Serializable {
     private String nomeRacaAnimal;
     private String descricao;
     private String nomeCientificoRacaAnimal;
-    private  String iconeEspecieUrl;
+    private  String iconeUrl;
 
 
     public TipoAnimal() {
     }
 
-    //salva o tipo animal no banco de dados -- importar em uma classe DAO
-    public void salvar(){
-        TipoAnimalDAO.salvarTipoAnimal(this);
-    }
+   //chama a classe DAO para salvar no BD
+
 
     //getters and setters
     public String getEspecie() {
@@ -60,11 +58,11 @@ public class TipoAnimal implements Serializable {
         this.nomeCientificoRacaAnimal = nomeCientificoRacaAnimal;
     }
 
-    public String getIconeEspecieUrl() {
-        return iconeEspecieUrl;
+    public String iconeUrl() {
+        return iconeUrl;
     }
 
-    public void setIconeEspecieUrl(String iconeEspecieUrl) {
-        this.iconeEspecieUrl = iconeEspecieUrl;
+    public void iconeUrl(String iconeEspecieUrl) {
+        this.iconeUrl = iconeEspecieUrl;
     }
 }

@@ -47,21 +47,21 @@ import java.util.ArrayList;
 
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;
-    private AdapterListaTipoAnimal adapterListaTipoAnimal;
+    // é necessário ser publico e estático devido a classe DAO informar os itens salvos na classe Adapter intanciada dentro do fragment
+    public static AdapterListaTipoAnimal adapterListaTipoAnimal;
     private ArrayList<TipoAnimal> tiposAnimais =new ArrayList<>() ;
-    private DatabaseReference tipoAnimalRef;
-    private ValueEventListener valueEventListenerListaTipoAnimal;
     private ProgressBar progresso;
     View view;
 
     public  TipoAnimalFragment() {    }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,@NonNull Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,@NonNull ViewGroup container,
+                             @NonNull Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_tipo_animal, container, false);
         setHasOptionsMenu(true);
-        iniciarComponentes(view);
-        iniciarReciclerView(view);
+        iniciarComponentes();
+        iniciarReciclerView();
         return view;
     }
 
@@ -74,16 +74,15 @@ public class TipoAnimalFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        tipoAnimalRef.removeEventListener(valueEventListenerListaTipoAnimal);
+
     }
 
-    public void iniciarComponentes(View view){
+    public void iniciarComponentes(){
         recyclerView = view.findViewById(R.id.listaTiposAnimais);
-        tipoAnimalRef  = TipoAnimalDAO.getTipoAnimalDatabase();
         progresso = view.findViewById(R.id.progressoTipoAnimal);
     }
 
-    public void iniciarReciclerView(View view) {
+    public void iniciarReciclerView() {
 
         //configurar Adapter
         adapterListaTipoAnimal = new AdapterListaTipoAnimal(tiposAnimais, getActivity());
@@ -106,7 +105,7 @@ public class TipoAnimalFragment extends Fragment {
                                 Intent i =  new Intent(getActivity(),AdicionarTipoAnimalActivity.class);
                                 i.putExtra("EditarTipoAnimal",tipoAnimalSel);
                                 startActivity(i);
-                                 }
+                            }
                             @Override
                             public void onLongItemClick(View view, int position) {
                             }
@@ -118,24 +117,10 @@ public class TipoAnimalFragment extends Fragment {
         );
     }
 
+
     public void recuperarTipoAnimal (){
-        valueEventListenerListaTipoAnimal = tipoAnimalRef.addValueEventListener(new ValueEventListener() {
-            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                tiposAnimais.clear();
-
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    //TipoAnimal tipoAnimal = dados.child("URLIcone").getValue(TipoAnimal.class);
-                    for (DataSnapshot especie : dados.getChildren()) {
-                        TipoAnimal tipoAnimal = especie.getValue(TipoAnimal.class);
-                        tiposAnimais.add(tipoAnimal);
-                        progresso.setVisibility(View.VISIBLE);
-                    }
-                }
-                adapterListaTipoAnimal.notifyDataSetChanged();
-                progresso.setVisibility(View.GONE);
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-
+        TipoAnimalDAO.recuperarArray(tiposAnimais);
+        progresso.setVisibility(View.INVISIBLE);
     }
 
     //ITENS DE MENU
@@ -143,17 +128,17 @@ public class TipoAnimalFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main2, menu);
-        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
-                new GeradorXls("TipoAnimal", view.getContext());
+                gerarXLS();
                 break;
             case R.id.action_adicionar:
-                adicionarTipoAnimal();
+                startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
@@ -169,7 +154,7 @@ public class TipoAnimalFragment extends Fragment {
     }
 
 
-    public void adicionarTipoAnimal(){
-        startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
-    }
+    public void gerarXLS(){
+        new GeradorXls("TipoAnimal", view.getContext());
+        }
 }

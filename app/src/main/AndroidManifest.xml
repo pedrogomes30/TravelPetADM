@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Avaliacao.InfoAvaliacaoActivity"></activity>
+        <activity android:name=".ui.Motorista.InfoMotoristaActivity"></activity>
+        <activity android:name=".ui.Avaliacao.InfoAvaliacaoActivity" />
         <activity android:name=".ui.viagens.InfoViagensActivity" />
         <activity android:name=".ui.veiculos.InfoVeiculosActivity" />
         <activity android:name=".ui.animais.InfoAnimalActivity" />

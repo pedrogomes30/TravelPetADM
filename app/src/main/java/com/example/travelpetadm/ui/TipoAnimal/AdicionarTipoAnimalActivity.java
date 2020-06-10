@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -66,7 +67,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         textEditarTAEspecie.setText("");
         textEditarTARaca.setText("");
         textEditarTAObservacao.setText("");
-        tipoanimal.salvar();
+        TipoAnimalDAO.salvarTipoAnimal(tipoanimal);
         finish();
     }
 

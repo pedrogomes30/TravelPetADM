@@ -28,7 +28,7 @@ public class Conexao {
     private static DatabaseReference firebaseRef;
     private static DatabaseReference firebaseRef;*/
 
-    //Nome de cada nó do firebase --------------------------------------------------------------
+    //Nome de cada nó principal do firebase --------------------------------------------------------------
     public static String adm =              "adm",
                          animal =           "animais",
                          avaliacao =        "avaliacao",
@@ -40,9 +40,14 @@ public class Conexao {
                          veiculo =          "veiculo",
                          viagem =           "viagem";
 
+    //outras variaveis chave no firebase
+    public static String iconeUrl =         "iconeUrl"; // Url onde está salvo o icone da espécie
+
+
     // FUNÇÕES BASE DO FIREBASE ----------------------------------------------------------------------
             //referencia firebase Storage
     private static StorageReference firebaseStorage;
+
             //referencia firebase  Database
     public static DatabaseReference getFirebaseDatabase(){
         if(firebaseRef==null){
@@ -50,6 +55,7 @@ public class Conexao {
         }
         return firebaseRef;
     }
+
             //inicia a autenticação
     public static FirebaseAuth getFirebaseAuth(){
         if (firebaseAuth == null){
@@ -57,6 +63,7 @@ public class Conexao {
         }
         return  firebaseAuth;
     }
+
             //Referencia aos usuários conectados
     private static void inicializarFirebaseAuth() {
         firebaseAuth = FirebaseAuth.getInstance();
@@ -71,16 +78,19 @@ public class Conexao {
         };
         firebaseAuth.addAuthStateListener(authStateListener);
     }
+
             //pega o atual usuário conectado
     public static FirebaseUser getFirebaseUser(){
         return firebaseUser;
 
     }
+
             //desloga o atual usuário conectado
     public static void logOut(){
         firebaseAuth.signOut();
 
     }
+
             //verifica usuário logado
     public static boolean usuarioLogin(){
         if(firebaseAuth.getCurrentUser()!=null){
@@ -88,6 +98,7 @@ public class Conexao {
         }else{return false;}
 
     }
+
             //pega a referencia do storage
     public static StorageReference getFirebaseStorage(){
         if (firebaseStorage == null){

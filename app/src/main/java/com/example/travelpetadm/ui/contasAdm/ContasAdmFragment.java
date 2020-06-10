@@ -91,10 +91,10 @@ public class ContasAdmFragment extends Fragment {
     }
 
     public void recuperarAdm (){
+
         valueEventListenerAdm = admRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 adms.clear();
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE AVES
                for(DataSnapshot dados: dataSnapshot.getChildren()){
                     Adm adm = dados.getValue(Adm.class);
                     adms.add(adm);

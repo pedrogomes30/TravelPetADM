@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterListaTipoAnimal extends RecyclerView.Adapter<AdapterListaTipoAnimal.MyViewHolder> {
@@ -70,7 +71,11 @@ public int getItemCount() {
         return tiposAnimais.size();
         }
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+    public void notifyDataSetChanged(ArrayList<TipoAnimal> tiposAnimais) {
+
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
     TextView especie, raca, descricao;
     ImageView imageEspecie;
