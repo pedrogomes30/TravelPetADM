@@ -10,4 +10,5 @@
     <color name="azul_claro">#2e8fc2</color>
     <color name="azul_petroleo">#054666</color>
     <color name="azul_petroleo_claro">#116591</color>
+    <color name="cinza" />
 </resources>

@@ -1,12 +1,9 @@
 package com.example.travelpetadm.ui.contasAdm;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,41 +18,28 @@ import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.travelpetadm.DAO.AdmDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
-import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.helper.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
-import com.example.travelpetadm.ui.donoanimal.AdapterDonoAnimal;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ContasAdmFragment extends Fragment {
+    public static AdapterListaAdm adapterListaAdm;
     private RecyclerView recyclerView;
-    private AdapterListaAdm adapterListaAdm;
     private ArrayList<Adm> adms =new ArrayList<>() ;
     private DatabaseReference admRef;
     private ValueEventListener valueEventListenerAdm;
     private ProgressBar progresso;
+    private FloatingActionButton fabAdicionarAdm;
     View view;
 
     public ContasAdmFragment() {}
@@ -69,7 +53,6 @@ public class ContasAdmFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        admRef.removeEventListener(valueEventListenerAdm);
     }
 
     @Override
@@ -81,6 +64,7 @@ public class ContasAdmFragment extends Fragment {
         iniciarComponentes(view);
         iniciarReciclerView(view);
         recuperarAdm();
+        adicionarAdm();
         return view;
     }
 
@@ -88,24 +72,12 @@ public class ContasAdmFragment extends Fragment {
         recyclerView = view.findViewById(R.id.listaAdm);
         admRef  = Conexao.getFirebaseDatabase().child("adm");
         progresso = view.findViewById(R.id.progressAdm);
+        fabAdicionarAdm = view.findViewById(R.id.fabAdicionarAdm);
     }
 
     public void recuperarAdm (){
-
-        valueEventListenerAdm = admRef.addValueEventListener(new ValueEventListener() {
-            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                adms.clear();
-               for(DataSnapshot dados: dataSnapshot.getChildren()){
-                    Adm adm = dados.getValue(Adm.class);
-                    adms.add(adm);
-                    progresso.setVisibility(View.VISIBLE);
-                }
-
-                adapterListaAdm.notifyDataSetChanged();
-                progresso.setVisibility(View.GONE);
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-
+        AdmDAO.recuperarArray(adms);
+        progresso.setVisibility(View.GONE);
     }
 
     public void iniciarReciclerView(View view) {
@@ -147,18 +119,22 @@ public class ContasAdmFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.main2, menu);
+        inflater.inflate(R.menu.main, menu);
         }
-
+    public void adicionarAdm(){
+        fabAdicionarAdm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), AdicionarAdmActivity.class));
+            }
+        });
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //necessário ou o botão e selecionado em qualquer ação
         switch(item.getItemId()){
             case R.id.action_salvar:
                 new GeradorXls("Adm", view.getContext());
-                break;
-            case R.id.action_adicionar:
-                adicionarAdm();
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
@@ -168,10 +144,5 @@ public class ContasAdmFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    public void adicionarAdm(){
-        startActivity(new Intent(getActivity(), AdicionarAdmActivity.class));
-    }
 
 }

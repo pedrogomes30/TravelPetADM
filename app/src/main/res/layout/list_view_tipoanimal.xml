@@ -77,9 +77,5 @@
         android:textAppearance="@style/Fonte_Textos_menores"
         android:textSize="12sp"
         android:visibility="invisible" />
-    <![CDATA[
 
-    />
-
-]]>
 </LinearLayout>

@@ -1,7 +1,7 @@
 package com.example.travelpetadm.Model;
 
 public class Endereco {
-    private String rua,bairro,cidade,estado,cep;
+    private String logradouro,bairro,localidade,uf,cep;
 
     //CONTRUTOR ------------------------------------------------------
 
@@ -10,12 +10,13 @@ public class Endereco {
 
     //GETTERS AND SETTERS --------------------------------------------
 
-    public String getRua() {
-        return rua;
+
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public String getBairro() {
@@ -26,20 +27,20 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getLocalidade() {
+        return localidade;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setLocalidade(String localidade) {
+        this.localidade = localidade;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getUf() {
+        return uf;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public String getCep() {

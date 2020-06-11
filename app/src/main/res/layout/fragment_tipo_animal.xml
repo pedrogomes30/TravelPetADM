@@ -3,34 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/roxo_escuro"
     android:padding="5dp"
     tools:context=".ui.TipoAnimal.TipoAnimalFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:splitMotionEvents="false">
+        android:layout_height="wrap_content"
+        android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaTiposAnimais"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/fundo_margem_preta"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="718dp"
+            android:elevation="10dp"
+            android:scrollbars="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaTiposAnimais"
-                android:layout_width="match_parent"
-                android:layout_height="718dp"
-                android:elevation="10dp"
-                android:scrollbars="vertical">
+        </androidx.recyclerview.widget.RecyclerView>
 
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressoTipoAnimal"
@@ -40,4 +34,18 @@
         android:layout_gravity="center"
         android:progressTint="@color/roxo_escuro"
         tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdicionarTipoAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/branco"
+        app:elevation="0dp"
+        app:maxImageSize="64dp" />
 </FrameLayout>

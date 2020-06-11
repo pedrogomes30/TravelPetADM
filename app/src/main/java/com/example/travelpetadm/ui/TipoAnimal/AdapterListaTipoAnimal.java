@@ -62,18 +62,14 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
                 break;
         }
     }
-
-
 }
 
-@Override
-public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return tiposAnimais.size();
         }
 
-    public void notifyDataSetChanged(ArrayList<TipoAnimal> tiposAnimais) {
-
-    }
+    public void notifyDataSetChanged(ArrayList<TipoAnimal> tiposAnimais) {}
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 

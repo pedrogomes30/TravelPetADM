@@ -12,7 +12,7 @@ public class TipoAnimal implements Serializable {
     private String nomeRacaAnimal;
     private String descricao;
     private String nomeCientificoRacaAnimal;
-    private  String iconeUrl;
+    private  String iconeEspecieUrl;
 
 
     public TipoAnimal() {
@@ -59,10 +59,10 @@ public class TipoAnimal implements Serializable {
     }
 
     public String iconeUrl() {
-        return iconeUrl;
+        return iconeEspecieUrl;
     }
 
     public void iconeUrl(String iconeEspecieUrl) {
-        this.iconeUrl = iconeEspecieUrl;
+        this.iconeEspecieUrl = iconeEspecieUrl;
     }
 }

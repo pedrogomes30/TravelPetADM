@@ -1,16 +1,25 @@
 package com.example.travelpetadm.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
+import com.example.travelpetadm.Model.DonoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,13 +40,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar); recuperarAdm();
-        iniciarComponentes();
-
+        setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_avaliacao,
                 R.id.nav_donoAnimal,
@@ -54,32 +59,19 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        iniciarComponentes(navigationView);
     }
 
-    public void recuperarAdm(){
-        FirebaseUser adm = Adm.getAdmAtual();
-        if(adm.getDisplayName() == null){
-        alert("usuário com nome de perfil" );
-        }else
-            alert("sem nome perfil");
-
-        //nomeAdm.setText(adm.getDisplayName());
-
-
-
-    }
-public void iniciarComponentes(){
-        nomeAdm = findViewById(R.id.nomePerfilAdm);
-        emailAdm = findViewById(R.id.emailPerfilAdm);
-
+public void iniciarComponentes(NavigationView navigationView){
+    View view = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        nomeAdm = view.findViewById(R.id.nomePerfilAdm);
+        emailAdm = view.findViewById(R.id.emailPerfilAdm);
+        recuperarNomeEmailAdm();
 }
 
     @Override
     protected void onStart() {
         super.onStart();
-        auth = Conexao.getFirebaseAuth();
-
-
     }
 
     @Override
@@ -93,5 +85,29 @@ public void iniciarComponentes(){
         Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT);
     }
 
+    public void recuperarNomeEmailAdm(){
+        nomeAdm.setText("Olá! "+nome);
+        emailAdm.setText(email);
+        DatabaseReference donoAnimalRef = Conexao.getFirebaseDatabase()
+                .child( Conexao.adm)
+                .child(Encriptador.codificarBase64(Conexao.getEmailUsuario()));
+        donoAnimalRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                DonoAnimal donoAnimal = dataSnapshot.getValue(DonoAnimal.class);
+                nome       =   donoAnimal.getNome();
+                email       =   donoAnimal.getEmail();
+
+                nomeAdm.setText("Olá! "+nome);
+                emailAdm.setText(email);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 }

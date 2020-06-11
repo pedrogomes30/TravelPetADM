@@ -98,7 +98,10 @@ public class Conexao {
         }else{return false;}
 
     }
-
+    public static String getEmailUsuario(){
+        FirebaseAuth usuario = Conexao.getFirebaseAuth();
+        return usuario.getCurrentUser().getEmail();
+    }
             //pega a referencia do storage
     public static StorageReference getFirebaseStorage(){
         if (firebaseStorage == null){

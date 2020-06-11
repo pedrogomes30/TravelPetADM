@@ -61,7 +61,10 @@
     <string name="confirmar_senha">confirmar senha</string>
     <string name="senha">senha</string>
     <string name="raca">Raca</string>
+    <string name="avaliado">Avaliado</string>
+    <string name="avaliador">Avaliador</string>
     <string name="especie">Especie</string>
+    <string name="notaAvaliacao">nota</string>
     <string name="login">Acesse sua conta</string>
     <string name="Name">Nome</string>
     <string name="salvar">salvar</string>
@@ -73,7 +76,11 @@
     <string name="aperte_o_porquinho_para_deslogar">Aperte o porquinho para deslogar :)</string>
     <string name="logout">Logout</string>
     <string name="tipo_animal">Tipo Animal</string>
-    <string name="adicione_ou_edite_no_banco_de_dados_uma_esp_cie_ou_ra_a_de_animal">Adicione ou edite no banco de dados uma espécie ou raça de animal.</string>
+    <string name="info_Avaliacao">Informação de Avaliação</string>
+    <string name="observação_tipoanimal">Adicione ou edite no banco de dados uma espécie ou raça de animal.</string>
+    <string name="observação_Avaliacao">Visualize as informações realizadas durante as viagens.</string>
+    <string name="observacaoAvaliacao">Observação</string>
+    <string name="tipoAvaliacao">Tipo Avaliação</string>
     <string name="descri_o">Descrição</string>
     <string name="acesse_sua_conta">Acesse sua conta</string>
     <string name="e_mail">E-mail</string>

@@ -27,6 +27,8 @@ import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.helper.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
+import com.example.travelpetadm.ui.contasAdm.AdicionarAdmActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,12 +47,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static com.example.travelpetadm.DAO.TipoAnimalDAO.recuperarArrayAdapter;
+
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;
     // é necessário ser publico e estático devido a classe DAO informar os itens salvos na classe Adapter intanciada dentro do fragment
     public static AdapterListaTipoAnimal adapterListaTipoAnimal;
     private ArrayList<TipoAnimal> tiposAnimais =new ArrayList<>() ;
     private ProgressBar progresso;
+    private FloatingActionButton fabAdicionarTipoAnimal;
     View view;
 
     public  TipoAnimalFragment() {    }
@@ -62,6 +67,7 @@ public class TipoAnimalFragment extends Fragment {
         setHasOptionsMenu(true);
         iniciarComponentes();
         iniciarReciclerView();
+        adicionarTipoAnimal();
         return view;
     }
 
@@ -71,28 +77,20 @@ public class TipoAnimalFragment extends Fragment {
         recuperarTipoAnimal();
     }
 
-    @Override
-    public void onStop(){
-        super.onStop();
-
-    }
-
     public void iniciarComponentes(){
         recyclerView = view.findViewById(R.id.listaTiposAnimais);
         progresso = view.findViewById(R.id.progressoTipoAnimal);
+        fabAdicionarTipoAnimal = view.findViewById(R.id.fabAdicionarTipoAnimal);
     }
 
     public void iniciarReciclerView() {
-
         //configurar Adapter
         adapterListaTipoAnimal = new AdapterListaTipoAnimal(tiposAnimais, getActivity());
-
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterListaTipoAnimal);
-
         //Configurar evento de clique
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
@@ -117,9 +115,17 @@ public class TipoAnimalFragment extends Fragment {
         );
     }
 
+    public void adicionarTipoAnimal() {
+        fabAdicionarTipoAnimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
+            }
+        });
+    }
 
     public void recuperarTipoAnimal (){
-        TipoAnimalDAO.recuperarArray(tiposAnimais);
+        tiposAnimais= TipoAnimalDAO.recuperarArrayAdapter(tiposAnimais);
         progresso.setVisibility(View.INVISIBLE);
     }
 
@@ -127,7 +133,7 @@ public class TipoAnimalFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.main2, menu);
+        inflater.inflate(R.menu.main, menu);
     }
 
     @Override
@@ -136,9 +142,6 @@ public class TipoAnimalFragment extends Fragment {
         switch(item.getItemId()){
             case R.id.action_salvar:
                 gerarXLS();
-                break;
-            case R.id.action_adicionar:
-                startActivity(new Intent(getActivity(), AdicionarTipoAnimalActivity.class));
                 break;
             case R.id.action_procurar:
                 Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();

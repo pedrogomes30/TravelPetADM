@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.travelpetadm.DAO.AdmDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.helper.Encriptador;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,49 +27,9 @@ public class Adm implements Serializable {
     public Adm() {
     }
 
-    //salva o ADM no Firebase -- Alterar este metodo para a classe DAO
-    public void salvar(){
-        DatabaseReference firebaseRef = Conexao.getFirebaseDatabase();
-        DatabaseReference adm = firebaseRef.child("adm").child(getIdAdm());
-        adm.setValue(this);
-    }
+  //Link para classe DAO
+    public void salvar(){AdmDAO.salvar();}
 
-    //converte o e-mail do usuário em base64 para se ter o ID através do email codificado
-    // -- Importar para a classe DAO
-    public static  String getIdentificadorAdm (){
-        FirebaseAuth adm = Conexao.getFirebaseAuth();
-        String email = adm.getCurrentUser().getEmail();
-        String identificadorAdm = Encriptador.codificarBase64(email);
-        return identificadorAdm;
-    }
-    //retorna o atual usuário logado no sistema -- importar para a classe DAO
-    public static FirebaseUser getAdmAtual(){
-        FirebaseAuth adm = Conexao.getFirebaseAuth();
-        return adm.getCurrentUser();
-    }
-    //Metodo para recuperar o nome do usuário --importar par aa classe DAO
-
-    public static boolean atualizarNomeUsuario (String nome){
-    try{
-        FirebaseUser adm = getAdmAtual();
-        UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                .setDisplayName(nome)
-                .build();
-
-        adm.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(!task.isSuccessful()){
-                    Log.d("PERFIL", "Erro ao atualizar perfil");
-                }
-            }
-        });
-        return true;
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     //GETTER AND SETTERS
     public String getTipoPerfil() {

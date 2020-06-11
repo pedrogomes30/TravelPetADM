@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -41,102 +41,95 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/adicione_ou_edite_no_banco_de_dados_uma_esp_cie_ou_ra_a_de_animal"
+            android:text="@string/observação_tipoanimal"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu"
             android:textColor="@color/preto"
             android:textSize="18sp" />
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="117dp"
+            android:layout_height="122dp"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_ave_spinner" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="3dp">
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="117dp"
-                android:layout_height="122dp"
-                android:padding="5dp"
-                app:srcCompat="@drawable/ic_ave_spinner" />
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="3dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="@string/raca"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto" />
 
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:text="@string/raca"
-                    android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto" />
+            <EditText
+                android:id="@+id/textEditarTARaca"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@drawable/fundo_margem_preta"
+                android:paddingLeft="5dp"
+                android:textColor="@color/preto" />
 
-                <EditText
-                    android:id="@+id/textEditarTARaca"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/fundo_margem_preta"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/preto" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="Especie"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:text="Especie"
-                    android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+            <EditText
+                android:id="@+id/textEditarTAEspecie"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@drawable/fundo_margem_preta"
+                android:paddingLeft="5dp"
+                android:textColor="@color/preto" />
 
-                <EditText
-                    android:id="@+id/textEditarTAEspecie"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/fundo_margem_preta"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/preto" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Descrição"
+                android:textAlignment="center"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto" />
 
+            <EditText
+                android:id="@+id/textEditarTAObservacao"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:background="@drawable/fundo_margem_preta"
+                android:gravity="start"
+                android:paddingLeft="5dp"
+                android:textColor="@color/preto" />
+
+            <Button
+                android:id="@+id/btSalvarTA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/botao_azul"
+                android:text="@string/salvar" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Descrição"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/preto" />
-
-        <EditText
-            android:id="@+id/textEditarTAObservacao"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:background="@drawable/fundo_margem_preta"
-            android:gravity="start"
-            android:paddingLeft="5dp"
-            android:textColor="@color/preto" />
-
-        <Button
-            android:id="@+id/btSalvarTA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/botao_azul"
-            android:text="@string/salvar" />
 
     </LinearLayout>
 
