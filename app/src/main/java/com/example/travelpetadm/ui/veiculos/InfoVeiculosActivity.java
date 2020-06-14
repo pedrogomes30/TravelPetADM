@@ -17,7 +17,9 @@ public class InfoVeiculosActivity extends AppCompatActivity {
             textInfoVeiculoModelo,
             textInfoVeiculoID,
             textInfoVeiculoMotorista,
-            textInfoVeiculoStatus;
+            textInfoVeiculoStatus,
+            textInfoVeiculoPlaca,
+            textInfoVeiculoAno;
     private RecyclerView listaInfoVeiculosViagens;
     private Veiculo veiculo;
     @Override
@@ -33,6 +35,8 @@ public class InfoVeiculosActivity extends AppCompatActivity {
         textInfoVeiculoID                = findViewById(R.id.textInfoVeiculoID);
         textInfoVeiculoMotorista         = findViewById(R.id.textInfoVeiculoMotorista);
         textInfoVeiculoStatus            = findViewById(R.id.textInfoVeiculoStatus);
+        textInfoVeiculoPlaca            = findViewById(R.id.textInfoVeiculoPlaca);
+        textInfoVeiculoAno            = findViewById(R.id.textInfoVeiculoAno);
         //...
         listaInfoVeiculosViagens     = findViewById(R.id.listaInfoVeiculosViagens);
     }
@@ -46,6 +50,8 @@ public class InfoVeiculosActivity extends AppCompatActivity {
             textInfoVeiculoID.setText(veiculo.getIdVeiculo());
             textInfoVeiculoMotorista.setText(veiculo.getIdVeiculo());
             textInfoVeiculoStatus.setText(veiculo.getStatus());
+            textInfoVeiculoPlaca.setText(veiculo.getPlacaVeiculo());
+            textInfoVeiculoAno.setText(veiculo.getAnoVeiculo());
 
         }
     }

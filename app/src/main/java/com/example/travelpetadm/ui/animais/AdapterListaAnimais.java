@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class AdapterListaAnimais extends RecyclerView.Adapter<AdapterListaAnimai
         Animal animal = animais.get(position);
         holder.especie.setText(animal.getEspecieAnimal());
         holder.raca.setText(animal.getRacaAnimal());
-        holder.donoAnimal.setText(animal.getIdUsuario());
+        holder.donoAnimal.setText(Encriptador.decodificarBase64(animal.getIdUsuario()));
         holder.nome.setText(animal.getNomeAnimal());
 
         if(animal.getEspecieAnimal()!= null) {

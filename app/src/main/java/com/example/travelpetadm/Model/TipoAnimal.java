@@ -58,11 +58,11 @@ public class TipoAnimal implements Serializable {
         this.nomeCientificoRacaAnimal = nomeCientificoRacaAnimal;
     }
 
-    public String iconeUrl() {
+    public String getIconeEspecieUrl() {
         return iconeEspecieUrl;
     }
 
-    public void iconeUrl(String iconeEspecieUrl) {
+    public void seticoneUrl(String iconeEspecieUrl) {
         this.iconeEspecieUrl = iconeEspecieUrl;
     }
 }

@@ -17,14 +17,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.travelpetadm.DAO.AnimalDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.DonoAnimal;
+import com.example.travelpetadm.Model.Endereco;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
+import com.example.travelpetadm.ui.Avaliacao.AdapterListaAvaliacao;
 import com.example.travelpetadm.ui.animais.AdapterListaAnimais;
 import com.example.travelpetadm.ui.animais.InfoAnimalActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,24 +43,30 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 import static androidx.core.os.LocaleListCompat.create;
+import static com.example.travelpetadm.DAO.AnimalDAO.recuperarArrayDonoAnimal;
 
 public class InfoDonoAnimalActivity extends AppCompatActivity {
+    public static AdapterListaAnimais adapterListaAnimal;
     private TextView textPerfilNomeDA,
              textPerfilSobrenomeDA,
              textPerfilCPFDA,
              textPerfilEmailDA,
              textPerfilTipoPerfilDA,
-             textPerfilAvaliacaoDA,
+            textPerfilAvaliacao,
              textPerfilStatusDA;
+    private TextView textPerfilBairroDA,
+            textPerfilCepDA,
+            textPerfilCidadeDA,
+            textPerfilRuaDA,
+            textPerfilUfDA;
+    private FloatingActionButton fabAprovarDA;
 
-    private RecyclerView listaPerfilDAAnimal,
-                         listaPerfilDAViagens;
-    //lista animais
-        private AdapterListaAnimais adapterListaAnimal;
-    private ArrayList<Animal> animais =new ArrayList<>() ;
-    private DatabaseReference animalRef;
-    private ValueEventListener valueEventListenerAnimal;
-    ImageView imgAprovacao;
+    private RecyclerView listaPerfilDAAnimal;
+
+    private static ArrayList<Animal> animais =new ArrayList<>() ;
+    private static ArrayList<Endereco> enderecos =new ArrayList<>() ;
+
+    private ImageView imgAprovacao;
 
     DonoAnimal donoAnimal;
     @Override
@@ -63,6 +74,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_dono_animal);
         iniciarBundle();
+        iniciarReciclerView();
 
     }
     private void iniciarComponentes(){
@@ -73,14 +85,18 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         textPerfilEmailDA               = findViewById(R.id.textPerfilEmailDA);
         textPerfilTipoPerfilDA          = findViewById(R.id.textPerfilTipoPerfilDA);
         textPerfilStatusDA              = findViewById(R.id.textPerfilStatusDA);
-        textPerfilAvaliacaoDA           = findViewById(R.id.textPerfilAvaliacaoDA);
+        textPerfilAvaliacao           = findViewById(R.id.textPerfilAvaliacaoDA);
+        textPerfilBairroDA              = findViewById(R.id.textPerfilBairroDA);
+        textPerfilCepDA                 = findViewById(R.id.textPerfilCepDA);
+        textPerfilAvaliacao              = findViewById(R.id.textPerfilAvaliacao);
+        textPerfilRuaDA                 = findViewById(R.id.textPerfilRuaDA);
+        textPerfilUfDA                  = findViewById(R.id.textPerfilUfDA);
+        fabAprovarDA                    = findViewById(R.id.fabAprovarDA);
         //ListView
         listaPerfilDAAnimal             = findViewById(R.id.listaPerfilDAAnimal);
-        listaPerfilDAViagens            = findViewById(R.id.listaPerfilDAViagens);
         //ImageView
         imgAprovacao                    = findViewById(R.id.imgAprovacao);
-        //lista animais
-        animalRef  = Conexao.getFirebaseDatabase().child("animais");
+
     }
     private void iniciarBundle(){
         iniciarComponentes();
@@ -92,19 +108,18 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
             textPerfilCPFDA.setText(donoAnimal.getCpf());
             textPerfilEmailDA.setText(donoAnimal.getEmail());
             textPerfilTipoPerfilDA.setText(donoAnimal.getTipoUsuario());
-            textPerfilStatusDA.setText(donoAnimal.getStatus());
-            if (donoAnimal.getAvaliacao() != null) {
-                textPerfilAvaliacaoDA.setText(String.valueOf("Avaliação :" + donoAnimal.getAvaliacao()));
+            textPerfilStatusDA.setText(donoAnimal.getStatusPerfil());
+            textPerfilAvaliacao.setText(String.valueOf( donoAnimal.getAvaliacao()));
+
+            if(donoAnimal.getStatusPerfil() == "ativo"){
+                imgAprovacao.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
+                fabAprovarDA.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
             }else{
-                textPerfilAvaliacaoDA.setText("Avaliação: " + "0,0");
-            }
-            if(donoAnimal.getStatus() == "ativo"){
                 imgAprovacao.setImageDrawable(getResources().getDrawable((R.drawable.ic_desaprovar)));
-            }else{
-                imgAprovacao.setImageDrawable(getResources().getDrawable((R.drawable.ic_aprovar)));
+                fabAprovarDA.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_aprovar));
             }
         }
-        iniciarReciclerView();
+
     }
 
 
@@ -118,37 +133,21 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
     @Override
     public void onStop(){
         super.onStop();
-        animalRef.removeEventListener(valueEventListenerAnimal);
     }
 
     public void recuperarAnimal (){
-        valueEventListenerAnimal = animalRef.addValueEventListener(new ValueEventListener() {
-            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                animais.clear();
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE AVES
-
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    for (DataSnapshot animalDs : dados.getChildren()) {
-                        Animal animal = animalDs.getValue(Animal.class);
-                        animais.add(animal);
-                    }
-                }
-                adapterListaAnimal.notifyDataSetChanged();
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-
+        String id = Encriptador.codificarBase64(donoAnimal.getEmail());
+        animais = AnimalDAO.recuperarArrayDonoAnimal(id,animais);
     }
     public void iniciarReciclerView() {
 
         //configurar Adapter
         adapterListaAnimal = new AdapterListaAnimais(animais, getApplicationContext());
-
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         listaPerfilDAAnimal.setLayoutManager(layoutManager);
         listaPerfilDAAnimal.setHasFixedSize(true);
         listaPerfilDAAnimal.setAdapter(adapterListaAnimal);
-
         //Configurar evento de clique
         listaPerfilDAAnimal.addOnItemTouchListener(
                 new RecyclerItemClickListener(

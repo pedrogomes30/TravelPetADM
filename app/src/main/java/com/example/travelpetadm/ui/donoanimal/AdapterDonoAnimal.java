@@ -39,7 +39,7 @@ public class AdapterDonoAnimal extends RecyclerView.Adapter<AdapterDonoAnimal.My
         DonoAnimal donoAnimal = donosAnimais.get(position);
         holder.nome.setText(donoAnimal.getNome());
         holder.sobrenome.setText(donoAnimal.getSobrenome());
-        holder.status.setText(donoAnimal.getStatus());
+        holder.status.setText(donoAnimal.getStatusPerfil());
     }
 
     @Override

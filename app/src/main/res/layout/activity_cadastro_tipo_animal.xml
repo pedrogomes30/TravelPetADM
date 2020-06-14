@@ -17,6 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/fundo_margem_preta"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +33,8 @@
             android:layout_marginTop="16dp"
             android:text="@string/tipo_animal"
             android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja" />
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -47,38 +49,17 @@
             android:textColor="@color/preto"
             android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="117dp"
-            android:layout_height="122dp"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            app:srcCompat="@drawable/ic_ave_spinner" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageViewiconeEspecie"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:src="@drawable/ic_especie_spinner" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="3dp">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingLeft="5dp"
-                android:text="@string/raca"
-                android:textAppearance="@style/Fonte_Textos_menores"
-                android:textColor="@color/preto" />
-
-            <EditText
-                android:id="@+id/textEditarTARaca"
-                android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:background="@drawable/fundo_margem_preta"
-                android:paddingLeft="5dp"
-                android:textColor="@color/preto" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -98,6 +79,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:background="@drawable/fundo_margem_preta"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:textColor="@color/preto" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="@string/raca"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto" />
+
+            <EditText
+                android:id="@+id/textEditarTARaca"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@drawable/fundo_margem_preta"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textColor="@color/preto" />
 
@@ -115,7 +117,7 @@
             <EditText
                 android:id="@+id/textEditarTAObservacao"
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="160dp"
                 android:background="@drawable/fundo_margem_preta"
                 android:gravity="start"
                 android:paddingLeft="5dp"

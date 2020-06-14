@@ -53,5 +53,7 @@ dependencies {
     implementation files('libs\\poi-ooxml-schemas-3.15.jar')
     //noinspection GradleCompatible
     implementation 'com.android.support:support-v4:26.1.0'
+    //biblioteca de imagem circular
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
 apply plugin: 'com.google.gms.google-services'

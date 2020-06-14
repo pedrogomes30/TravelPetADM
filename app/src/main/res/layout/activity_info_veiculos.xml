@@ -12,96 +12,215 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
         android:orientation="vertical"
+        android:padding="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Informações do veículo"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja" />
+
+        <ImageView
+            android:id="@+id/imageInfoVeiculos"
+            android:layout_width="122dp"
+            android:layout_height="131dp"
+            app:srcCompat="@drawable/ic_menu_veiculo" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="3dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:padding="5dp">
 
-            <ImageView
-                android:id="@+id/imageInfoVeiculos"
-                android:layout_width="166dp"
-                android:layout_height="189dp"
-                android:layout_marginBottom="3dp"
-                android:background="@drawable/fundo_margem_preta"
-                app:srcCompat="@drawable/ic_menu_veiculo" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Id Veiculo:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:text="Motorista:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marca:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modelo:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Placa:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ano:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="8dp">
-
-
-                <TextView
-                    android:id="@+id/textInfoVeiculoMarca"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Marca"
-                    android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/textInfoVeiculoModelo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Modelo"
-                    android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
-                    android:textSize="14sp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textInfoVeiculoID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Id Veiculo"
+                    android:layout_weight="1"
+                    android:text="015164106106"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoVeiculoMotorista"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Motorista"
+                    android:layout_weight="1"
+                    android:text="CARLOS"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FIAT"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="UNO"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoPlaca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LJN8194"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textInfoVeiculoAno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1999"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoVeiculoStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Status"
+                    android:layout_weight="1"
+                    android:text="Ativo"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
-
             </LinearLayout>
+
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
-            android:layout_marginBottom="3dp"
-            android:text="Configuração"
+            android:text="Viagens realizadas"
             android:textAlignment="center"
             android:textAppearance="@style/Fonte_Textos_menu.laranja"
             android:textSize="18sp" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaInfoVeiculosViagens"
+            android:layout_width="match_parent"
+            android:layout_height="231dp"
+            android:layout_margin="3dp"
+            android:background="@drawable/fundo_margem_preta"
+            android:scrollbars="vertical">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <Button
@@ -124,24 +243,6 @@
                 android:background="@drawable/botao_azul"
                 android:text="Aprovar" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:text="Viagens realizadas"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja"
-            android:textSize="18sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaInfoVeiculosViagens"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:background="@drawable/fundo_margem_preta" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

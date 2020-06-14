@@ -9,9 +9,11 @@
     android:padding="5dp">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/fundo_margem_preta"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,12 +24,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="170dp"
+                android:layout_width="190dp"
                 android:layout_height="185dp"
                 android:background="@drawable/fundo_margem_preta"
                 android:padding="3dp"
@@ -35,94 +36,251 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="181dp"
-                android:orientation="vertical"
-                android:paddingLeft="8dp"
-                android:paddingTop="8dp">
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status Perfil:  "
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto" />
+
+                <ImageView
+                    android:id="@+id/imgAprovacao"
+                    android:layout_width="51dp"
+                    android:layout_height="53dp"
+
+                    app:srcCompat="@drawable/ic_desaprovar" />
+
+                <TextView
+                    android:id="@+id/textPerfilAvaliacaoDA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Avaliação: "
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textPerfilAvaliacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4,6"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informações"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fundo_margem_preta"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sobrenome: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CPF: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="e-mail: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TipoPerfil: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status Perfil: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textPerfilNomeDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome"
-                    android:textAppearance="@style/Fonte_Textos_menu"
-                    android:textColor="@color/preto"
-                    android:textSize="18sp" />
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilSobrenomeDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sobrenome"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilCPFDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CPF"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilEmailDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/e_mail"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilTipoPerfilDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tipoperfil"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilStatusDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Status Perfil"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Endereço"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fundo_margem_preta"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bairro:"
                     android:textAppearance="@style/Fonte_Textos_menores"
                     android:textColor="@color/preto"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/textPerfilAvaliacaoDA"
+                    android:id="@+id/textView23"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Avaliacao"
+                    android:text="Cep:"
                     android:textAppearance="@style/Fonte_Textos_menores"
                     android:textColor="@color/preto"
                     android:textSize="14sp" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView24"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:text="Cidade:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
 
-                    <ImageView
-                        android:id="@+id/imgAprovacao"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rua:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
 
-                        app:srcCompat="@drawable/ic_desaprovar" />
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UF:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
             </LinearLayout>
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scrollbarStyle="insideInset">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,55 +288,86 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/textPerfilBairroDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="Animais cadastrados"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/Fonte_Textos_menu.laranja"
-                    android:textSize="18sp" />
-
-                <FrameLayout
-                    android:layout_width="401dp"
-                    android:layout_height="wrap_content">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/listaPerfilDAAnimal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@drawable/fundo_margem_preta" />
-                </FrameLayout>
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/textPerfilCepDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="Viagens realizadas"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/Fonte_Textos_menu.laranja"
-                    android:textSize="18sp" />
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
 
-                <FrameLayout
+                <TextView
+                    android:id="@+id/textPerfilCidadeDA"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/listaPerfilDAViagens"
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/fundo_margem_preta" />
-                </FrameLayout>
+                <TextView
+                    android:id="@+id/textPerfilRuaDA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textPerfilUfDA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Animais cadastrados"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaPerfilDAAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/fundo_margem_preta" />
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAprovarDA"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        app:backgroundTint="@android:color/darker_gray"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_fab_aprovar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

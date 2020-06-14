@@ -36,7 +36,7 @@ public class AdapterMotorista extends RecyclerView.Adapter<AdapterMotorista.MyVi
         Motorista motorista = motoristas.get(position);
         holder.nome.setText(motorista.getNome());
         holder.sobrenome.setText(motorista.getSobrenome());
-        holder.status.setText(motorista.getStatus());
+        holder.status.setText(motorista.getStatusPerfil());
     }
 
     @Override

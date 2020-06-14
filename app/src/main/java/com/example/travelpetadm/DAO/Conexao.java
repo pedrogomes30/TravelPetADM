@@ -19,16 +19,9 @@ public class Conexao {
     private static FirebaseAuth.AuthStateListener authStateListener;
     private static FirebaseUser firebaseUser;
     private static DatabaseReference firebaseRef;
-    /*private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;
-    private static DatabaseReference firebaseRef;*/
+    private static StorageReference storage;
 
-    //Nome de cada nó principal do firebase --------------------------------------------------------------
+    //Nome de cada nó principal do firebase --------------------------------------------------------
     public static String adm =              "adm",
                          animal =           "animais",
                          avaliacao =        "avaliacao",
@@ -40,13 +33,24 @@ public class Conexao {
                          veiculo =          "veiculo",
                          viagem =           "viagem";
 
-    //outras variaveis chave no firebase
+    //outras variaveis chave no firebase -----------------------------------------------------------
     public static String iconeUrl =         "iconeUrl"; // Url onde está salvo o icone da espécie
 
+    //nome de cada nó no Storage -------------------------------------------------------------------
+    public static String storageAnimais =       "animais",
+                         storageMotorista =     "motorista",
+                         storageTipoAnimal =    "tipoAnimal",
+                         storageVeiculo =       "veiculos";
 
-    // FUNÇÕES BASE DO FIREBASE ----------------------------------------------------------------------
+    // FUNÇÕES BASE DO FIREBASE --------------------------------------------------------------------
             //referencia firebase Storage
-    private static StorageReference firebaseStorage;
+
+    public static StorageReference getFirebaseStorage (){
+        if (storage == null){
+            storage = FirebaseStorage.getInstance().getReference();
+        }
+        return  storage;
+    }
 
             //referencia firebase  Database
     public static DatabaseReference getFirebaseDatabase(){
@@ -98,16 +102,12 @@ public class Conexao {
         }else{return false;}
 
     }
+
     public static String getEmailUsuario(){
         FirebaseAuth usuario = Conexao.getFirebaseAuth();
         return usuario.getCurrentUser().getEmail();
     }
-            //pega a referencia do storage
-    public static StorageReference getFirebaseStorage(){
-        if (firebaseStorage == null){
-            inicializarFirebaseAuth();
-        }
-        return  firebaseStorage;
-    }
+
+
 
 }

@@ -111,14 +111,14 @@ public class GeradorXls extends AppCompatActivity {
                     DonoAnimal donoAnimal = dados.getValue(DonoAnimal.class);
                     // inserindo os dados na planilha
                     Row row1 = sheet.createRow(indicador);
-                    cell = row1.createCell(0);cell.setCellValue(donoAnimal.getId());
+                    cell = row1.createCell(0);cell.setCellValue(donoAnimal.getIdUsuario());
                     cell = row1.createCell(1);cell.setCellValue(donoAnimal.getNome());
                     cell = row1.createCell(2);cell.setCellValue(donoAnimal.getSobrenome());
                     cell = row1.createCell(3);cell.setCellValue(donoAnimal.getCpf());
                     cell = row1.createCell(4);cell.setCellValue(donoAnimal.getEmail());
                     cell = row1.createCell(5);cell.setCellValue(String.valueOf(donoAnimal.getAvaliacao()));
                     cell = row1.createCell(6);cell.setCellValue(donoAnimal.getTelefone());
-                    cell = row1.createCell(7);cell.setCellValue(donoAnimal.getStatus());
+                    cell = row1.createCell(7);cell.setCellValue(donoAnimal.getStatusPerfil());
                     cell = row1.createCell(8);cell.setCellValue(donoAnimal.getFotoPerfilUrl());
                     indicador++;
                     }
@@ -424,14 +424,14 @@ public class GeradorXls extends AppCompatActivity {
                     // inserindo os dados na planilha
                     Row row1 = sheet.createRow(indicador);
 
-                    cell = row1.createCell(0);cell.setCellValue(motorista.getId());
+                    cell = row1.createCell(0);cell.setCellValue(motorista.getIdUsuario());
                     cell = row1.createCell(1);cell.setCellValue(motorista.getNome());
                     cell = row1.createCell(2);cell.setCellValue(motorista.getSobrenome());
                     cell = row1.createCell(3);cell.setCellValue(motorista.getCpf());
                     cell = row1.createCell(4);cell.setCellValue(motorista.getEmail());
                     cell = row1.createCell(5);cell.setCellValue(String.valueOf(motorista.getAvaliacao()));
                     cell = row1.createCell(6);cell.setCellValue(motorista.getTelefone());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getStatus());
+                    cell = row1.createCell(7);cell.setCellValue(motorista.getStatusPerfil());
                     cell = row1.createCell(7);cell.setCellValue(motorista.getCnh());
                     cell = row1.createCell(7);cell.setCellValue(motorista.getCnhURL());
                     cell = row1.createCell(7);cell.setCellValue(motorista.getFotoPerfilURL());
@@ -597,7 +597,7 @@ public class GeradorXls extends AppCompatActivity {
                             cell = row1.createCell(3);                       cell.setCellValue(avaliacao.getObservacao());
                             cell = row1.createCell(4);                       cell.setCellValue(avaliacao.getTipoPerfil());
                             cell = row1.createCell(5);                       cell.setCellValue(avaliacao.getData());
-                            indicador++;
+
                 }
 
                 //salvando a planilha criada no diretorio do dispositivo
