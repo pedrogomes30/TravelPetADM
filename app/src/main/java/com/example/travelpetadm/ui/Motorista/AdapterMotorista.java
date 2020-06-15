@@ -36,7 +36,7 @@ public class AdapterMotorista extends RecyclerView.Adapter<AdapterMotorista.MyVi
         Motorista motorista = motoristas.get(position);
         holder.nome.setText(motorista.getNome());
         holder.sobrenome.setText(motorista.getSobrenome());
-        holder.status.setText(motorista.getStatusPerfil());
+        holder.status.setText(motorista.getStatusCadastro());
     }
 
     @Override
@@ -48,7 +48,7 @@ public class AdapterMotorista extends RecyclerView.Adapter<AdapterMotorista.MyVi
             super(itemView);
             nome = itemView.findViewById(R.id.textNomeListaMO);
             sobrenome = itemView.findViewById(R.id.textSobrenomeListaMO);
-            status = itemView.findViewById(R.id.textCidadeListaMO);
+            status = itemView.findViewById(R.id.textStatusListaMO);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.example.travelpetadm.Model;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-    private String idUsuario,nome,sobrenome,cpf,email,statusPerfil,tipoUsuario, reputacao, telefone ;
+    private String idUsuario,nome,sobrenome,cpf,email,statusPerfil,tipoUsuario, reputacao, telefone,tipoPerfil ;
     private Double avaliacao,longitude,latitude;
     private Endereco endereco;
 
@@ -13,6 +13,13 @@ public class Usuario implements Serializable {
     }
 
     //GETTERS AND SETTERS --------------------------
+    public String getTipoPerfil() {
+        return tipoPerfil;
+    }
+
+    public void setTipoPerfil(String tipoPerfil) {
+        this.tipoPerfil = tipoPerfil;
+    }
 
     public String getTelefone() {
         return telefone;

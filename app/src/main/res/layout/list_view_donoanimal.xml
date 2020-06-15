@@ -4,24 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_margin="2dp"
     android:background="@drawable/fundo_margem_preta"
     android:padding="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageListaDA"
             android:layout_width="52dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_dono_animal" />
+            android:layout_height="52dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_dono_animal" />
+
 
         <LinearLayout
             android:layout_width="357dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
             android:orientation="vertical">
 
             <TextView

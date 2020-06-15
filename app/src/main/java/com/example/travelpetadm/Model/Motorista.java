@@ -3,31 +3,42 @@ package com.example.travelpetadm.Model;
 import java.io.Serializable;
 
 public class Motorista extends Usuario implements Serializable {
-    private String cnh, cnhURL, fotoPerfilURL;
+    private String registroCnh,
+            statusCadastro,
+            fotoCnhUrl,
+            fotoPerfilUrl;
 
-    public Motorista() {    }
+    //getters and setters
 
-    public String getCnh() {
-        return cnh;
+    public String getRegistroCnh() {
+        return registroCnh;
     }
 
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
+    public void setRegistroCnh(String registroCnh) {
+        this.registroCnh = registroCnh;
     }
 
-    public String getCnhURL() {
-        return cnhURL;
+    public String getStatusCadastro() {
+        return statusCadastro;
     }
 
-    public void setCnhURL(String cnhURL) {
-        this.cnhURL = cnhURL;
+    public void setStatusCadastro(String statusCadastro) {
+        this.statusCadastro = statusCadastro;
     }
 
-    public String getFotoPerfilURL() {
-        return fotoPerfilURL;
+    public String getFotoCnhUrl() {
+        return fotoCnhUrl;
     }
 
-    public void setFotoPerfilURL(String fotoPerfilURL) {
-        this.fotoPerfilURL = fotoPerfilURL;
+    public void setFotoCnhUrl(String fotoCnhUrl) {
+        this.fotoCnhUrl = fotoCnhUrl;
+    }
+
+    public String getFotoPerfilUrl() {
+        return fotoPerfilUrl;
+    }
+
+    public void setFotoPerfilUrl(String fotoPerfilUrl) {
+        this.fotoPerfilUrl = fotoPerfilUrl;
     }
 }

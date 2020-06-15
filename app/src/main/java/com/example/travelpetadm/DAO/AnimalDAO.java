@@ -29,8 +29,8 @@ public class AnimalDAO extends Conexao {
 
     public static ArrayList<Animal> recuperarArrayDonoAnimal(String idDonoAnimal, ArrayList<Animal> animals){
         animais = animals;
-        animalRef = getAnimalReference();
-        valueEventListenerAnimal = animalRef.child(idDonoAnimal)
+        animalRef = getAnimalReference().child(idDonoAnimal);
+        valueEventListenerAnimal = animalRef
                 .addValueEventListener(new ValueEventListener() {
                     @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot animalDs: dataSnapshot.getChildren()) {

@@ -432,9 +432,9 @@ public class GeradorXls extends AppCompatActivity {
                     cell = row1.createCell(5);cell.setCellValue(String.valueOf(motorista.getAvaliacao()));
                     cell = row1.createCell(6);cell.setCellValue(motorista.getTelefone());
                     cell = row1.createCell(7);cell.setCellValue(motorista.getStatusPerfil());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getCnh());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getCnhURL());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getFotoPerfilURL());
+                    cell = row1.createCell(7);cell.setCellValue(motorista.getRegistroCnh());
+                    cell = row1.createCell(7);cell.setCellValue(motorista.getFotoCnhUrl());
+                    cell = row1.createCell(7);cell.setCellValue(motorista.getFotoPerfilUrl());
                     indicador++;
                 }
                 //salvando a planilha criada no diretorio do dispositivo

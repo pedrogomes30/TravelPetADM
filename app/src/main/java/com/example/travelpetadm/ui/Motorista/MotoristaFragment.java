@@ -47,7 +47,7 @@ import java.util.ArrayList;
 public class MotoristaFragment extends Fragment {
     private RecyclerView recyclerView;
     private AdapterMotorista adapterListaMotorista;
-    private ArrayList<Motorista> Motoristas =new ArrayList<>() ;
+    private ArrayList<Motorista> motoristas =new ArrayList<>() ;
     private DatabaseReference motoristaRef;
     private ValueEventListener valueEventListenerMotorista;
     private ProgressBar progressoMO;
@@ -73,7 +73,6 @@ public class MotoristaFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        motoristaRef.removeEventListener(valueEventListenerMotorista);
     }
 
     public void iniciarComponentes(View view){
@@ -85,13 +84,11 @@ public class MotoristaFragment extends Fragment {
     public void recuperarMotorista (){
         valueEventListenerMotorista = motoristaRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Motoristas.clear();
-
+                motoristas.clear();
                 for(DataSnapshot dados: dataSnapshot.getChildren()){
                     Motorista motorista = dados.getValue(Motorista.class);
-                    Motoristas.add(motorista);
+                    motoristas.add(motorista);
                     progressoMO.setVisibility(View.VISIBLE);
-
                 }
                 adapterListaMotorista.notifyDataSetChanged();
                 progressoMO.setVisibility(View.GONE);
@@ -103,7 +100,7 @@ public class MotoristaFragment extends Fragment {
     public void iniciarReciclerView(View view) {
 
         //configurar Adapter
-        adapterListaMotorista = new AdapterMotorista(Motoristas, getActivity());
+        adapterListaMotorista = new AdapterMotorista(motoristas, getActivity());
 
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -119,10 +116,10 @@ public class MotoristaFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                               /* DonoAnimal donoAnimalSel =  donosAnimais.get(position);
-                                Intent i =  new Intent(getActivity(), InfoDonoAnimalActivity.class);
-                                i.putExtra("ExibirDonoAnimal",donoAnimalSel);
-                                startActivity(i);*/
+                               Motorista motoristaSel =  motoristas.get(position);
+                                Intent i =  new Intent(getActivity(), InfoMotoristaActivity.class);
+                                i.putExtra("ExibirMotorista",motoristaSel);
+                                startActivity(i);
                             }
                             @Override
                             public void onLongItemClick(View view, int position) {
