@@ -357,35 +357,53 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabExibirCNH"
-        android:layout_width="82dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/roxo_claro"
-        android:baselineAlignBottom="false"
-        android:clickable="true"
-        app:backgroundTint="@android:color/background_light"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toStartOf="@+id/fabAprovarMO"
-        app:maxImageSize="42dp"
-        app:srcCompat="@drawable/ic_fab_cnh" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAprovarMO"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:baselineAlignBottom="false"
-        android:clickable="true"
-        app:backgroundTint="@android:color/background_light"
-        app:fabSize="normal"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:fab_addButtonColorNormal="@color/roxo_preto"
+        app:fab_addButtonColorPressed="@color/roxo_claro"
+        app:fab_addButtonPlusIconColor="@color/branco"
+        app:fab_addButtonSize="normal"
+        app:fab_labelStyle="@style/custom_Fab"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="64dp"
-        app:srcCompat="@drawable/ic_fab_aprovar" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCnh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonColorNormal="@color/roxo_preto"
+            app:fab_addButtonColorPressed="@color/roxo_claro"
+            app:fab_icon="@drawable/ic_fab_cnh"
+            app:fab_size="mini"
+            app:fab_title="Exibir CNH" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAprovarMO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/branco"
+            app:fab_addButtonColorNormal="@color/roxo_preto"
+            app:fab_addButtonColorPressed="@color/roxo_claro"
+            app:fab_icon="@drawable/ic_aprovar"
+            app:fab_size="mini"
+            app:fab_title="Aprovar motorista" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabRejeitarMO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonColorNormal="@color/roxo_preto"
+            app:fab_addButtonColorPressed="@color/roxo_claro"
+            app:fab_icon="@drawable/ic_fab_bloquear"
+            app:fab_size="mini"
+            app:fab_title="Rejeitar motorista" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

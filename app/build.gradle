@@ -56,5 +56,7 @@ dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     //biblioteca de imagem circular
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //float Action Menu
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 }
 apply plugin: 'com.google.gms.google-services'

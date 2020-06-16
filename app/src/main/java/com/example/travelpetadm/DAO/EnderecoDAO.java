@@ -24,6 +24,19 @@ public class EnderecoDAO {
         if(refEndereco==null){
             refEndereco = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA);
         }
+        getEnderecoMOref();
+        refEndereco.removeValue();
+        refEndereco  = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA);
+        return refEndereco;
+    }
+
+    public static DatabaseReference getEnderecoMOref(){
+        if(refEndereco==null){
+            refEndereco = Conexao.getFirebaseDatabase().child(Conexao.enderecoMO);
+        }
+        getEnderecoDAref();
+        refEndereco.removeValue();
+        refEndereco  = Conexao.getFirebaseDatabase().child(Conexao.enderecoMO);
         return refEndereco;
     }
 

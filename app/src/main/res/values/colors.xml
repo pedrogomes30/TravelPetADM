@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black_semi_transparent">#b2000000</color>
     <color name="Laranja_Principal">#Ff6600</color>
     <color name="roxo_claro">#60278B</color>
     <color name="roxo_escuro">#46165A</color>

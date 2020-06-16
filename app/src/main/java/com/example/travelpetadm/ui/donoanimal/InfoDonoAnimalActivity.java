@@ -145,7 +145,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                              }
                         }
                     }
-                    if(!donoAnimal.getFotoPerfilUrl().equals("")){
+                    if(donoAnimal.getFotoPerfilUrl()!=null){
                         Uri fotoPerfilUri = Uri.parse(donoAnimal.getFotoPerfilUrl());
                         Glide.with(InfoDonoAnimalActivity.this).load( fotoPerfilUri ).into( imgPerfilDA );
                     }else{
@@ -162,38 +162,27 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         }
     }
 
-    public void aprovar (final String status){
-        final DatabaseReference aprovar= DonoAnimalDAO.getDonoAnimalReference().child(donoAnimal.getIdUsuario());
+    public void aprovar (final String status) {
+        final DatabaseReference aprovar = DonoAnimalDAO.getDonoAnimalReference().child(donoAnimal.getIdUsuario());
         textPerfilStatusDA.setText(status);
         fabAprovarDA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!status.isEmpty()) {
-                    if (status.equals("ativo")) {
-                        textPerfilStatusDA.setText("bloqueado");
-                        donoAnimal.setStatusPerfil("bloqueado");
-                        aprovar.child("statusPerfil").setValue("bloqueado");
-                    }else {
-                        if (status.equals("bloqueado")){
-                        textPerfilStatusDA.setText("ativo");
-                        donoAnimal.setStatusPerfil("ativo");
-                        aprovar.child("statusPerfil").setValue("ativo");
-                    }
+                    if (status.equals(Conexao.donoAnimalAtivo)) {
+                        textPerfilStatusDA.setText(Conexao.donoAnimalBloqueado);
+                        donoAnimal.setStatusPerfil(Conexao.donoAnimalBloqueado);
+                        aprovar.child(Conexao.statusPerfil).setValue(Conexao.donoAnimalBloqueado);
+                    } else {
+                        if (status.equals(Conexao.donoAnimalBloqueado)) {
+                            textPerfilStatusDA.setText(Conexao.donoAnimalAtivo);
+                            donoAnimal.setStatusPerfil(Conexao.donoAnimalAtivo);
+                            aprovar.child(Conexao.statusPerfil).setValue(Conexao.donoAnimalAtivo);
+                        }
                     }
                 }
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 
     @Override
@@ -215,7 +204,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                             Animal animal = animalDs.getValue(Animal.class);
                             animais.add(animal);
                         }
-                        InfoDonoAnimalActivity.adapterListaAnimal.notifyDataSetChanged();
+                        adapterListaAnimal.notifyDataSetChanged();
                     }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
                 });
     }
@@ -254,24 +243,24 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
     }
 
     public void recuperarEndereco() {
-        ref = EnderecoDAO.getEnderecoDAref().child(donoAnimal.getIdUsuario());
+        ref = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA).child(donoAnimal.getIdUsuario());
         listener = ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Endereco endereco = dataSnapshot.getValue(Endereco.class);
-                textPerfilBairroDA.setText(endereco.getBairro());
-                textPerfilCepDA.setText(endereco.getCep());
-                textPerfilCidadeDA.setText(endereco.getLocalidade());
-                textPerfilRuaDA.setText(endereco.getLogradouro());
-                textPerfilUfDA.setText(endereco.getUf());
+                if (endereco != null) {
+                    textPerfilBairroDA.setText(endereco.getBairro());
+                    textPerfilCepDA.setText(endereco.getCep());
+                    textPerfilCidadeDA.setText(endereco.getLocalidade());
+                    textPerfilRuaDA.setText(endereco.getLogradouro());
+                    textPerfilUfDA.setText(endereco.getUf());
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
-
     public void alert(String S){
         Toast.makeText(this,S,Toast.LENGTH_SHORT).show();
     }

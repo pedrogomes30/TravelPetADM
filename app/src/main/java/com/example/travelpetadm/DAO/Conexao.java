@@ -30,18 +30,28 @@ public class Conexao {
                          enderecoMO =       "enderecosMotorista",
                          motorista =        "motorista",
                          tipoAnimal =       "racaAnimal",
-                         veiculo =          "veiculo",
+                         veiculo =          "veiculos",
                          viagem =           "viagem";
 
     //outras variaveis chave no firebase -----------------------------------------------------------
-    public static String iconeUrl =         "iconeUrl"; // Url onde está salvo o icone da espécie
-
+    public static String iconeUrl =             "iconeUrl", // Url onde está salvo o icone da espécie
+                         statusPerfil =         "statusPerfil",//variavel onde verifica status de
+    //cadastros em ambos os tipos de usuários.
+                         statusCadastro =       "statusCadastro";
     //nome de cada nó no Storage -------------------------------------------------------------------
     public static String storageAnimais =       "animais",
                          storageMotorista =     "motorista",
                          storageTipoAnimal =    "tipoAnimal",
                          storageVeiculo =       "veiculos";
-
+    //Variaveis de status de perfil ----------------------------------------------------------------
+    public static String donoAnimalBloqueado=    "bloqueado",
+                         donoAnimalAtivo=        "ativo",
+                         motoristaEmAnalise=     "Em análise",
+                         motoristaAprovado=      "Aprovado",
+                         motoristaRejeitado=     "Rejeitado",
+                         veiculoBloqueado=       "Bloqueado",
+                         veiculoAprovado=        "Aprovado",
+                         veiculoReprovado=       "Reprovado";
     // FUNÇÕES BASE DO FIREBASE --------------------------------------------------------------------
             //referencia firebase Storage
 
