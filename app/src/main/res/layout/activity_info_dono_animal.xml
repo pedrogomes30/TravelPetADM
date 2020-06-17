@@ -12,6 +12,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/fundo_margem_preta"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -359,14 +360,13 @@
         android:id="@+id/fabAprovarDA"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
         android:baselineAlignBottom="false"
         android:clickable="true"
         app:backgroundTint="@android:color/background_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="64dp"
         app:srcCompat="@drawable/ic_fab_aprovar" />
 

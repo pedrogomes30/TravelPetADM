@@ -12,6 +12,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/fundo_margem_preta"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -32,7 +33,7 @@
                 android:layout_height="200dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/ic_dono_animal" />
+                android:src="@drawable/ic_menu_motorista" />
 
 
             <LinearLayout
@@ -354,56 +355,48 @@
             android:background="@drawable/fundo_margem_preta" />
 
 
-
     </LinearLayout>
 
-    <com.getbase.floatingactionbutton.FloatingActionsMenu
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAprovarMO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:fab_addButtonColorNormal="@color/roxo_preto"
-        app:fab_addButtonColorPressed="@color/roxo_claro"
-        app:fab_addButtonPlusIconColor="@color/branco"
-        app:fab_addButtonSize="normal"
-        app:fab_labelStyle="@style/custom_Fab"
+        android:layout_marginEnd="4dp"
+        android:clickable="true"
+        app:backgroundTint="@color/branco"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabRejeitarMO"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_atencao" />
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabCnh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_addButtonColorNormal="@color/roxo_preto"
-            app:fab_addButtonColorPressed="@color/roxo_claro"
-            app:fab_icon="@drawable/ic_fab_cnh"
-            app:fab_size="mini"
-            app:fab_title="Exibir CNH" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabRejeitarMO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/branco"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabAprovarMO"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabCnh"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_fab_bloquear" />
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAprovarMO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/branco"
-            app:fab_addButtonColorNormal="@color/roxo_preto"
-            app:fab_addButtonColorPressed="@color/roxo_claro"
-            app:fab_icon="@drawable/ic_aprovar"
-            app:fab_size="mini"
-            app:fab_title="Aprovar motorista" />
-
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabRejeitarMO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_addButtonColorNormal="@color/roxo_preto"
-            app:fab_addButtonColorPressed="@color/roxo_claro"
-            app:fab_icon="@drawable/ic_fab_bloquear"
-            app:fab_size="mini"
-            app:fab_title="Rejeitar motorista" />
-
-    </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCnh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/roxo_claro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabRejeitarMO"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="46dp"
+        app:srcCompat="@drawable/ic_fab_cnh" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

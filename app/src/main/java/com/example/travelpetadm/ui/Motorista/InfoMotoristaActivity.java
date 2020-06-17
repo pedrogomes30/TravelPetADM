@@ -35,7 +35,7 @@ import com.example.travelpetadm.ui.animais.InfoAnimalActivity;
 import com.example.travelpetadm.ui.donoanimal.InfoDonoAnimalActivity;
 import com.example.travelpetadm.ui.veiculos.AdapterListaVeiculos;
 import com.example.travelpetadm.ui.veiculos.InfoVeiculosActivity;
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,6 +88,18 @@ public class InfoMotoristaActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        recuperarMotorista();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     public void onStop(){
         super.onStop();
         veiculoRef.removeEventListener(listenerVeiculo);
@@ -100,47 +112,56 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             motorista = (Motorista) bundle.getSerializable("ExibirMotorista");
-            refMO = MotoristaDAO.getmotoritaReference().child(motorista.getIdUsuario());
-            listenerMO = refMO.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    motorista = dataSnapshot.getValue(Motorista.class);
-                    textPerfilNomeMO.setText(motorista.getNome());
-                    textPerfilSobrenomeMO.setText(motorista.getSobrenome());
-                    textPerfilCPFMO.setText(motorista.getCpf());
-                    textPerfilEmailMO.setText(motorista.getEmail());
-                    textPerfilTipoPerfilMO.setText(motorista.getTipoUsuario());
-                    textPerfilAvaliacaoMO.setText(String.valueOf(motorista.getAvaliacao()));
-                    textPerfilStatusMO.setText(motorista.getStatusCadastro());
-                    if(motorista.getAvaliacao()==null)textPerfilAvaliacaoMO.setText("0,0");
-                    if (!motorista.getStatusCadastro().isEmpty()) {
-                        if (motorista.getStatusCadastro().equals(Conexao.motoristaEmAnalise)) {
-                            imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_em_analise));
-                        } else {if (motorista.getStatusCadastro().equals(Conexao.motoristaAprovado)) {
-                            imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
-                        }else {
-                            if (motorista.getStatusCadastro().equals(Conexao.motoristaRejeitado)) {
-                                imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
-                            }
-                        }
-                        }
-                    }
-                    if(!motorista.getFotoPerfilUrl().equals("")){
-                        Uri fotoPerfilUri = Uri.parse(motorista.getFotoPerfilUrl());
-                        Glide.with(InfoMotoristaActivity.this).load( fotoPerfilUri ).into( imgPerfilMO );
-                    }else{
-                        imgPerfilMO.setImageResource(R.drawable.ic_menu_motorista);
-                    }
-                    aprovar(motorista.getStatusCadastro());
-                    recuperarEndereco();
-                    recuperarVeiculo();
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
         }
     }
+
+    public void recuperarMotorista(){
+        refMO = MotoristaDAO.getmotoritaReference().child(motorista.getIdUsuario());
+        listenerMO = refMO.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                motorista = dataSnapshot.getValue(Motorista.class);
+                textPerfilNomeMO.setText(motorista.getNome());
+                textPerfilSobrenomeMO.setText(motorista.getSobrenome());
+                textPerfilCPFMO.setText(motorista.getCpf());
+                textPerfilEmailMO.setText(motorista.getEmail());
+                textPerfilTipoPerfilMO.setText(motorista.getTipoUsuario());
+                textPerfilAvaliacaoMO.setText(String.valueOf(motorista.getAvaliacao()));
+                textPerfilStatusMO.setText(motorista.getStatusCadastro());
+            if(motorista.getAvaliacao()==null)textPerfilAvaliacaoMO.setText("0,0");
+                if (!motorista.getStatusCadastro().isEmpty()) {
+                    if (motorista.getStatusCadastro().equals(Conexao.motoristaEmAnalise)) {
+                        imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_atencao));
+                        fabAprovarMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_aprovar));
+                        fabRejeitarMO.setVisibility(View.VISIBLE);
+                    } else {if (motorista.getStatusCadastro().equals(Conexao.motoristaAprovado)) {
+                        imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
+                        fabAprovarMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_atencao));
+                        fabRejeitarMO.setVisibility(View.VISIBLE);
+                    }else {
+                        if (motorista.getStatusCadastro().equals(Conexao.motoristaRejeitado)) {
+                            imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
+                            fabRejeitarMO.setVisibility(View.GONE);
+                        }
+                    }
+                    }
+                }
+                if(!motorista.getFotoPerfilUrl().equals("")){
+                    Uri fotoPerfilUri = Uri.parse(motorista.getFotoPerfilUrl());
+                    Glide.with(InfoMotoristaActivity.this).load( fotoPerfilUri ).into( imgPerfilMO );
+                }else{
+                    imgPerfilMO.setImageResource(R.drawable.ic_menu_motorista);
+                }
+                aprovar(motorista.getStatusCadastro());
+                recuperarEndereco();
+                recuperarVeiculo();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
 
     public void recuperarVeiculo (){
         veiculos.clear();
@@ -184,25 +205,22 @@ public class InfoMotoristaActivity extends AppCompatActivity {
 
     public void aprovar (final String status) {
         final DatabaseReference aprovar = MotoristaDAO.getmotoritaReference().child(motorista.getIdUsuario());
-        //textPerfilUfMO.setText(status);
+        textPerfilUfMO.setText(status);
         //BOTAO APROVAR / EM ANALISE
         fabAprovarMO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(status.equals(Conexao.motoristaEmAnalise)|| status.equals(Conexao.motoristaRejeitado)) {
-                        if(alertaDiaglog(v,1    )) {
+                if (!status.isEmpty()) {
+                    if (status.equals(Conexao.motoristaEmAnalise)||status.equals(Conexao.motoristaRejeitado)) {
+                        textPerfilStatusMO.setText(Conexao.motoristaAprovado);
+                        motorista.setStatusCadastro(Conexao.motoristaAprovado);
                         aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaAprovado);
-                        imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
-                        //textPerfilStatusMO.setText(Conexao.motoristaAprovado);
-                        fabAprovarMO.setIcon(R.drawable.ic_em_analise);
-                        fabAprovarMO.setTitle("Rejeitar Motorista");
-                    }else if(status.equals(Conexao.motoristaAprovado)) {
-                            if(alertaDiaglog(v,3    )) {
-                                aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaEmAnalise);
-                                imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_em_analise));
-                               // textPerfilStatusMO.setText(Conexao.motoristaEmAnalise);
-                                fabAprovarMO.setIcon(R.drawable.ic_aprovar);
-                            }
+                    } else {
+                        if (status.equals(Conexao.motoristaAprovado)) {
+                            textPerfilStatusMO.setText(Conexao.motoristaEmAnalise);
+                            motorista.setStatusCadastro(Conexao.motoristaEmAnalise);
+                            aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaEmAnalise);
+                        }
                     }
                 }
             }
@@ -211,10 +229,12 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         fabRejeitarMO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(alertaDiaglog(v,2)) {
-                    aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaRejeitado);
-                    imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
-                    //textPerfilStatusMO.setText(Conexao.motoristaRejeitado);
+                if (!status.isEmpty()) {
+                    if (status.equals(Conexao.motoristaEmAnalise)||status.equals(Conexao.motoristaAprovado)) {
+                        textPerfilStatusMO.setText(Conexao.motoristaRejeitado);
+                        motorista.setStatusCadastro(Conexao.motoristaRejeitado);
+                        aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaRejeitado);
+                    }
                 }
             }
         });
@@ -285,76 +305,5 @@ public class InfoMotoristaActivity extends AppCompatActivity {
 
     public void alert(String S){
         Toast.makeText(this,S,Toast.LENGTH_SHORT).show();
-    }
-
-    public Boolean alertaDiaglog(View view,int tipo){
-       AlertDialog.Builder dialog =  new AlertDialog.Builder(this);
-       switch(tipo) {
-           case 1:
-           dialog.setTitle("Aprovar Motorista");
-           dialog.setMessage("Realmente deseja aprovar este motorista ?");
-           dialog.setCancelable(false);
-           dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-               @Override
-               public void onClick(DialogInterface dialog, int which) {
-                   validacao = true;
-                   alert("Motorista Aprovado!");
-               }
-           });
-           dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-               @Override
-               public void onClick(DialogInterface dialog, int which) {
-                validacao = false;
-                alert("motorista não aprovado!!");
-               }
-           });
-           dialog.create();
-           dialog.show();
-           break;
-           case 2:
-               dialog.setTitle("Rejeitar motorista");
-               dialog.setMessage("Realmente deseja Rejeitar este motorista?");
-               dialog.setCancelable(false);
-               dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       validacao = true;
-                       alert("Motorista Rejeitado!");
-                   }
-               });
-               dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       validacao = false;
-
-                   }
-               });
-               dialog.create();
-               dialog.show();
-               break;
-           case 3:
-               dialog.setTitle("Colocar em Análise");
-               dialog.setMessage("Realmente deseja colocar este motorista em análise?");
-               dialog.setCancelable(false);
-               dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       validacao = true;
-                       alert("Motorista esta em análise!");
-                   }
-               });
-               dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       validacao = false;
-                   }
-               });
-               dialog.create();
-               dialog.show();
-               break;
-           default:
-               alert("switch inválido");
-       }
-    return validacao;
     }
 }//---fim classe
