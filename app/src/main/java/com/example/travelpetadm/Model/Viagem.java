@@ -4,19 +4,21 @@ import java.io.Serializable;
 
 public class Viagem implements Serializable {
 
-    private String animal;
+    private String idAnimal1,idAnimal2,idAnimal3;
     private String custoViagem;
     private String data;
     private String destino;
-    private String distancia;
-    private String IDDonoAnimal;
+    private Double distancia;
+    private String idDonoAnimal;
     private String horaInicio;
     private String horaFim;
     private String IDMotorista;
-    private String origem;
+    private String idOrigem;
     private String porteAnimal;
     private String IDViagem;
     private String IDVeiculo;
+    private String statusViagem;
+    private Double custo;
 
     public Viagem() {
     }
@@ -29,6 +31,69 @@ public class Viagem implements Serializable {
         this.IDVeiculo = IDVeiculo;
     }
 
+    public String getIdAnimal1() {
+        return idAnimal1;
+    }
+
+    public void setIdAnimal1(String idAnimal1) {
+        this.idAnimal1 = idAnimal1;
+    }
+
+    public String getIdAnimal2() {
+        return idAnimal2;
+    }
+
+    public void setIdAnimal2(String idAnimal2) {
+        this.idAnimal2 = idAnimal2;
+    }
+
+    public String getIdAnimal3() {
+        return idAnimal3;
+    }
+
+    public void setIdAnimal3(String idAnimal3) {
+        this.idAnimal3 = idAnimal3;
+    }
+
+    public String getIdDonoAnimal() {
+        return idDonoAnimal;
+    }
+
+    public void setIdDonoAnimal(String idDonoAnimal) {
+        this.idDonoAnimal = idDonoAnimal;
+    }
+
+    public String getIdOrigem() {
+        return idOrigem;
+    }
+
+    public void setIdOrigem(String idOrigem) {
+        this.idOrigem = idOrigem;
+    }
+
+    public String getStatusViagem() {
+        return statusViagem;
+    }
+
+    public void setStatusViagem(String statusViagem) {
+        this.statusViagem = statusViagem;
+    }
+
+    public Double getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(Double distancia) {
+        this.distancia = distancia;
+    }
+
+    public Double getCusto() {
+        return custo;
+    }
+
+    public void setCusto(Double custo) {
+        this.custo = custo;
+    }
 
     public String getIDViagem() {
         return IDViagem;
@@ -36,14 +101,6 @@ public class Viagem implements Serializable {
 
     public void setIDViagem(String ID) {
         this.IDViagem = ID;
-    }
-
-    public String getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(String animal) {
-        this.animal = animal;
     }
 
     public String getCustoViagem() {
@@ -70,22 +127,6 @@ public class Viagem implements Serializable {
         this.destino = destino;
     }
 
-    public String getDistancia() {
-        return distancia;
-    }
-
-    public void setDistancia(String distancia) {
-        this.distancia = distancia;
-    }
-
-    public String getIDDonoAnimal() {
-        return IDDonoAnimal;
-    }
-
-    public void setIDDonoAnimal(String IDDonoAnimal) {
-        this.IDDonoAnimal = IDDonoAnimal;
-    }
-
     public String getHoraInicio() {
         return horaInicio;
     }
@@ -108,14 +149,6 @@ public class Viagem implements Serializable {
 
     public void setIDMotorista(String IDMotorista) {
         this.IDMotorista = IDMotorista;
-    }
-
-    public String getOrigem() {
-        return origem;
-    }
-
-    public void setOrigem(String origem) {
-        this.origem = origem;
     }
 
     public String getPorteAnimal() {

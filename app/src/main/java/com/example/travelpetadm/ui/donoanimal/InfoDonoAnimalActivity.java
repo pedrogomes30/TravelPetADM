@@ -94,6 +94,12 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         aprovar(donoAnimal.getStatusPerfil());
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recuperarDonoAnimal();
+    }
+
     private void iniciarComponentes() {
         //TextView
         textPerfilNomeDA = findViewById(R.id.textPerfilNomeDA);
@@ -111,6 +117,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         fabAprovarDA = findViewById(R.id.fabAprovarDA);
         //ListView
         listaPerfilDAAnimal = findViewById(R.id.listaPerfilDAAnimal);
+        listaPerfilDAAnimal.setHasFixedSize(true);
         //ImageView
         imgAprovacao = findViewById(R.id.imgAprovacao);
         imgPerfilDA = findViewById(R.id.imgPerfilDA);
@@ -122,6 +129,9 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             donoAnimal = (DonoAnimal) bundle.getSerializable("ExibirDonoAnimal");
+        }
+    }
+    public void recuperarDonoAnimal(){
             refDA = DonoAnimalDAO.getDonoAnimalReference().child(donoAnimal.getIdUsuario());
             listenerDA = refDA.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -160,7 +170,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                 }
             });
         }
-    }
+
 
     public void aprovar (final String status) {
         final DatabaseReference aprovar = DonoAnimalDAO.getDonoAnimalReference().child(donoAnimal.getIdUsuario());

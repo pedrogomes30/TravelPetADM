@@ -87,7 +87,7 @@ public class ViagemFragment extends Fragment {
 
     public void iniciarComponentes(View view){
         recyclerView = view.findViewById(R.id.listViagem);
-        viagemRef  = Conexao.getFirebaseDatabase().child("viagem");
+        viagemRef  = Conexao.getFirebaseDatabase().child(Conexao.viagem);
         progressoViagem = view.findViewById(R.id.progressoViagem);
     }
 

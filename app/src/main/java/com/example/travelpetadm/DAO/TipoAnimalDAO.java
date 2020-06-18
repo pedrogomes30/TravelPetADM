@@ -51,7 +51,7 @@ public class TipoAnimalDAO extends Conexao {
         refTipoAnimal = getTipoAnimalReference();
         refTipoAnimal.child(tipoAnimal.getEspecie())
                 .child("iconeUrl")
-                .setValue(tipoAnimal.getIconeEspecieUrl());
+                .setValue(tipoAnimal.getIconeUrl());
     }
 
     public static String salvarFotoTipoAnimal(String especie, Bitmap imagem){

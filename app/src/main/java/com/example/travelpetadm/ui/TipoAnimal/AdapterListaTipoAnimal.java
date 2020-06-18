@@ -1,16 +1,25 @@
 package com.example.travelpetadm.ui.TipoAnimal;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.ui.animais.InfoAnimalActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,35 +42,26 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
 
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-    TipoAnimal tipoAnimal = tiposAnimais.get(position);
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    final TipoAnimal tipoAnimal = tiposAnimais.get(position);
     holder.especie.setText(tipoAnimal.getEspecie());
     holder.raca.setText(String.valueOf(tipoAnimal.getNomeRacaAnimal()));
-    holder.descricao.setText(tipoAnimal.getDescricao());
-
-    if(tipoAnimal.getEspecie()!= null) {
-
-        switch (tipoAnimal.getEspecie()) {
-            case "ave":
-                holder.imageEspecie.setImageResource(R.drawable.ic_ave_spinner);
-                break;
-            case "cachorro":
-                holder.imageEspecie.setImageResource(R.drawable.ic_cachorro_spinner);
-                break;
-            case "gato":
-                holder.imageEspecie.setImageResource(R.drawable.ic_gato_spinner);
-                break;
-            case "reptil":
-                holder.imageEspecie.setImageResource(R.drawable.ic_reptil_spinner);
-                break;
-            case "roedor":
-                holder.imageEspecie.setImageResource(R.drawable.ic_roedor_spinner);
-                break;
-            default:
-                holder.imageEspecie.setImageResource(R.drawable.ic_especie_spinner);
-                break;
-        }
-    }
+        DatabaseReference ref = TipoAnimalDAO.getTipoAnimalReference().child(tipoAnimal.getEspecie());
+        ValueEventListener listener = ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                TipoAnimal tipoAnimalI = dataSnapshot.getValue(TipoAnimal.class);
+                if (tipoAnimalI.getIconeUrl()!=null) {
+                    Uri fotoPerfilUri = Uri.parse(tipoAnimalI.getIconeUrl());
+                    Glide.with(context).load(fotoPerfilUri).into(holder.imageEspecie);
+                }else {
+                    holder.imageEspecie.setImageResource(R.drawable.ic_especie_spinner);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 }
 
     @Override
@@ -73,7 +73,7 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    TextView especie, raca, descricao;
+    TextView especie, raca;
     ImageView imageEspecie;
 
     public MyViewHolder(View itemView) {
@@ -81,7 +81,6 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
         imageEspecie = itemView.findViewById(R.id.imageEspecie);
         especie = itemView.findViewById(R.id.textEspecieList);
         raca = itemView.findViewById(R.id.textRacaList);
-        descricao = itemView.findViewById(R.id.textDescricaoList);
     }
 
 }

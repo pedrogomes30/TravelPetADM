@@ -263,17 +263,19 @@ public class GeradorXls extends AppCompatActivity {
                 Row row = sheet.createRow(0);
                 cell = row.createCell(0);cell.setCellValue("ID Viagem");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
                 cell = row.createCell(1);cell.setCellValue("ID DonoAnimal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
-                cell = row.createCell(2);cell.setCellValue("ID Animal");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
-                cell = row.createCell(3);cell.setCellValue("ID Motorista");          cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
-                cell = row.createCell(4);cell.setCellValue("ID veiculo");            cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
-                cell = row.createCell(5);cell.setCellValue("data");                  cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
-                cell = row.createCell(6);cell.setCellValue("Origem");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
-                cell = row.createCell(7);cell.setCellValue("Destino");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
-                cell = row.createCell(8);cell.setCellValue("Distancia");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
-                cell = row.createCell(9);cell.setCellValue("Hora Inicio");           cell.setCellStyle(cellStyle);sheet.setColumnWidth(9,(10*200));
-                cell = row.createCell(10);cell.setCellValue("Hora Fim");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(10,(10*200));
-                cell = row.createCell(11);cell.setCellValue("Porte animal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(11,(10*200));
-                cell = row.createCell(12);cell.setCellValue("custo");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(12,(10*200));
+                cell = row.createCell(2);cell.setCellValue("ID Animal 1");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
+                cell = row.createCell(3);cell.setCellValue("ID Animal 2");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
+                cell = row.createCell(4);cell.setCellValue("ID Animal 3");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
+                cell = row.createCell(5);cell.setCellValue("ID Motorista");          cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
+                cell = row.createCell(6);cell.setCellValue("ID veiculo");            cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
+                cell = row.createCell(7);cell.setCellValue("data");                  cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
+                cell = row.createCell(8);cell.setCellValue("Origem");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
+                cell = row.createCell(9);cell.setCellValue("Destino");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
+                cell = row.createCell(10);cell.setCellValue("Distancia");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(9,(10*200));
+                cell = row.createCell(11);cell.setCellValue("Hora Inicio");           cell.setCellStyle(cellStyle);sheet.setColumnWidth(10,(10*200));
+                cell = row.createCell(12);cell.setCellValue("Hora Fim");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(11,(10*200));
+                cell = row.createCell(13);cell.setCellValue("Porte animal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(12,(10*200));
+                cell = row.createCell(14);cell.setCellValue("custo");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(13,(10*200));
 
 
                 //adicionando o conteudo
@@ -282,18 +284,20 @@ public class GeradorXls extends AppCompatActivity {
                     // inserindo os dados na planilha
                     Row row1 = sheet.createRow(indicador);
                     cell = row1.createCell(0);cell.setCellValue(viagem.getIDViagem());
-                    cell = row1.createCell(1);cell.setCellValue(viagem.getIDDonoAnimal());
-                    cell = row1.createCell(2);cell.setCellValue(viagem.getAnimal());
-                    cell = row1.createCell(3);cell.setCellValue(viagem.getIDMotorista());
-                    cell = row1.createCell(4);cell.setCellValue(viagem.getIDVeiculo());
-                    cell = row1.createCell(5);cell.setCellValue(viagem.getData());
-                    cell = row1.createCell(6);cell.setCellValue(viagem.getOrigem());
-                    cell = row1.createCell(7);cell.setCellValue(viagem.getDestino());
-                    cell = row1.createCell(8);cell.setCellValue(viagem.getDistancia());
-                    cell = row1.createCell(9);cell.setCellValue(viagem.getHoraInicio());
-                    cell = row1.createCell(10);cell.setCellValue(viagem.getHoraFim());
-                    cell = row1.createCell(11);cell.setCellValue(viagem.getPorteAnimal());
-                    cell = row1.createCell(12);cell.setCellValue(viagem.getCustoViagem());
+                    cell = row1.createCell(1);cell.setCellValue(viagem.getIdDonoAnimal());
+                    cell = row1.createCell(2);cell.setCellValue(viagem.getIdAnimal1());
+                    cell = row1.createCell(3);cell.setCellValue(viagem.getIdAnimal2());
+                    cell = row1.createCell(4);cell.setCellValue(viagem.getIdAnimal3());
+                    cell = row1.createCell(5);cell.setCellValue(viagem.getIDMotorista());
+                    cell = row1.createCell(6);cell.setCellValue(viagem.getIDVeiculo());
+                    cell = row1.createCell(7);cell.setCellValue(viagem.getData());
+                    cell = row1.createCell(8);cell.setCellValue(viagem.getIdOrigem());
+                    cell = row1.createCell(9);cell.setCellValue(viagem.getDestino());
+                    cell = row1.createCell(10);cell.setCellValue(viagem.getDistancia());
+                    cell = row1.createCell(11);cell.setCellValue(viagem.getHoraInicio());
+                    cell = row1.createCell(12);cell.setCellValue(viagem.getHoraFim());
+                    cell = row1.createCell(13);cell.setCellValue(viagem.getPorteAnimal());
+                    cell = row1.createCell(14);cell.setCellValue(viagem.getCustoViagem());
                     indicador++;
 
                 }

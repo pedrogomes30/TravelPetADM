@@ -5,99 +5,178 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
+    android:padding="5dp"
     tools:context=".ui.animais.InfoAnimalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="3dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageInfoAnimal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_especie_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageInfoEspecie"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="140dp"
+                android:src="@drawable/ic_especie_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informações"
+            android:textAlignment="center"
+            android:textAppearance="@style/Fonte_Textos_menu.laranja"
+            android:textSize="18sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@drawable/fundo_margem_preta"
+            android:orientation="horizontal"
+            android:padding="3dp">
 
-            <ImageView
-                android:id="@+id/imageInfoAnimal"
-                android:layout_width="166dp"
-                android:layout_height="189dp"
-                android:layout_marginBottom="3dp"
-                android:background="@drawable/fundo_margem_preta"
-                android:padding="5dp"
-                app:srcCompat="@drawable/ic_especie_spinner" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome: "
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Especie:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Raça:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Id Animal:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dono Animal:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Porte Animal:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="8dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textInfoAnimalNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoAnimalEspecie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Especie"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoAnimalRaca"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/raca"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoAnimalIDAnimal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Id Animal"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoAnimalDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Dono Animal"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textInfoAnimalPorte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Porte Animal"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
-
             </LinearLayout>
+
         </LinearLayout>
 
         <TextView
@@ -112,28 +191,14 @@
         <TextView
             android:id="@+id/textInfoAnimalDescricao"
             android:layout_width="match_parent"
-            android:layout_height="208dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:background="@drawable/fundo_margem_preta"
+            android:padding="3dp"
             android:text="Descricao"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Viagens realizadas"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja"
-            android:textSize="18sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaInfoAnimaisViagens"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/fundo_margem_preta" />
-
+            android:textAlignment="textStart"
+            android:textColor="@color/preto" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

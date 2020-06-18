@@ -19,6 +19,8 @@ import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAvaliacao.MyViewHolder> {
     private List<Avaliacao> avaliacoes;
     private Context context;
@@ -75,7 +77,7 @@ public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAval
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView  textAvaliador, textAvaliado, textNotaAvaliacao;
-        ImageView imageAvaliacao;
+        CircleImageView imageAvaliacao;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

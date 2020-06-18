@@ -93,11 +93,6 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         recuperarMotorista();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
 
     @Override
     public void onStop(){
@@ -247,6 +242,7 @@ public class InfoMotoristaActivity extends AppCompatActivity {
             }
         });
     }
+
     public void iniciarReciclerView(){
 
             //configurar Adapter

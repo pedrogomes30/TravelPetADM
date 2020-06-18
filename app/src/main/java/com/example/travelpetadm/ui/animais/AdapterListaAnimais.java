@@ -1,6 +1,7 @@
 package com.example.travelpetadm.ui.animais;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
@@ -17,6 +19,8 @@ import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterListaAnimais extends RecyclerView.Adapter<AdapterListaAnimais.MyViewHolder> {
 
@@ -42,28 +46,11 @@ public class AdapterListaAnimais extends RecyclerView.Adapter<AdapterListaAnimai
         holder.donoAnimal.setText(Encriptador.decodificarBase64(animal.getIdUsuario()));
         holder.nome.setText(animal.getNomeAnimal());
 
-        if(animal.getEspecieAnimal()!= null) {
-
-            switch (animal.getEspecieAnimal()) {
-                case "ave":
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_ave_spinner);
-                    break;
-                case "cachorro":
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_cachorro_spinner);
-                    break;
-                case "gato":
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_gato_spinner);
-                    break;
-                case "reptil":
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_reptil_spinner);
-                    break;
-                case "roedor":
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_roedor_spinner);
-                    break;
-                default:
-                    holder.imageListaAnimais.setImageResource(R.drawable.ic_especie_spinner);
-                    break;
-            }
+        if(animal.getFotoAnimal()!=null){
+            Uri fotoPerfilUri = Uri.parse(animal.getFotoAnimal());
+            Glide.with(context).load( fotoPerfilUri ).into( holder.imageListaAnimais );
+        }else{
+            holder.imageListaAnimais.setImageResource(R.drawable.ic_especie_spinner);
         }
 
 
@@ -75,7 +62,7 @@ public class AdapterListaAnimais extends RecyclerView.Adapter<AdapterListaAnimai
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView especie, raca, donoAnimal, nome;
-        ImageView imageListaAnimais;
+        CircleImageView imageListaAnimais;
 
         public MyViewHolder(View itemView) {
             super(itemView);

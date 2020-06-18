@@ -352,7 +352,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
-            android:background="@drawable/fundo_margem_preta" />
+            android:background="@drawable/fundo_margem_preta"
+            android:padding="3dp" />
 
 
     </LinearLayout>

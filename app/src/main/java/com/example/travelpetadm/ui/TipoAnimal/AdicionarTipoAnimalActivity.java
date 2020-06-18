@@ -74,7 +74,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
             if(imagem != null){
                 circleImageViewiconeEspecie.setImageBitmap(imagem);
                  ulr = TipoAnimalDAO.salvarFotoTipoAnimal(textEditarTAEspecie.getText().toString(),imagem);
-                tipoanimal.seticoneUrl(ulr);
+                tipoanimal.setIconeUrl(ulr);
                 tipoanimal.setEspecie(textEditarTAEspecie.getText().toString());
                 TipoAnimalDAO.salvarUrlTipoAnimal(tipoanimal);
             }

@@ -3,74 +3,87 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
-    android:background="@drawable/fundo_margem_preta">
-
-    <ImageView
-        android:id="@+id/imageListaVeiculos"
-        android:layout_width="45dp"
-        android:layout_height="44dp"
-        android:padding="5dp"
-        app:srcCompat="@drawable/ic_menu_veiculo" />
-
-    <LinearLayout
-        android:layout_width="244dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textListaVeiculosMarca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="fill_vertical"
-            android:text="MARCA"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/preto"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textListaVeiculosModelo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="fill_vertical"
-            android:text="MODELO"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/preto"
-            android:textSize="14sp" />
-    </LinearLayout>
+    android:background="@color/branco"
+    android:orientation="vertical"
+    android:padding="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textListaVeiculosPlaca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingRight="5dp"
-            android:text="PLACA"
-            android:textAlignment="textEnd"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/preto"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imageListaVeiculos"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_menu_veiculo" />
 
-        <TextView
-            android:id="@+id/textListaVeiculosStatus"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="244dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingRight="5dp"
-            android:text="STATUS CADASTRO"
-            android:textAlignment="textEnd"
-            android:textAppearance="@style/Fonte_Textos_menores"
-            android:textColor="@color/preto"
-            android:textSize="12sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textListaVeiculosMarca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:text="MARCA"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textListaVeiculosModelo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:text="MODELO"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textListaVeiculosPlaca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="PLACA"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textListaVeiculosStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="STATUS CADASTRO"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/Fonte_Textos_menores"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="0.3dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/fundo_divisor" />
 
 </LinearLayout>

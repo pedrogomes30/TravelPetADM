@@ -36,10 +36,10 @@ public class AdapterListaViagem extends RecyclerView.Adapter <AdapterListaViagem
        Viagem viagem = viagens.get(position);
         holder.textListViagemID.setText(viagem.getIDViagem());
         holder.textListViagemData.setText(viagem.getData());
-        holder.textListViagemDA.setText(viagem.getIDDonoAnimal());
+        holder.textListViagemDA.setText(viagem.getIdDonoAnimal());
         holder.textListViagemMO.setText(viagem.getIDMotorista());
         holder.textListViagemValor.setText(String.valueOf(viagem.getCustoViagem()));
-        holder.textListViagemDistacia.setText(viagem.getDistancia());
+        holder.textListViagemDistacia.setText(String.valueOf(viagem.getDistancia()));
     }
 
     @Override

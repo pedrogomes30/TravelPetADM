@@ -59,13 +59,13 @@ public class InfoViagensActivity extends AppCompatActivity {
         if(bundle != null) {
             viagem = (Viagem) bundle.getSerializable("ExibirViagem");
                     textInfoViagemID.setText(viagem.getIDViagem());
-                    textInfoViagemDA.setText(viagem.getIDDonoAnimal());
-                    textInfoViagemAnimal.setText(viagem.getAnimal());
+                    textInfoViagemDA.setText(viagem.getIdDonoAnimal());
+                    textInfoViagemAnimal.setText(viagem.getIdAnimal1());
                     textInfoViagemPorte.setText(viagem.getPorteAnimal());
                     textInfoViagemData.setText(viagem.getData());
                     textInfoViagemDestino.setText(viagem.getDestino());
-                    textInfoViagemOrigem.setText(viagem.getOrigem());
-                    textInfoViagemDistancia.setText(viagem.getDistancia());
+                    textInfoViagemOrigem.setText(viagem.getIdOrigem());
+                    textInfoViagemDistancia.setText(String.valueOf(viagem.getDistancia()));
                     textInfoViagemHI.setText(viagem.getHoraInicio());
                     textInfoViagemHf.setText(viagem.getHoraFim());
                     textInfoViagemMotorista.setText(viagem.getIDMotorista());

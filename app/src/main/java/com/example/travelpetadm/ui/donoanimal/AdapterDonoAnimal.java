@@ -65,7 +65,7 @@ public class AdapterDonoAnimal extends RecyclerView.Adapter<AdapterDonoAnimal.My
             super(itemView);
             nome = itemView.findViewById(R.id.textNomeListaDA);
             sobrenome = itemView.findViewById(R.id.textSobrenomeListaDA);
-            status = itemView.findViewById(R.id.textCidadeListaDA);
+            status = itemView.findViewById(R.id.textStatusListaDA);
             imageListaDA = itemView.findViewById(R.id.imageListaDA);
         }
     }
