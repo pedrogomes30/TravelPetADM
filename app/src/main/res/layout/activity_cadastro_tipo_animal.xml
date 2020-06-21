@@ -76,6 +76,9 @@
                 android:id="@+id/textEditarTAEspecie"
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
+                android:inputType="text"
+                android:lines="1"
+                android:nextFocusDown="@id/textEditarTARaca"
                 android:background="@drawable/fundo_margem_preta"
                 android:maxLines="1"
                 android:paddingLeft="5dp"
@@ -97,6 +100,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:background="@drawable/fundo_margem_preta"
+                android:inputType="text"
+                android:lines="1"
+                android:nextFocusDown="@id/textEditarTAObservacao"
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textColor="@color/preto" />
@@ -115,10 +121,13 @@
             <EditText
                 android:id="@+id/textEditarTAObservacao"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/fundo_margem_preta"
                 android:gravity="start"
                 android:paddingLeft="5dp"
+                android:inputType="text"
+                android:lines="1"
+                android:nextFocusDown="@id/btSalvarTA"
                 android:textColor="@color/preto" />
 
         </LinearLayout>

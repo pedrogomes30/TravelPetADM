@@ -194,7 +194,8 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         tipoanimal.setDescricao(textEditarTAObservacao.getText().toString());
         alert("animal " + textEditarTARaca.getText().toString() + " salvo com sucesso! ");
         TipoAnimalDAO.salvarTipoAnimal(tipoanimal);
-        btSalvarFt.setVisibility(View.VISIBLE);
+        finish();
+
     }
 
     //validador de campos em branco

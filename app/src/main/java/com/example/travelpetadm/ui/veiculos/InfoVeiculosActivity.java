@@ -109,7 +109,6 @@ public class InfoVeiculosActivity extends AppCompatActivity {
                         }
                     }
                     aprovar(veiculo.getStatus());
-                    alert(veiculo.getStatus());
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
