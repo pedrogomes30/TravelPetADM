@@ -43,7 +43,7 @@ public class AdapterDonoAnimal extends RecyclerView.Adapter<AdapterDonoAnimal.My
         DonoAnimal donoAnimal = donosAnimais.get(position);
         holder.nome.setText(donoAnimal.getNome());
         holder.sobrenome.setText(donoAnimal.getSobrenome());
-        holder.status.setText(donoAnimal.getStatusPerfil());
+        holder.status.setText(donoAnimal.getStatusConta());
         if(donoAnimal.getFotoPerfilUrl()!=null){
             Uri fotoPerfilUri = Uri.parse(donoAnimal.getFotoPerfilUrl());
             Glide.with(context).load( fotoPerfilUri ).into( holder.imageListaDA );

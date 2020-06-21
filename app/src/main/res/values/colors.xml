@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black_semi_transparent">#b2000000</color>
+    <color name="black_semi_transparent">#46959595</color>
     <color name="Laranja_Principal">#Ff6600</color>
     <color name="roxo_claro">#60278B</color>
     <color name="roxo_escuro">#46165A</color>
@@ -11,5 +11,5 @@
     <color name="azul_claro">#2e8fc2</color>
     <color name="azul_petroleo">#054666</color>
     <color name="azul_petroleo_claro">#116591</color>
-    <color name="cinza" />
+    <color name="cinza">#F6F6F6</color>
 </resources>

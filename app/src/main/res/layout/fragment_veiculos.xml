@@ -13,7 +13,7 @@
         android:id="@+id/listVeiculo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fundo_margem_preta">
+        android:background="@drawable/fundo_cinza">
 
     </androidx.recyclerview.widget.RecyclerView>
 

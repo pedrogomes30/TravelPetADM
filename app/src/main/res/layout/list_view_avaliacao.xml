@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/branco"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="3dp">
@@ -17,17 +16,15 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageAvaliacao"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_menu_motorista" />
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -36,30 +33,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTintMode="screen"
-                android:gravity="clip_vertical|fill_vertical"
                 android:paddingStart="5dp"
                 android:text="@string/avaliador"
-                android:textAlignment="textStart"
                 android:textAppearance="@style/Fonte_Textos_menores"
                 android:textColor="@color/preto"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                tools:ignore="RtlCompat" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textAvaliado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
                 android:backgroundTintMode="screen"
                 android:gravity="clip_vertical|fill_vertical"
-                android:paddingEnd="8dp"
+                android:paddingEnd="5dp"
                 android:text="@string/avaliado"
-                android:textAlignment="textStart"
                 android:textAppearance="@style/Fonte_Textos_menores"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
-                tools:ignore="RtlCompat" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -70,12 +63,14 @@
             android:layout_weight="0"
             android:backgroundTintMode="screen"
             android:gravity="center_vertical"
+            android:lineSpacingExtra="10sp"
             android:paddingEnd="8dp"
             android:text="@string/notaAvaliacao"
             android:textAlignment="textEnd"
             android:textAppearance="@style/Fonte_Textos_menores"
             android:textColor="@android:color/darker_gray"
-            android:textSize="30sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

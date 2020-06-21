@@ -9,18 +9,12 @@
     android:padding="5dp"
     tools:context=".ui.donoanimal.DonoAnimalFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaDonoAnimal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fundo_margem_preta"
-        android:fillViewport="true">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaDonoAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical" />
-    </androidx.core.widget.NestedScrollView>
+        android:background="@drawable/fundo_cinza"
+        android:scrollbars="vertical" />
 
     <ProgressBar
         android:id="@+id/progressDA"

@@ -41,7 +41,7 @@ public class AdapterMotorista extends RecyclerView.Adapter<AdapterMotorista.MyVi
         Motorista motorista = motoristas.get(position);
         holder.nome.setText(motorista.getNome());
         holder.sobrenome.setText(motorista.getSobrenome());
-        holder.status.setText(motorista.getStatusCadastro());
+        holder.status.setText(motorista.getStatusConta());
         if (motorista.getFotoPerfilUrl()!=null) {
             Uri fotoPerfilUri = Uri.parse(motorista.getFotoPerfilUrl());
             Glide.with(context).load(fotoPerfilUri).into(holder.imageListaMO);

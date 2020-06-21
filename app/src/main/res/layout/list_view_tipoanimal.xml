@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/branco"
     android:orientation="vertical"
     android:padding="3dp">
 
@@ -53,6 +52,7 @@
             tools:ignore="RtlCompat" />
 
     </LinearLayout>
+
     <View
         android:layout_width="380dp"
         android:layout_height="0.3dp"

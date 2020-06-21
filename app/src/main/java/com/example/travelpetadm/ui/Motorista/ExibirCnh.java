@@ -24,7 +24,7 @@ ImageView imgCnh;
         if (bundle != null) {
             motorista = (Motorista) bundle.getSerializable("ExibirCnh");
         }
-        if(!motorista.getFotoCnhUrl().equals("")){
+        if(motorista.getFotoCnhUrl()!=null){
             Uri fotoPerfilUri = Uri.parse(motorista.getFotoCnhUrl());
             Glide.with(ExibirCnh.this).load( fotoPerfilUri ).into( imgCnh );
         }else{

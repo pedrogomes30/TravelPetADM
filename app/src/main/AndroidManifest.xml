@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_adm_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".ui.Motorista.ExibirCnh"></activity>
+        <activity android:name=".ui.veiculos.ExibirCrvl"></activity>
+        <activity android:name=".ui.Motorista.ExibirCnh" />
         <activity android:name=".ui.Motorista.InfoMotoristaActivity" />
         <activity android:name=".ui.Avaliacao.InfoAvaliacaoActivity" />
         <activity android:name=".ui.viagens.InfoViagensActivity" />

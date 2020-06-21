@@ -91,7 +91,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info_dono_animal);
         iniciarBundle();
         iniciarReciclerView();
-        aprovar(donoAnimal.getStatusPerfil());
+        aprovar(donoAnimal.getStatusConta());
     }
 
     @Override
@@ -143,13 +143,13 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                     textPerfilEmailDA.setText(donoAnimal.getEmail());
                     textPerfilTipoPerfilDA.setText(donoAnimal.getTipoUsuario());
                     textPerfilAvaliacaoDA.setText(String.valueOf(donoAnimal.getAvaliacao()));
-                    textPerfilStatusDA.setText(donoAnimal.getStatusPerfil());
+                    textPerfilStatusDA.setText(donoAnimal.getStatusConta());
                     if(donoAnimal.getAvaliacao()==null)textPerfilAvaliacaoDA.setText("0,0");
-                    if (!donoAnimal.getStatusPerfil().isEmpty()) {
-                        if (donoAnimal.getStatusPerfil().equals("ativo")) {
+                    if (!donoAnimal.getStatusConta().isEmpty()) {
+                        if (donoAnimal.getStatusConta().equals(Conexao.donoAnimalAtivo)) {
                             imgAprovacao.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
                             fabAprovarDA.setImageDrawable(getResources().getDrawable(R.drawable.ic_desaprovar));
-                        } else {if (donoAnimal.getStatusPerfil().equals("bloqueado")) {
+                        } else {if (donoAnimal.getStatusConta().equals(Conexao.donoAnimalBloqueado)) {
                             imgAprovacao.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
                             fabAprovarDA.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_aprovar));
                              }
@@ -161,7 +161,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                     }else{
                         imgPerfilDA.setImageResource(R.drawable.ic_dono_animal);
                     }
-                    aprovar(donoAnimal.getStatusPerfil());
+                    aprovar(donoAnimal.getStatusConta());
                     recuperarEndereco();
                     recuperarAnimal();
                 }
@@ -181,12 +181,12 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                 if (!status.isEmpty()) {
                     if (status.equals(Conexao.donoAnimalAtivo)) {
                         textPerfilStatusDA.setText(Conexao.donoAnimalBloqueado);
-                        donoAnimal.setStatusPerfil(Conexao.donoAnimalBloqueado);
+                        donoAnimal.setStatusConta(Conexao.donoAnimalBloqueado);
                         aprovar.child(Conexao.statusPerfil).setValue(Conexao.donoAnimalBloqueado);
                     } else {
                         if (status.equals(Conexao.donoAnimalBloqueado)) {
                             textPerfilStatusDA.setText(Conexao.donoAnimalAtivo);
-                            donoAnimal.setStatusPerfil(Conexao.donoAnimalAtivo);
+                            donoAnimal.setFotoPerfilUrl(Conexao.donoAnimalAtivo);
                             aprovar.child(Conexao.statusPerfil).setValue(Conexao.donoAnimalAtivo);
                         }
                     }

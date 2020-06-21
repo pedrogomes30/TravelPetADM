@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo_escuro"
+    android:padding="5dp"
     app:layout_anchorGravity="center"
     tools:context=".ui.TipoAnimal.AdicionarTipoAnimalActivity">
 
@@ -12,10 +13,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/fundo_margem_preta"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -51,8 +49,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageViewiconeEspecie"
-            android:layout_width="230dp"
-            android:layout_height="230dp"
+            android:layout_width="199dp"
+            android:layout_height="194dp"
             android:src="@drawable/ic_especie_spinner" />
 
         <LinearLayout
@@ -123,16 +121,37 @@
                 android:paddingLeft="5dp"
                 android:textColor="@color/preto" />
 
-            <Button
-                android:id="@+id/btSalvarTA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/botao_azul"
-                android:text="@string/salvar" />
         </LinearLayout>
 
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btSalvarFt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="140dp"
+        android:clickable="true"
+        app:backgroundTint="@color/roxo_escuro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="45dp"
+        app:srcCompat="@drawable/ic_image" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btSalvarTA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:clickable="true"
+        app:backgroundTint="@color/branco"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabRejeitarMO"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="46dp"
+        app:srcCompat="@drawable/ic_menu_salvar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

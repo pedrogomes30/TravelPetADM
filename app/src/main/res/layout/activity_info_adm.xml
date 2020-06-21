@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/fundo_margem_preta"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,82 +23,85 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="170dp"
+            android:layout_height="185dp"
+            android:background="@drawable/fundo_margem_preta"
+            app:srcCompat="@drawable/ic_email_login" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="170dp"
-                android:layout_height="185dp"
-                android:background="@drawable/fundo_margem_preta"
-                app:srcCompat="@drawable/ic_email_login" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome:"
+                    android:textAppearance="@style/Fonte_Textos_menu.menor"
+                    android:textColor="@color/preto"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TipoPerfil:"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@color/preto"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="181dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="8dp"
-                android:paddingTop="8dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textPerfilNomeADM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome"
-                    android:textAppearance="@style/Fonte_Textos_menu"
-                    android:textColor="@color/preto"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/Fonte_Textos_menores"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textPerfilEmailADM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/e_mail"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textPerfilTipoPerfilADM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tipoperfil"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/Fonte_Textos_menores"
-                    android:textColor="@color/preto"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp" />
-
-
             </LinearLayout>
+
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="Interações deste Administrador"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu"
-            android:textColor="@color/Laranja_Principal"
-            android:textSize="18sp" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/fundo_margem_preta">
-
-            <ListView
-                android:id="@+id/listaPerfilADMlog"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical" />
-        </FrameLayout>
 
     </LinearLayout>
 

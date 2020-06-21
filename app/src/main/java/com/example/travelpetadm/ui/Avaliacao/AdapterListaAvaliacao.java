@@ -60,10 +60,10 @@ public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAval
 
         switch(avaliacao.getTipoPerfil()){
             case "motorista":
-                holder.imageAvaliacao.setImageResource(R.drawable.ic_menu_motorista);
+                holder.imageAvaliacao.setImageResource(R.drawable.ic_motorista);
                 break;
             case "donoAnimal":
-                holder.imageAvaliacao.setImageResource(R.drawable.ic_menu_donoanimal);
+                holder.imageAvaliacao.setImageResource(R.drawable.ic_dono_animal);
                 break;
             default:
                 holder.imageAvaliacao.setImageResource(R.drawable.ic_menu_about);

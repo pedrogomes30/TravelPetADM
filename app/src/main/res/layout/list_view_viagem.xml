@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/branco"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="3dp">
 
@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="48dp"
+            android:layout_width="36dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_menu_viagem" />
 
@@ -31,31 +31,7 @@
                 android:paddingLeft="5dp"
                 android:text="DonoAnimal"
                 android:textColor="@color/preto"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textListViagemID"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="ID"
-                android:textColor="@android:color/darker_gray" />
-
-            <TextView
-                android:id="@+id/textListViagemData"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="Data"
-                android:textColor="@android:color/darker_gray" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textListViagemMO"
@@ -64,24 +40,34 @@
                 android:paddingLeft="5dp"
                 android:text="Motorista"
                 android:textColor="@color/preto"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textListViagemValor"
-                android:layout_width="185dp"
+                android:id="@+id/textListViagemID"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="Valor"
+                android:text="ID"
+                android:textAlignment="textEnd"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
-                android:id="@+id/textListViagemDistacia"
-                android:layout_width="169dp"
+                android:id="@+id/textListViagemData"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:paddingLeft="5dp"
-                android:text="Distancia"
-                android:textColor="@android:color/darker_gray" />
+                android:text="Data"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
 
         </LinearLayout>
 

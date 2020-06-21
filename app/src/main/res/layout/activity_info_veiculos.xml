@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fundo_margem_preta"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/fundo_cinza"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="3dp"
@@ -196,53 +197,46 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:text="Viagens realizadas"
-            android:textAlignment="center"
-            android:textAppearance="@style/Fonte_Textos_menu.laranja"
-            android:textSize="18sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaInfoVeiculosViagens"
-            android:layout_width="match_parent"
-            android:layout_height="231dp"
-            android:layout_margin="3dp"
-            android:background="@drawable/fundo_margem_preta"
-            android:scrollbars="vertical">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btAbrirCrvl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:layout_weight="1"
-                android:background="@drawable/botao_azul"
-                android:text="Exibir CRVL" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="3dp"
-                android:layout_marginBottom="3dp"
-                android:layout_weight="1"
-                android:background="@drawable/botao_azul"
-                android:text="Aprovar" />
-        </LinearLayout>
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAprovarVei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:clickable="true"
+        app:backgroundTint="@color/branco"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabRejeitarVei"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_atencao" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabRejeitarVei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/branco"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabAprovarVei"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabCrvl"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_fab_bloquear" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCrvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/roxo_claro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabRejeitarVei"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="46dp"
+        app:srcCompat="@drawable/ic_fab_cnh" />
 </androidx.constraintlayout.widget.ConstraintLayout>

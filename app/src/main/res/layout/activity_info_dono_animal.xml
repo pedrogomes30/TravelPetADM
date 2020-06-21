@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/fundo_margem_preta"
+        android:background="@drawable/fundo_cinza"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="5dp"

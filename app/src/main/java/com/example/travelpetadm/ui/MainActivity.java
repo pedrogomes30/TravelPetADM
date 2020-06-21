@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.travelpetadm.DAO.AdmDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.DonoAnimal;
@@ -86,20 +87,19 @@ public void iniciarComponentes(NavigationView navigationView){
     }
 
     public void recuperarNomeEmailAdm(){
-        nomeAdm.setText("Olá! "+nome);
+        nomeAdm.setText(nome);
         emailAdm.setText(email);
-        DatabaseReference donoAnimalRef = Conexao.getFirebaseDatabase()
-                .child( Conexao.adm)
+        DatabaseReference adm = AdmDAO.referenciaAdm()
                 .child(Encriptador.codificarBase64(Conexao.getEmailUsuario()));
-        donoAnimalRef.addValueEventListener(new ValueEventListener() {
+        adm.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                DonoAnimal donoAnimal = dataSnapshot.getValue(DonoAnimal.class);
-                nome       =   donoAnimal.getNome();
-                email       =   donoAnimal.getEmail();
+                Adm adm = dataSnapshot.getValue(Adm.class);
+                nome       =   adm.getNome();
+                email       =   adm.getEmail();
 
-                nomeAdm.setText("Olá! "+nome);
+                nomeAdm.setText("Olá! \n"+nome);
                 emailAdm.setText(email);
 
             }

@@ -122,32 +122,33 @@ public class InfoMotoristaActivity extends AppCompatActivity {
                 textPerfilEmailMO.setText(motorista.getEmail());
                 textPerfilTipoPerfilMO.setText(motorista.getTipoUsuario());
                 textPerfilAvaliacaoMO.setText(String.valueOf(motorista.getAvaliacao()));
-                textPerfilStatusMO.setText(motorista.getStatusCadastro());
+                textPerfilStatusMO.setText(motorista.getStatusConta());
             if(motorista.getAvaliacao()==null)textPerfilAvaliacaoMO.setText("0,0");
-                if (!motorista.getStatusCadastro().isEmpty()) {
-                    if (motorista.getStatusCadastro().equals(Conexao.motoristaEmAnalise)) {
+                if (!motorista.getStatusConta().isEmpty()) {
+                    if (motorista.getStatusConta().equals(Conexao.motoristaEmAnalise)) {
                         imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_atencao));
                         fabAprovarMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_aprovar));
                         fabRejeitarMO.setVisibility(View.VISIBLE);
-                    } else {if (motorista.getStatusCadastro().equals(Conexao.motoristaAprovado)) {
+                    } else {if (motorista.getStatusConta().equals(Conexao.motoristaAprovado)) {
                         imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
                         fabAprovarMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_atencao));
                         fabRejeitarMO.setVisibility(View.VISIBLE);
                     }else {
-                        if (motorista.getStatusCadastro().equals(Conexao.motoristaRejeitado)) {
+                        if (motorista.getStatusConta().equals(Conexao.motoristaRejeitado)) {
                             imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_bloquear));
+                            fabAprovarMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab_aprovar));
                             fabRejeitarMO.setVisibility(View.GONE);
                         }
                     }
                     }
                 }
-                if(!motorista.getFotoPerfilUrl().equals("")){
+                if(motorista.getFotoPerfilUrl()!=null){
                     Uri fotoPerfilUri = Uri.parse(motorista.getFotoPerfilUrl());
                     Glide.with(InfoMotoristaActivity.this).load( fotoPerfilUri ).into( imgPerfilMO );
                 }else{
                     imgPerfilMO.setImageResource(R.drawable.ic_menu_motorista);
                 }
-                aprovar(motorista.getStatusCadastro());
+                aprovar(motorista.getStatusConta());
                 recuperarEndereco();
                 recuperarVeiculo();
             }
@@ -208,13 +209,13 @@ public class InfoMotoristaActivity extends AppCompatActivity {
                 if (!status.isEmpty()) {
                     if (status.equals(Conexao.motoristaEmAnalise)||status.equals(Conexao.motoristaRejeitado)) {
                         textPerfilStatusMO.setText(Conexao.motoristaAprovado);
-                        motorista.setStatusCadastro(Conexao.motoristaAprovado);
-                        aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaAprovado);
+                        motorista.setStatusConta(Conexao.motoristaAprovado);
+                        aprovar.child(Conexao.statusConta).setValue(Conexao.motoristaAprovado);
                     } else {
                         if (status.equals(Conexao.motoristaAprovado)) {
                             textPerfilStatusMO.setText(Conexao.motoristaEmAnalise);
-                            motorista.setStatusCadastro(Conexao.motoristaEmAnalise);
-                            aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaEmAnalise);
+                            motorista.setStatusConta(Conexao.motoristaEmAnalise);
+                            aprovar.child(Conexao.statusConta).setValue(Conexao.motoristaEmAnalise);
                         }
                     }
                 }
@@ -227,8 +228,8 @@ public class InfoMotoristaActivity extends AppCompatActivity {
                 if (!status.isEmpty()) {
                     if (status.equals(Conexao.motoristaEmAnalise)||status.equals(Conexao.motoristaAprovado)) {
                         textPerfilStatusMO.setText(Conexao.motoristaRejeitado);
-                        motorista.setStatusCadastro(Conexao.motoristaRejeitado);
-                        aprovar.child(Conexao.statusCadastro).setValue(Conexao.motoristaRejeitado);
+                        motorista.setStatusConta(Conexao.motoristaRejeitado);
+                        aprovar.child(Conexao.statusConta).setValue(Conexao.motoristaRejeitado);
                     }
                 }
             }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Motorista extends Usuario implements Serializable {
     private String registroCnh,
-            statusCadastro,
             fotoCnhUrl,
             fotoPerfilUrl;
 
@@ -16,14 +15,6 @@ public class Motorista extends Usuario implements Serializable {
 
     public void setRegistroCnh(String registroCnh) {
         this.registroCnh = registroCnh;
-    }
-
-    public String getStatusCadastro() {
-        return statusCadastro;
-    }
-
-    public void setStatusCadastro(String statusCadastro) {
-        this.statusCadastro = statusCadastro;
     }
 
     public String getFotoCnhUrl() {

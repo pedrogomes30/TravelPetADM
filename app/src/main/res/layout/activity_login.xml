@@ -31,7 +31,7 @@
         android:layout_height="343dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/fundo_margem_preta"
+        android:background="@drawable/fundo_cinza"
         android:gravity="center"
         android:orientation="vertical"
         android:transitionGroup="false"

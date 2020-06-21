@@ -61,10 +61,10 @@ public class InfoAvaliacaoActivity extends AppCompatActivity {
             textInfoObservacaoAvaliacao.setText(String.valueOf(avaliacao.getObservacao()));
                switch(avaliacao.getTipoPerfil()){
                    case "motorista":
-                       imageTipoAvaliacao.setImageResource(R.drawable.ic_menu_motorista);
+                       imageTipoAvaliacao.setImageResource(R.drawable.ic_motorista);
                        break;
                    case "donoAnimal":
-                       imageTipoAvaliacao.setImageResource(R.drawable.ic_menu_donoanimal);
+                       imageTipoAvaliacao.setImageResource(R.drawable.ic_dono_animal);
                        break;
                    default:
                        imageTipoAvaliacao.setImageResource(R.drawable.ic_menu_about);

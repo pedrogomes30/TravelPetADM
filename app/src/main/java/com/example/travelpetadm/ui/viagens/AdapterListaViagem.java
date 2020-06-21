@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.Model.Viagem;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.ui.veiculos.AdapterListaVeiculos;
 
 import java.util.List;
@@ -36,25 +37,23 @@ public class AdapterListaViagem extends RecyclerView.Adapter <AdapterListaViagem
        Viagem viagem = viagens.get(position);
         holder.textListViagemID.setText(viagem.getIDViagem());
         holder.textListViagemData.setText(viagem.getData());
-        holder.textListViagemDA.setText(viagem.getIdDonoAnimal());
-        holder.textListViagemMO.setText(viagem.getIDMotorista());
-        holder.textListViagemValor.setText(String.valueOf(viagem.getCustoViagem()));
-        holder.textListViagemDistacia.setText(String.valueOf(viagem.getDistancia()));
+        if(viagem.getIdDonoAnimal()!=null){
+            holder.textListViagemDA.setText("Dono Animal: " + Encriptador.decodificarBase64(viagem.getIdDonoAnimal()));}
+        if(!viagem.getIdDonoAnimal().equals(null)){
+            holder.textListViagemMO.setText(viagem.getIDMotorista());}
     }
 
     @Override
     public int getItemCount() {return viagens.size();}
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textListViagemID, textListViagemData,textListViagemDA, textListViagemMO, textListViagemValor, textListViagemDistacia;
+        TextView textListViagemID, textListViagemData,textListViagemDA, textListViagemMO;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textListViagemID = itemView.findViewById(R.id.textListViagemID);
             textListViagemData = itemView.findViewById(R.id.textListViagemData);
             textListViagemDA = itemView.findViewById(R.id.textListViagemDA);
             textListViagemMO = itemView.findViewById(R.id.textListViagemMO);
-            textListViagemValor = itemView.findViewById(R.id.textListViagemValor);
-            textListViagemDistacia = itemView.findViewById(R.id.textListViagemDistacia);
         }
     }
 }

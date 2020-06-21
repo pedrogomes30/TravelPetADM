@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.Model.Viagem;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 
 public class InfoViagensActivity extends AppCompatActivity {
     private TextView
@@ -59,7 +60,7 @@ public class InfoViagensActivity extends AppCompatActivity {
         if(bundle != null) {
             viagem = (Viagem) bundle.getSerializable("ExibirViagem");
                     textInfoViagemID.setText(viagem.getIDViagem());
-                    textInfoViagemDA.setText(viagem.getIdDonoAnimal());
+                    textInfoViagemDA.setText(Encriptador.decodificarBase64(viagem.getIdDonoAnimal()));
                     textInfoViagemAnimal.setText(viagem.getIdAnimal1());
                     textInfoViagemPorte.setText(viagem.getPorteAnimal());
                     textInfoViagemData.setText(viagem.getData());
