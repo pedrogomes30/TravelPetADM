@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Animal implements Serializable {
     private String especieAnimal, porteAnimal, racaAnimal, observacaoAnimal, nomeAnimal;
-    private String fotoAnimal;
+    private String fotoAnimalUrl;
     private String idUsuario, idAnimal;
 
 
@@ -55,12 +55,12 @@ public class Animal implements Serializable {
         this.nomeAnimal = nomeAnimal;
     }
 
-    public String getFotoAnimal() {
-        return fotoAnimal;
+    public String getFotoAnimalUrl() {
+        return fotoAnimalUrl;
     }
 
-    public void setFotoAnimal(String fotoAnimal) {
-        this.fotoAnimal = fotoAnimal;
+    public void setFotoAnimalUrl(String fotoAnimalUrl) {
+        this.fotoAnimalUrl = fotoAnimalUrl;
     }
 
     public String getIdUsuario() {

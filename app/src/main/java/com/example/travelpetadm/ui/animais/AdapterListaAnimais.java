@@ -46,8 +46,8 @@ public class AdapterListaAnimais extends RecyclerView.Adapter<AdapterListaAnimai
         holder.donoAnimal.setText(Encriptador.decodificarBase64(animal.getIdUsuario()));
         holder.nome.setText(animal.getNomeAnimal());
 
-        if(animal.getFotoAnimal()!=null){
-            Uri fotoPerfilUri = Uri.parse(animal.getFotoAnimal());
+        if(animal.getFotoAnimalUrl()!=null){
+            Uri fotoPerfilUri = Uri.parse(animal.getFotoAnimalUrl());
             Glide.with(context).load( fotoPerfilUri ).into( holder.imageListaAnimais );
         }else{
             holder.imageListaAnimais.setImageResource(R.drawable.ic_especie_spinner);

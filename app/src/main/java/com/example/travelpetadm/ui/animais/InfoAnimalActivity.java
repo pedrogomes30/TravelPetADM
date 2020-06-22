@@ -92,8 +92,8 @@ public class InfoAnimalActivity extends AppCompatActivity {
         }
     }
     public void recuperarTipoAnimal(){
-            if (animal.getFotoAnimal()!=null) {
-                Uri fotoPerfilUri = Uri.parse(animal.getFotoAnimal());
+            if (animal.getFotoAnimalUrl()!=null) {
+                Uri fotoPerfilUri = Uri.parse(animal.getFotoAnimalUrl());
                 Glide.with(InfoAnimalActivity.this).load(fotoPerfilUri).into(imageInfoAnimal);
             } else {
                 imageInfoAnimal.setImageResource(R.drawable.ic_especie_spinner);

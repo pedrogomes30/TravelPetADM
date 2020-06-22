@@ -545,7 +545,7 @@ public class GeradorXls extends AppCompatActivity {
                         cell = row1.createCell(4);cell.setCellValue(animal.getRacaAnimal());
                         cell = row1.createCell(5);cell.setCellValue(animal.getPorteAnimal());
                         cell = row1.createCell(6);cell.setCellValue(animal.getObservacaoAnimal());
-                        cell = row1.createCell(7);cell.setCellValue(animal.getFotoAnimal());
+                        cell = row1.createCell(7);cell.setCellValue(animal.getFotoAnimalUrl());
                         indicador++;
                     }
                 }
