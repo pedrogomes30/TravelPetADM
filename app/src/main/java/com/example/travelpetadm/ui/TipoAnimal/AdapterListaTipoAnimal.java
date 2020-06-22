@@ -53,7 +53,7 @@ public AdapterListaTipoAnimal(List<TipoAnimal> tiposAnimais, Context context) {
                 TipoAnimal tipoAnimalI = dataSnapshot.getValue(TipoAnimal.class);
                 if (tipoAnimalI.getIconeUrl()!=null) {
                     Uri fotoPerfilUri = Uri.parse(tipoAnimalI.getIconeUrl());
-                    Glide.with(context).load(fotoPerfilUri).into(holder.imageEspecie);
+                    Glide.with(context.getApplicationContext()).load(fotoPerfilUri).into(holder.imageEspecie);
                 }else {
                     holder.imageEspecie.setImageResource(R.drawable.ic_especie_spinner);
                 }

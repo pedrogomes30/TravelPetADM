@@ -4,12 +4,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 */ items em desuso, inseridos na navigation drawer e no próprio fragment /**
 <item
-    android:id="@+id/action_procurar"
-    android:icon ="@android:drawable/ic_menu_search"
-    android:orderInCategory="100"
-    android:title="@string/action_procurar"
-    app:showAsAction="always" />
-<item
     android:id="@+id/action_salvar"
     android:icon="@android:drawable/ic_menu_save"
     android:orderInCategory="100"
