@@ -49,10 +49,10 @@ public class Conexao {
     //Variaveis de status de perfil ----------------------------------------------------------------
     public static String donoAnimalBloqueado=    "bloqueado",
                          donoAnimalAtivo=        "ativo",
-                         motoristaEmAnalise=     "Em análise",
-                         motoristaAprovado=      "Aprovado",
-                         motoristaRejeitado=     "Rejeitado",
-                         veiculoBloqueado=       "Bloqueado",
+                         motoristaEmAnalise=     "em_analise",
+                         motoristaAprovado=      "aprovado",
+                         motoristaRejeitado=     "rejeitado",
+                         veiculoBloqueado=       "bloqueado",
                          veiculoAprovado=        "liberado",
                          veiculoEmAnalise=       "em_analise";
 
