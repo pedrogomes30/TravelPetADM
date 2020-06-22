@@ -126,16 +126,12 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
                 textEditarTAEspecie.setText(tipoanimal.getEspecie());
                 textEditarTARaca.setText(tipoanimal.getNomeRacaAnimal());
                 textEditarTAObservacao.setText(String.valueOf(tipoanimal.getDescricao()));
-                //btSalvarTA.setImageDrawable(R.drawable.ic_desaprovar);
                 btSalvarFt.setVisibility(View.VISIBLE);
                 ref.child(tipoanimal.getEspecie()).child(tipoanimal.getNomeRacaAnimal()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         tipoanimal = dataSnapshot.getValue(TipoAnimal.class);
                         if(tipoanimal.getIconeUrl()!=null){
-                            if(textEditarTAEspecie.getText().equals(tipoanimal.getEspecie())){
-                                btSalvarFt.setVisibility(View.VISIBLE);
-                            }else{btSalvarFt.setVisibility(View.GONE);}
                             Uri fotoPerfilUri = Uri.parse(tipoanimal.getIconeUrl());
                             Glide.with(getApplicationContext()).load( fotoPerfilUri ).into( circleImageViewiconeEspecie );
                             //btSalvarFt.setVisibility(View.GONE);
