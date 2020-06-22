@@ -49,7 +49,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
     private TipoAnimal tipoanimal;
     private String especieS,racaS,descricaoS;
     private CircleImageView circleImageViewiconeEspecie;
-    private static final int galeria = 1;
+    private static final int galeria = 100;
     private StorageReference storageImgRef ;
     private ValueEventListener listener;
     Uri localImagemSelecionada;
