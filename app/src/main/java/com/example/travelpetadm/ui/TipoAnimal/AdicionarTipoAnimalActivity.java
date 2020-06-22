@@ -49,7 +49,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
     private TipoAnimal tipoanimal;
     private String especieS,racaS,descricaoS;
     private CircleImageView circleImageViewiconeEspecie;
-    private static final int galeria = 100;
+    private static final int GALERIA = 100;
     private StorageReference storageImgRef ;
     private ValueEventListener listener;
     Uri localImagemSelecionada;
@@ -76,20 +76,20 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             Bitmap  imagem = null;
             try{
-                localImagemSelecionada = data.getData();
-                imagem = MediaStore.Images.Media.getBitmap(getContentResolver(), localImagemSelecionada);
+                switch(requestCode){
+                    case GALERIA:
+                        localImagemSelecionada = data.getData();
+                        imagem = MediaStore.Images.Media.getBitmap(getContentResolver(), localImagemSelecionada);
+                        break;
+                }
+
             }catch (Exception e ){
                 e.printStackTrace();
             }
             if(imagem != null){
                 circleImageViewiconeEspecie.setImageBitmap(imagem);
-                ulr = TipoAnimalDAO.salvarFotoTipoAnimal(textEditarTAEspecie.getText().toString(),imagem);
-                tipoanimal.setIconeUrl(ulr);
-                tipoanimal.setEspecie(textEditarTAEspecie.getText().toString());
-                TipoAnimalDAO.salvarUrlTipoAnimal(tipoanimal);
-                ref.child(tipoanimal.getEspecie()).child(Conexao.iconeUrl).setValue(ulr);
-
-            }
+                ulr = TipoAnimalDAO.salvarFotoTipoAnimal(textEditarTAEspecie.getText().toString(),imagem,tipoanimal);
+                }
         }
     }
 
@@ -126,16 +126,16 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
                 textEditarTAEspecie.setText(tipoanimal.getEspecie());
                 textEditarTARaca.setText(tipoanimal.getNomeRacaAnimal());
                 textEditarTAObservacao.setText(String.valueOf(tipoanimal.getDescricao()));
-                textEditarTAEspecie.setEnabled(false);
-                textEditarTARaca.setEnabled(false);
-                textEditarTAObservacao.setEnabled(false);
-                btSalvarTA.setVisibility(View.GONE);
+                //btSalvarTA.setImageDrawable(R.drawable.ic_desaprovar);
                 btSalvarFt.setVisibility(View.VISIBLE);
-                listener = ref.child(tipoanimal.getEspecie()).addValueEventListener(new ValueEventListener() {
+                ref.child(tipoanimal.getEspecie()).child(tipoanimal.getNomeRacaAnimal()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         tipoanimal = dataSnapshot.getValue(TipoAnimal.class);
                         if(tipoanimal.getIconeUrl()!=null){
+                            if(textEditarTAEspecie.getText().equals(tipoanimal.getEspecie())){
+                                btSalvarFt.setVisibility(View.VISIBLE);
+                            }else{btSalvarFt.setVisibility(View.GONE);}
                             Uri fotoPerfilUri = Uri.parse(tipoanimal.getIconeUrl());
                             Glide.with(getApplicationContext()).load( fotoPerfilUri ).into( circleImageViewiconeEspecie );
                             //btSalvarFt.setVisibility(View.GONE);
@@ -145,9 +145,9 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
+
             }
         }
 
@@ -162,7 +162,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
                 }else{
                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     if(intent.resolveActivity(getPackageManager())!=null) {
-                        startActivityForResult(intent, galeria);
+                        startActivityForResult(intent, GALERIA);
                     }
                 }
             }

@@ -47,14 +47,8 @@ public class TipoAnimalDAO extends Conexao {
                 .setValue(tipoAnimal);
     }
 
-    public static void salvarUrlTipoAnimal(TipoAnimal tipoAnimal){
-        refTipoAnimal = getTipoAnimalReference();
-        refTipoAnimal.child(tipoAnimal.getEspecie())
-                .child("iconeUrl")
-                .setValue(tipoAnimal.getIconeUrl());
-    }
 
-    public static String salvarFotoTipoAnimal(String especie, Bitmap imagem){
+    public static String salvarFotoTipoAnimal(String especie, Bitmap imagem, final TipoAnimal tipoAnimal){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         imagem.compress(Bitmap.CompressFormat.JPEG,70,baos);
         byte[] dadosImagem = baos.toByteArray();
@@ -75,10 +69,16 @@ public class TipoAnimalDAO extends Conexao {
                 while(!uri.isComplete());
                 Uri url = uri.getResult();
                 fotoAnimalUrl = url.toString();
+                refTipoAnimal = getTipoAnimalReference();
+                refTipoAnimal.child(tipoAnimal.getEspecie())
+                        .child(Conexao.iconeUrl)
+                        .setValue(fotoAnimalUrl);
             }
         });
         return fotoAnimalUrl;
     }
+
+
 
     //Recupera um arraylist desse objeto com a classe adapter
     public static ArrayList<TipoAnimal> recuperarArrayAdapter(ArrayList<TipoAnimal> tiposAnimais){

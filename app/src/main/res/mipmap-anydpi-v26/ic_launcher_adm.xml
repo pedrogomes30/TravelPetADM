@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/roxo_escuro"/>
-    <foreground android:drawable="@drawable/aplicativoadm"
-        android:height="10dp"
-        android:width="10dp"
+    <foreground android:drawable="@drawable/logo_travelpet_launcher_adm"
+
 
          />
 </adaptive-icon>

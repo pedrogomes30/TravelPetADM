@@ -7,7 +7,7 @@
     android:background="@color/roxo_escuro"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".ui.MotoristaFragment">
+    tools:context=".ui.Motorista.MotoristaFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaMotorista"
