@@ -109,9 +109,6 @@ public class AvaliacaoFragment extends Fragment {
             case R.id.action_salvar:
                 gerarXLS();
                 break;
-            case R.id.action_procurar:
-                Toast.makeText(getActivity(),"em implementação",Toast.LENGTH_SHORT).show();
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

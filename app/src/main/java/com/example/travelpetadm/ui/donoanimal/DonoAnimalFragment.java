@@ -124,9 +124,6 @@ public class DonoAnimalFragment extends Fragment {
             case R.id.action_salvar:
                 new GeradorXls("DonoAnimal", view.getContext());
                 break;
-            case R.id.action_procurar:
-                Toast.makeText(getActivity(), "não há link com o firebase", Toast.LENGTH_SHORT).show();
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

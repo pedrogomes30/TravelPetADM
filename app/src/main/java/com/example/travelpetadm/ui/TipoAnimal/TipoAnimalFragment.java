@@ -121,10 +121,6 @@ public class TipoAnimalFragment extends Fragment {
             case R.id.action_salvar:
                 gerarXLS();
                 break;
-            case R.id.action_procurar:
-                Toast.makeText(getActivity(),"não há link com o firebase",Toast.LENGTH_SHORT).show();
-                break;
-
         }
         return super.onOptionsItemSelected(item);
     }

@@ -134,10 +134,6 @@ public class ContasAdmFragment extends Fragment {
             case R.id.action_salvar:
                 new GeradorXls("Adm", view.getContext());
                 break;
-            case R.id.action_procurar:
-                Toast.makeText(getActivity(),"EM IMPLEMENTAÇÃO",Toast.LENGTH_SHORT).show();
-
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -131,21 +131,6 @@ public class AnimaisFragment extends Fragment {
     public void recuperarAnimal (){
         AnimalDAO.recuperarArrayAnimais(animais);
         progressoAnimal.setVisibility(View.GONE);
-       /* valueEventListenerAnimal = animalRef.addValueEventListener(new ValueEventListener() {
-            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                animais.clear();
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    for (DataSnapshot animalDs : dados.getChildren()) {
-                        Animal animal = animalDs.getValue(Animal.class);
-                        animais.add(animal);
-                        progressoAnimal.setVisibility(View.VISIBLE);
-                    }
-                }
-               adapterListaAnimal.notifyDataSetChanged();
-                progressoAnimal.setVisibility(View.GONE);
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });*/
-
     }
 
     //BOTAO DE MENU
