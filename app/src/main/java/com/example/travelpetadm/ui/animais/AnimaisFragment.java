@@ -29,7 +29,7 @@ import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.helper.GeradorXls;
+import com.example.travelpetadm.DAO.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 import com.example.travelpetadm.ui.TipoAnimal.AdicionarTipoAnimalActivity;

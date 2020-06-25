@@ -12,4 +12,7 @@ public class VeiculoDAO extends Conexao {
         }
         return refVeiculo;
     }
+    public void recuperararraylist(){
+
+    }
 }

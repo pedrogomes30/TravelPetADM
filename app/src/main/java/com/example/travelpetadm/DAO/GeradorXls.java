@@ -1,4 +1,4 @@
-package com.example.travelpetadm.helper;
+package com.example.travelpetadm.DAO;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,8 +29,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.apache.poi.hssf.record.chart.EndRecord;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -43,11 +45,17 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EventListener;
+import java.util.concurrent.CountDownLatch;
 
 public class GeradorXls extends AppCompatActivity {
-    private DatabaseReference ref;
-    private ValueEventListener listener;
+    private DatabaseReference ref,enderecoRef;
+    private CountDownLatch contador;
+    private ArrayList<Motorista> listaMotoristas = new ArrayList<>();
+    private ArrayList<DonoAnimal> listaDonoAnimal = new ArrayList<>();
+    private ArrayList<Endereco> listaEnderecos = new ArrayList<>();
     Context context;
+    Row row1;
 
     public GeradorXls(String nomeclasse, Context context){
         this.context = context;
@@ -82,118 +90,78 @@ public class GeradorXls extends AppCompatActivity {
         }
     }
 
-    //ESTA PUXANDO SOMENTE A CLASSE DONO ANIMAL SEM O ENDERECO
     public  void xlsDonoAnimal(){
-        ref = DonoAnimalDAO.getDonoAnimalReference();
-        listener = ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final Workbook wb = new HSSFWorkbook();
-                final CellStyle cellStyle =wb.createCellStyle();
-                cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
-                Cell cell= null;
-                Sheet sheet = null;
-                sheet = wb.createSheet("Donos de animais cadastrados");
-                int indicador = 1;
-                //construindo linhas de indicados de atributo
-                Row row = sheet.createRow(0);
-                cell = row.createCell(0);cell.setCellValue("ID Dono Animal");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
-                cell = row.createCell(1);cell.setCellValue("Nome");                         cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
-                cell = row.createCell(2);cell.setCellValue("Sobrenome");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
-                cell = row.createCell(3);cell.setCellValue("CPF");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
-                cell = row.createCell(4);cell.setCellValue("Email");                        cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
-                cell = row.createCell(5);cell.setCellValue("Avaliação");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
-                cell = row.createCell(6);cell.setCellValue("Telefone");                     cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
-                cell = row.createCell(7);cell.setCellValue("Status");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
-                cell = row.createCell(8);cell.setCellValue("UrlFotoPerfil");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
-                //adicionando o conteudo
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    DonoAnimal donoAnimal = dados.getValue(DonoAnimal.class);
-                    // inserindo os dados na planilha
-                    Row row1 = sheet.createRow(indicador);
-                    cell = row1.createCell(0);cell.setCellValue(donoAnimal.getIdUsuario());
-                    cell = row1.createCell(1);cell.setCellValue(donoAnimal.getNome());
-                    cell = row1.createCell(2);cell.setCellValue(donoAnimal.getSobrenome());
-                    cell = row1.createCell(3);cell.setCellValue(donoAnimal.getCpf());
-                    cell = row1.createCell(4);cell.setCellValue(donoAnimal.getEmail());
-                    cell = row1.createCell(5);cell.setCellValue(String.valueOf(donoAnimal.getAvaliacao()));
-                    cell = row1.createCell(6);cell.setCellValue(donoAnimal.getTelefone());
-                    cell = row1.createCell(7);cell.setCellValue(donoAnimal.getStatusConta());
-                    cell = row1.createCell(8);cell.setCellValue(donoAnimal.getFotoPerfilUrl());
-                    indicador++;
-                    }
-                    ref.removeEventListener(listener);
-                    //salvando a planilha criada no diretorio do dispositivo
-                    File file = new File(context.getFilesDir(),"Dono Animais.xls");
-                    FileOutputStream outputStream = null;
-                try{
-                    outputStream = new FileOutputStream (file);
-                    wb.write(outputStream);
-                    compartilharXls(file);
-                }catch (IOException e) {
-                    e.printStackTrace();
-                    try {
-                        outputStream.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
+            Thread criarxlsMotorista = new Thread(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    contador = new CountDownLatch(1);
+                    ref = Conexao.getFirebaseDatabase().child(Conexao.donoAnimal);
+                    ref.addListenerForSingleValueEvent(new ValueEventListener()
+                    {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                        {
+                            for(DataSnapshot dados: dataSnapshot.getChildren())
+                            {
+                                DonoAnimal donoAnimal = dados.getValue(DonoAnimal.class);
+                                listaDonoAnimal.add(donoAnimal);
+                            }
+                            contador.countDown();
+                        }
 
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-    }
-    public Workbook xlsEndereco(final Workbook wb, final CellStyle cellStyle){
-        ref = EnderecoDAO.getEnderecoDAref();
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               int indicador = 1;
-                Workbook wb1 = wb;
-                CellStyle cellStyle1 = cellStyle;
-               Cell cell = null;
-                Sheet sheet = null;
-                sheet = wb1.createSheet("Endereco");
-               Row row = sheet.createRow(0);
-               cell = row.createCell(0);cell.setCellValue("Bairro");        cell.setCellStyle(cellStyle1);sheet.setColumnWidth(0, (10 * 200));
-               cell = row.createCell(1);cell.setCellValue("cep");          cell.setCellStyle(cellStyle1);sheet.setColumnWidth(1, (10 * 200));
-               cell = row.createCell(2);cell.setCellValue("Cidade");       cell.setCellStyle(cellStyle1);sheet.setColumnWidth(2, (10 * 200));
-               cell = row.createCell(3);cell.setCellValue("rua");          cell.setCellStyle(cellStyle1);sheet.setColumnWidth(3, (10 * 200));
-               cell = row.createCell(4);cell.setCellValue("UF");           cell.setCellStyle(cellStyle1);sheet.setColumnWidth(4, (10 * 200));
-               for(DataSnapshot dados : dataSnapshot.getChildren()){
-                   Endereco endereco = dataSnapshot.getValue(Endereco.class);
-                   Row row1 = sheet.createRow(indicador);
-                   cell = row1.createCell(0);                    cell.setCellValue(endereco.getBairro());
-                   cell = row1.createCell(1);                   cell.setCellValue(endereco.getCep());
-                   cell = row1.createCell(2);                   cell.setCellValue(endereco.getLocalidade());
-                   cell = row1.createCell(3);                   cell.setCellValue(endereco.getLogradouro());
-                   cell = row1.createCell(4);                   cell.setCellValue(endereco.getUf());
-                   indicador++;
-               }
-                ref.removeEventListener(listener);
-                //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Endereco.xls");
-                FileOutputStream outputStream = null;
-                try{
-                    outputStream = new FileOutputStream (file);
-                    wb1.write(outputStream);
-                    compartilharXls(file);
-                }catch (IOException e) {
-                    e.printStackTrace();
-                    try {
-                        outputStream.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError)
+                        {
+                            alert( "erro " + databaseError.toString());
+                            contador.countDown();
+                        }
+                    });
+                    try {contador.await();}
+                    catch (InterruptedException e)
+                    {e.printStackTrace(); }
+                    contador = new CountDownLatch(1);
+                    enderecoRef = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA);
+                    enderecoRef.addListenerForSingleValueEvent(new ValueEventListener()
+                    {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                        {
+                            for (DataSnapshot dados: dataSnapshot.getChildren())
+                            {
+                                Endereco endereco = dados.getValue(Endereco.class);
+                                for (int i = 0; i < listaDonoAnimal.size(); i++)
+                                {
+                                    if (listaDonoAnimal.get(i).getIdUsuario().equals(dados.getKey()))
+                                    {
+                                        listaEnderecos.add(endereco);
+                                        i= listaDonoAnimal.size();
+                                    }
+                                }
+                            }
+                            contador.countDown();
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError)
+                        {
+                            alert( "erro " + databaseError.toString());
+                            contador.countDown();
+                        }
+                    });
+
+                    try {contador.await();}
+                    catch (InterruptedException e)
+                    {e.printStackTrace(); }
+                    gerarXlsDonoAnimal();
                 }
-            }
-            @Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
-        return wb;
-    }
+            });
+            criarxlsMotorista.start();
+        }
 
     public void xlsTipoAnimal(){
-        ref = TipoAnimalDAO.getTipoAnimalReference();
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.tipoAnimal);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1; //variavel onde informa a sequencia correta para se gerar uma nova linha com dados.
@@ -228,7 +196,7 @@ public class GeradorXls extends AppCompatActivity {
                 }
 
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Tipo de Animais.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Tipo de Animais.xls");
                 FileOutputStream outputStream = null;
 
                 try{
@@ -248,8 +216,8 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsViagem(){
-        ref= Conexao.getFirebaseDatabase().child("viagem");
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.viagem);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1;
@@ -277,7 +245,6 @@ public class GeradorXls extends AppCompatActivity {
                 cell = row.createCell(13);cell.setCellValue("Porte animal");         cell.setCellStyle(cellStyle);sheet.setColumnWidth(12,(10*200));
                 cell = row.createCell(14);cell.setCellValue("custo");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(13,(10*200));
 
-
                 //adicionando o conteudo
                 for(DataSnapshot dados: dataSnapshot.getChildren()) {
                     Viagem viagem = dados.getValue(Viagem.class);
@@ -302,7 +269,7 @@ public class GeradorXls extends AppCompatActivity {
 
                 }
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Viagem.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Viagem.xls");
                 FileOutputStream outputStream = null;
                 try{
                     outputStream = new FileOutputStream (file);
@@ -321,8 +288,8 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsVeiculo(){
-        ref = Conexao.getFirebaseDatabase().child("veiculos");
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.veiculo);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1;
@@ -370,7 +337,7 @@ public class GeradorXls extends AppCompatActivity {
                 }
 
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Veículos.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Veículos.xls");
                 FileOutputStream outputStream = null;
 
                 try{
@@ -391,23 +358,159 @@ public class GeradorXls extends AppCompatActivity {
 
     }
 
-    //ESTA PUXANDO SOMENTE A CLASSE MOTORISTA SEM O ENDERECO
-    public void xlsMotorista(){
-        ref = Conexao.getFirebaseDatabase().child("motorista");
-       listener = ref.addValueEventListener(new ValueEventListener() {
+    public void xlsMotorista() {
+        Thread criarxlsMotorista = new Thread(new Runnable()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void run()
+            {
+                contador = new CountDownLatch(1);
+                ref = Conexao.getFirebaseDatabase().child(Conexao.motorista);
+                ref.addListenerForSingleValueEvent(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        for(DataSnapshot dados: dataSnapshot.getChildren())
+                        {
+                            Motorista motorista = dados.getValue(Motorista.class);
+                            listaMotoristas.add(motorista);
+                        }
+                        contador.countDown();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+                        alert( "erro " + databaseError.toString());
+                        contador.countDown();
+                    }
+                });
+
+                try {contador.await();}
+                catch (InterruptedException e)
+                {e.printStackTrace(); }
+
+                contador = new CountDownLatch(1);
+
+                enderecoRef = Conexao.getFirebaseDatabase().child(Conexao.enderecoMO);
+                enderecoRef.addListenerForSingleValueEvent(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        for (DataSnapshot dados: dataSnapshot.getChildren())
+                        {
+                            Endereco endereco = dados.getValue(Endereco.class);
+
+                            for (int i = 0; i < listaMotoristas.size(); i++)
+                            {
+                                if (listaMotoristas.get(i).getIdUsuario().equals(dados.getKey()))
+                                {
+                                    listaEnderecos.add(endereco);
+                                    i= listaMotoristas.size();
+                                }
+                            }
+                        }
+                        contador.countDown();
+                        alert("<<< Lista motorista =" + listaMotoristas.size()+ " >>>" );
+                        alert("<<< lista Endereços =" + listaEnderecos.size() + " >>>");
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+                        alert( "erro " + databaseError.toString());
+                        contador.countDown();
+                    }
+                });
+
+                try {contador.await();}
+                catch (InterruptedException e)
+                {e.printStackTrace(); }
+
+                gerarXlsMotorista();
+
+            }
+        });
+
+        criarxlsMotorista.start();
+
+    }
+
+    public void gerarXlsDonoAnimal(){
+        int indicador = 1;
+        Workbook wb = new HSSFWorkbook();
+        Cell cell= null;
+        CellStyle cellStyle =wb.createCellStyle();
+        cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
+        Sheet sheet = null;
+        sheet = wb.createSheet("Dono de animais Cadastrados");
+        //construindo linhas de indicados de atributo
+        Row row = sheet.createRow(0);
+        cell = row.createCell(0);cell.setCellValue("ID Dono Animal");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
+        cell = row.createCell(1);cell.setCellValue("Nome");                         cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
+        cell = row.createCell(2);cell.setCellValue("Sobrenome");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
+        cell = row.createCell(3);cell.setCellValue("CPF");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(3,(10*200));
+        cell = row.createCell(4);cell.setCellValue("Email");                        cell.setCellStyle(cellStyle);sheet.setColumnWidth(4,(10*200));
+        cell = row.createCell(5);cell.setCellValue("Avaliação");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
+        cell = row.createCell(6);cell.setCellValue("Telefone");                     cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
+        cell = row.createCell(7);cell.setCellValue("Status");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
+        cell = row.createCell(8);cell.setCellValue("UrlFotoPerfil");                cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
+        cell = row.createCell(9);cell.setCellValue("Bairro");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(9, (10 * 200));
+        cell = row.createCell(10);cell.setCellValue("cep");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(10, (10 * 200));
+        cell = row.createCell(11);cell.setCellValue("Cidade");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(11, (10 * 200));
+        cell = row.createCell(12);cell.setCellValue("rua");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(12, (10 * 200));
+        cell = row.createCell(13);cell.setCellValue("UF");                           cell.setCellStyle(cellStyle);sheet.setColumnWidth(13, (10 * 200));
+        //adicionando o conteudo
+        for (int i= 0 ; i < listaDonoAnimal.size(); i++)
+        {
+            // inserindo os dados na planilha
+            row1 = sheet.createRow(indicador);
+            cell = row1.createCell(0);cell.setCellValue(listaDonoAnimal.get(i).getIdUsuario());
+            cell = row1.createCell(1);cell.setCellValue(listaDonoAnimal.get(i).getNome());
+            cell = row1.createCell(2);cell.setCellValue(listaDonoAnimal.get(i).getSobrenome());
+            cell = row1.createCell(3);cell.setCellValue(listaDonoAnimal.get(i).getCpf());
+            cell = row1.createCell(4);cell.setCellValue(listaDonoAnimal.get(i).getEmail());
+            cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaDonoAnimal.get(i).getAvaliacao()));
+            cell = row1.createCell(6);cell.setCellValue(listaDonoAnimal.get(i).getTelefone());
+            cell = row1.createCell(7);cell.setCellValue(listaDonoAnimal.get(i).getStatusConta());
+            cell = row1.createCell(8);cell.setCellValue(listaDonoAnimal.get(i).getFotoPerfilUrl());
+            cell = row1.createCell(9);cell.setCellValue(listaEnderecos.get(i).getBairro());
+            cell = row1.createCell(10);cell.setCellValue(listaEnderecos.get(i).getCep());
+            cell = row1.createCell(11);cell.setCellValue(listaEnderecos.get(i).getLocalidade());
+            cell = row1.createCell(12);cell.setCellValue(listaEnderecos.get(i).getLogradouro());
+            cell = row1.createCell(13);cell.setCellValue(listaEnderecos.get(i).getUf());
+            indicador++;
+        }
+        //salvando a planilha criada no diretorio do dispositivo
+        File file = new File(context.getApplicationContext().getFilesDir(),"Donos de animais.xls");
+        FileOutputStream outputStream = null;
+        try{
+            outputStream = new FileOutputStream (file);
+            wb.write(outputStream);
+            compartilharXls(file);
+        }catch (IOException e) {
+            e.printStackTrace();
+            try {
+                outputStream.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void gerarXlsMotorista(){
                 int indicador = 1;
                 Workbook wb = new HSSFWorkbook();
                 Cell cell= null;
                 CellStyle cellStyle =wb.createCellStyle();
                 cellStyle.setFillBackgroundColor(HSSFColor.LIGHT_BLUE.index);
                 Sheet sheet = null;
-                sheet = wb.createSheet("Donos de animais cadastrados");
-
+                sheet = wb.createSheet("motoristas Cadastrados");
                 //construindo linhas de indicados de atributo
                 Row row = sheet.createRow(0);
-
                 cell = row.createCell(0);cell.setCellValue("ID motorista");                 cell.setCellStyle(cellStyle);sheet.setColumnWidth(0,(10*200));
                 cell = row.createCell(1);cell.setCellValue("Nome");                         cell.setCellStyle(cellStyle);sheet.setColumnWidth(1,(10*200));
                 cell = row.createCell(2);cell.setCellValue("Sobrenome");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(2,(10*200));
@@ -416,35 +519,40 @@ public class GeradorXls extends AppCompatActivity {
                 cell = row.createCell(5);cell.setCellValue("Avaliação");                    cell.setCellStyle(cellStyle);sheet.setColumnWidth(5,(10*200));
                 cell = row.createCell(6);cell.setCellValue("Telefone");                     cell.setCellStyle(cellStyle);sheet.setColumnWidth(6,(10*200));
                 cell = row.createCell(7);cell.setCellValue("StatusCadastro");               cell.setCellStyle(cellStyle);sheet.setColumnWidth(7,(10*200));
-                cell = row.createCell(7);cell.setCellValue("CNH");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
-                cell = row.createCell(7);cell.setCellValue("Foto CNH URL");                 cell.setCellStyle(cellStyle);sheet.setColumnWidth(9,(10*200));
-                cell = row.createCell(7);cell.setCellValue("Foto Perfil URL");              cell.setCellStyle(cellStyle);sheet.setColumnWidth(10,(10*200));
-
-
+                cell = row.createCell(8);cell.setCellValue("CNH");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(8,(10*200));
+                cell = row.createCell(9);cell.setCellValue("Foto CNH URL");                 cell.setCellStyle(cellStyle);sheet.setColumnWidth(9,(10*200));
+                cell = row.createCell(10);cell.setCellValue("Foto Perfil URL");             cell.setCellStyle(cellStyle);sheet.setColumnWidth(10,(10*200));
+                cell = row.createCell(11);cell.setCellValue("Bairro");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(11, (10 * 200));
+                cell = row.createCell(12);cell.setCellValue("cep");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(12, (10 * 200));
+                cell = row.createCell(13);cell.setCellValue("Cidade");                       cell.setCellStyle(cellStyle);sheet.setColumnWidth(13, (10 * 200));
+                cell = row.createCell(14);cell.setCellValue("rua");                          cell.setCellStyle(cellStyle);sheet.setColumnWidth(14, (10 * 200));
+                cell = row.createCell(15);cell.setCellValue("UF");                           cell.setCellStyle(cellStyle);sheet.setColumnWidth(15, (10 * 200));
                 //adicionando o conteudo
-                for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                    Motorista motorista = dados.getValue(Motorista.class);
-
+                for (int i= 0 ; i < listaMotoristas.size(); i++)
+                {
                     // inserindo os dados na planilha
-                    Row row1 = sheet.createRow(indicador);
-
-                    cell = row1.createCell(0);cell.setCellValue(motorista.getIdUsuario());
-                    cell = row1.createCell(1);cell.setCellValue(motorista.getNome());
-                    cell = row1.createCell(2);cell.setCellValue(motorista.getSobrenome());
-                    cell = row1.createCell(3);cell.setCellValue(motorista.getCpf());
-                    cell = row1.createCell(4);cell.setCellValue(motorista.getEmail());
-                    cell = row1.createCell(5);cell.setCellValue(String.valueOf(motorista.getAvaliacao()));
-                    cell = row1.createCell(6);cell.setCellValue(motorista.getTelefone());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getStatusConta());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getRegistroCnh());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getFotoCnhUrl());
-                    cell = row1.createCell(7);cell.setCellValue(motorista.getFotoPerfilUrl());
+                    row1 = sheet.createRow(indicador);
+                    cell = row1.createCell(0);cell.setCellValue(listaMotoristas.get(i).getIdUsuario());
+                    cell = row1.createCell(1);cell.setCellValue(listaMotoristas.get(i).getNome());
+                    cell = row1.createCell(2);cell.setCellValue(listaMotoristas.get(i).getSobrenome());
+                    cell = row1.createCell(3);cell.setCellValue(listaMotoristas.get(i).getCpf());
+                    cell = row1.createCell(4);cell.setCellValue(listaMotoristas.get(i).getEmail());
+                    cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaMotoristas.get(i).getAvaliacao()));
+                    cell = row1.createCell(6);cell.setCellValue(listaMotoristas.get(i).getTelefone());
+                    cell = row1.createCell(7);cell.setCellValue(listaMotoristas.get(i).getStatusConta());
+                    cell = row1.createCell(8);cell.setCellValue(listaMotoristas.get(i).getRegistroCnh());
+                    cell = row1.createCell(9);cell.setCellValue(listaMotoristas.get(i).getFotoCnhUrl());
+                    cell = row1.createCell(10);cell.setCellValue(listaMotoristas.get(i).getFotoPerfilUrl());
+                    cell = row1.createCell(11);cell.setCellValue(listaEnderecos.get(i).getBairro());
+                    cell = row1.createCell(12);cell.setCellValue(listaEnderecos.get(i).getCep());
+                    cell = row1.createCell(13);cell.setCellValue(listaEnderecos.get(i).getLocalidade());
+                    cell = row1.createCell(14);cell.setCellValue(listaEnderecos.get(i).getLogradouro());
+                    cell = row1.createCell(15);cell.setCellValue(listaEnderecos.get(i).getUf());
                     indicador++;
                 }
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Motoristas.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Motoristas.xls");
                 FileOutputStream outputStream = null;
-
                 try{
                     outputStream = new FileOutputStream (file);
                     wb.write(outputStream);
@@ -457,13 +565,11 @@ public class GeradorXls extends AppCompatActivity {
                         ex.printStackTrace();
                     }
                 }
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
     }
 
     public void xlsAdm(){
-        ref = Conexao.getFirebaseDatabase().child("adm");
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.adm);
+         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1;
@@ -492,7 +598,7 @@ public class GeradorXls extends AppCompatActivity {
                     indicador++;
                 }
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Adm.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Adm.xls");
                 FileOutputStream outputStream = null;
                 try{
                     outputStream = new FileOutputStream (file);
@@ -511,8 +617,8 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsAnimal(){
-        ref= Conexao.getFirebaseDatabase().child("animais");
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.animal);
+           ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1;
@@ -550,7 +656,7 @@ public class GeradorXls extends AppCompatActivity {
                     }
                 }
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Animais.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Animais.xls");
                 FileOutputStream outputStream = null;
                 try{
                     outputStream = new FileOutputStream (file);
@@ -570,8 +676,8 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsAvaliacao(){
-        ref = AvaliacaoDAO.getRefAvaliacao();
-        listener = ref.addValueEventListener(new ValueEventListener() {
+        ref = Conexao.getFirebaseDatabase().child(Conexao.avaliacao);
+       ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int indicador = 1; //variavel onde informa a sequencia correta para se gerar uma nova linha com dados.
@@ -605,7 +711,7 @@ public class GeradorXls extends AppCompatActivity {
                 }
 
                 //salvando a planilha criada no diretorio do dispositivo
-                File file = new File(context.getFilesDir(),"Avaliacoes.xls");
+                File file = new File(context.getApplicationContext().getFilesDir(),"Avaliacoes.xls");
                 FileOutputStream outputStream = null;
 
                 try{

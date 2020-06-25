@@ -22,11 +22,9 @@ import com.example.travelpetadm.DAO.AdmDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.helper.GeradorXls;
+import com.example.travelpetadm.DAO.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 

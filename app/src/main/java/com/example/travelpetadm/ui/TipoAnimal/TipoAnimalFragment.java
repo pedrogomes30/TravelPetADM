@@ -1,12 +1,9 @@
 package com.example.travelpetadm.ui.TipoAnimal;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,33 +18,14 @@ import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.DAO.TipoAnimalDAO;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.helper.GeradorXls;
+import com.example.travelpetadm.DAO.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
-import com.example.travelpetadm.ui.contasAdm.AdicionarAdmActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-
-import static com.example.travelpetadm.DAO.TipoAnimalDAO.recuperarArrayAdapter;
 
 public class TipoAnimalFragment extends Fragment {
     private RecyclerView recyclerView;

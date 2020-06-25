@@ -53,7 +53,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static androidx.core.os.LocaleListCompat.create;
 import static com.example.travelpetadm.DAO.AnimalDAO.getAnimalReference;
-import static com.example.travelpetadm.DAO.AnimalDAO.recuperarArrayDonoAnimal;
+import static com.example.travelpetadm.DAO.AnimalDAO.recuperarArrayAnimais;
 
 public class InfoDonoAnimalActivity extends AppCompatActivity {
     public static AdapterListaAnimais adapterListaAnimal;
@@ -131,6 +131,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
             donoAnimal = (DonoAnimal) bundle.getSerializable("ExibirDonoAnimal");
         }
     }
+
     public void recuperarDonoAnimal(){
             refDA = DonoAnimalDAO.getDonoAnimalReference().child(donoAnimal.getIdUsuario());
             listenerDA = refDA.addValueEventListener(new ValueEventListener() {

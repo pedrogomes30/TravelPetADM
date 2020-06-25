@@ -9,6 +9,9 @@ public class Motorista extends Usuario implements Serializable {
 
     //getters and setters
 
+    public Motorista() {
+    }
+
     public String getRegistroCnh() {
         return registroCnh;
     }
