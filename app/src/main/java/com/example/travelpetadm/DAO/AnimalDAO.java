@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.helper.Encriptador;
+import com.example.travelpetadm.ui.animais.AnimaisFragment;
 import com.example.travelpetadm.ui.donoanimal.InfoDonoAnimalActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +28,7 @@ public class AnimalDAO extends Conexao {
         return animalRef;
     }
 
-    public static ArrayList<Animal> recuperarArrayAnimais(String idDonoAnimal, ArrayList<Animal> animals){
+    public static ArrayList<Animal> recuperarArrayAnimaisDonoAnimal(String idDonoAnimal, ArrayList<Animal> animals){
         animais = animals;
         animalRef = getAnimalReference().child(idDonoAnimal);
         valueEventListenerAnimal = animalRef
@@ -39,6 +40,24 @@ public class AnimalDAO extends Conexao {
                         }
                         animalRef.removeEventListener(valueEventListenerAnimal);
                         InfoDonoAnimalActivity.adapterListaAnimal.notifyDataSetChanged();
+                    }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
+        return animais;
+    }
+
+    public static ArrayList<Animal> recuperarArrayAnimais(ArrayList<Animal> animals){
+        animais = animals;
+        animalRef = getAnimalReference();
+        valueEventListenerAnimal = animalRef.addValueEventListener(new ValueEventListener() {
+                    @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot dados : dataSnapshot.getChildren()) {
+                            for (DataSnapshot animalDs : dados.getChildren()) {
+                                Animal animal = animalDs.getValue(Animal.class);
+                                animais.add(animal);
+                            }
+                        }
+                        animalRef.removeEventListener(valueEventListenerAnimal);
+                        AnimaisFragment.adapterListaAnimal.notifyDataSetChanged();
                     }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
                 });
         return animais;

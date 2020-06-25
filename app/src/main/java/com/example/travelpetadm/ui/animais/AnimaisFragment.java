@@ -24,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.travelpetadm.DAO.AnimalDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.TipoAnimal;
@@ -31,6 +32,7 @@ import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.DAO.GeradorXls;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
+import com.example.travelpetadm.ui.Avaliacao.AdapterListaAvaliacao;
 import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 import com.example.travelpetadm.ui.TipoAnimal.AdicionarTipoAnimalActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -53,7 +55,7 @@ import java.util.ArrayList;
 
 public class AnimaisFragment extends Fragment {
     private RecyclerView recyclerView;
-    private AdapterListaAnimais adapterListaAnimal;
+    public static AdapterListaAnimais adapterListaAnimal;
     private ArrayList<Animal> animais =new ArrayList<>() ;
     private DatabaseReference animalRef;
     private ValueEventListener valueEventListenerAnimal;
@@ -82,7 +84,7 @@ public class AnimaisFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        animalRef.removeEventListener(valueEventListenerAnimal);
+        //animalRef.removeEventListener(valueEventListenerAnimal);
     }
 
     public void iniciarComponentes(View view){
@@ -127,11 +129,11 @@ public class AnimaisFragment extends Fragment {
     }
 
     public void recuperarAnimal (){
-        valueEventListenerAnimal = animalRef.addValueEventListener(new ValueEventListener() {
+        AnimalDAO.recuperarArrayAnimais(animais);
+        progressoAnimal.setVisibility(View.GONE);
+       /* valueEventListenerAnimal = animalRef.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 animais.clear();
-                //RECUPERA AS RACAS CADASTRADAS DENTRO DE AVES
-
                 for(DataSnapshot dados: dataSnapshot.getChildren()) {
                     for (DataSnapshot animalDs : dados.getChildren()) {
                         Animal animal = animalDs.getValue(Animal.class);
@@ -142,7 +144,7 @@ public class AnimaisFragment extends Fragment {
                adapterListaAnimal.notifyDataSetChanged();
                 progressoAnimal.setVisibility(View.GONE);
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
-        });
+        });*/
 
     }
 
