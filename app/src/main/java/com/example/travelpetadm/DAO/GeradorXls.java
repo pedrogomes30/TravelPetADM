@@ -55,7 +55,6 @@ public class GeradorXls extends AppCompatActivity {
     private ArrayList<DonoAnimal> listaDonoAnimal = new ArrayList<>();
     private ArrayList<Endereco> listaEnderecos = new ArrayList<>();
     Context context;
-    Row row1;
 
     public GeradorXls(String nomeclasse, Context context){
         this.context = context;
@@ -89,75 +88,6 @@ public class GeradorXls extends AppCompatActivity {
                 alert("Denominação não encontrada");
         }
     }
-
-    public  void xlsDonoAnimal(){
-            Thread criarxlsMotorista = new Thread(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    contador = new CountDownLatch(1);
-                    ref = Conexao.getFirebaseDatabase().child(Conexao.donoAnimal);
-                    ref.addListenerForSingleValueEvent(new ValueEventListener()
-                    {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                        {
-                            for(DataSnapshot dados: dataSnapshot.getChildren())
-                            {
-                                DonoAnimal donoAnimal = dados.getValue(DonoAnimal.class);
-                                listaDonoAnimal.add(donoAnimal);
-                            }
-                            contador.countDown();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError)
-                        {
-                            alert( "erro " + databaseError.toString());
-                            contador.countDown();
-                        }
-                    });
-                    try {contador.await();}
-                    catch (InterruptedException e)
-                    {e.printStackTrace(); }
-                    contador = new CountDownLatch(1);
-                    enderecoRef = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA);
-                    enderecoRef.addListenerForSingleValueEvent(new ValueEventListener()
-                    {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                        {
-                            for (DataSnapshot dados: dataSnapshot.getChildren())
-                            {
-                                Endereco endereco = dados.getValue(Endereco.class);
-                                for (int i = 0; i < listaDonoAnimal.size(); i++)
-                                {
-                                    if (listaDonoAnimal.get(i).getIdUsuario().equals(dados.getKey()))
-                                    {
-                                        listaEnderecos.add(endereco);
-                                        i= listaDonoAnimal.size();
-                                    }
-                                }
-                            }
-                            contador.countDown();
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError)
-                        {
-                            alert( "erro " + databaseError.toString());
-                            contador.countDown();
-                        }
-                    });
-
-                    try {contador.await();}
-                    catch (InterruptedException e)
-                    {e.printStackTrace(); }
-                    gerarXlsDonoAnimal();
-                }
-            });
-            criarxlsMotorista.start();
-        }
 
     public void xlsTipoAnimal(){
         ref = Conexao.getFirebaseDatabase().child(Conexao.tipoAnimal);
@@ -439,6 +369,75 @@ public class GeradorXls extends AppCompatActivity {
 
     }
 
+    public  void xlsDonoAnimal(){
+        Thread criarxlsMotorista = new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                contador = new CountDownLatch(1);
+                ref = Conexao.getFirebaseDatabase().child(Conexao.donoAnimal);
+                ref.addListenerForSingleValueEvent(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        for(DataSnapshot dados: dataSnapshot.getChildren())
+                        {
+                            DonoAnimal donoAnimal = dados.getValue(DonoAnimal.class);
+                            listaDonoAnimal.add(donoAnimal);
+                        }
+                        contador.countDown();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+                        alert( "erro " + databaseError.toString());
+                        contador.countDown();
+                    }
+                });
+                try {contador.await();}
+                catch (InterruptedException e)
+                {e.printStackTrace(); }
+                contador = new CountDownLatch(1);
+                enderecoRef = Conexao.getFirebaseDatabase().child(Conexao.enderecoDA);
+                enderecoRef.addListenerForSingleValueEvent(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        for (DataSnapshot dados: dataSnapshot.getChildren())
+                        {
+                            Endereco endereco = dados.getValue(Endereco.class);
+                            for (int i = 0; i < listaDonoAnimal.size(); i++)
+                            {
+                                if (listaDonoAnimal.get(i).getIdUsuario().equals(dados.getKey()))
+                                {
+                                    listaEnderecos.add(endereco);
+                                    i= listaDonoAnimal.size();
+                                }
+                            }
+                        }
+                        contador.countDown();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError)
+                    {
+                        alert( "erro " + databaseError.toString());
+                        contador.countDown();
+                    }
+                });
+
+                try {contador.await();}
+                catch (InterruptedException e)
+                {e.printStackTrace(); }
+                gerarXlsDonoAnimal();
+            }
+        });
+        criarxlsMotorista.start();
+    }
+
     public void gerarXlsDonoAnimal(){
         int indicador = 1;
         Workbook wb = new HSSFWorkbook();
@@ -467,7 +466,7 @@ public class GeradorXls extends AppCompatActivity {
         for (int i= 0 ; i < listaDonoAnimal.size(); i++)
         {
             // inserindo os dados na planilha
-            row1 = sheet.createRow(indicador);
+            Row row1 = sheet.createRow(indicador);
             cell = row1.createCell(0);cell.setCellValue(listaDonoAnimal.get(i).getIdUsuario());
             cell = row1.createCell(1);cell.setCellValue(listaDonoAnimal.get(i).getNome());
             cell = row1.createCell(2);cell.setCellValue(listaDonoAnimal.get(i).getSobrenome());
@@ -531,7 +530,7 @@ public class GeradorXls extends AppCompatActivity {
                 for (int i= 0 ; i < listaMotoristas.size(); i++)
                 {
                     // inserindo os dados na planilha
-                    row1 = sheet.createRow(indicador);
+                    Row row1 = sheet.createRow(indicador);
                     cell = row1.createCell(0);cell.setCellValue(listaMotoristas.get(i).getIdUsuario());
                     cell = row1.createCell(1);cell.setCellValue(listaMotoristas.get(i).getNome());
                     cell = row1.createCell(2);cell.setCellValue(listaMotoristas.get(i).getSobrenome());
@@ -568,7 +567,7 @@ public class GeradorXls extends AppCompatActivity {
     }
 
     public void xlsAdm(){
-        ref = Conexao.getFirebaseDatabase().child(Conexao.adm);
+         ref = Conexao.getFirebaseDatabase().child(Conexao.adm);
          ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -701,11 +700,11 @@ public class GeradorXls extends AppCompatActivity {
                             // inserindo os dados na planilha
                             Avaliacao avaliacao = dados.getValue(Avaliacao.class);
                             Row row1 = sheet.createRow(indicador);
-                            cell = row1.createCell(0);                       cell.setCellValue(avaliacao.getAvaliado());
-                            cell = row1.createCell(1);                       cell.setCellValue(avaliacao.getAvaliador());
+                            cell = row1.createCell(0);                       cell.setCellValue(avaliacao.getIdAvaliado());
+                            cell = row1.createCell(1);                       cell.setCellValue(avaliacao.getIdAvaliador());
                             cell = row1.createCell(2);                       cell.setCellValue(avaliacao.getNotaAvaliacao());
                             cell = row1.createCell(3);                       cell.setCellValue(avaliacao.getObservacao());
-                            cell = row1.createCell(4);                       cell.setCellValue(avaliacao.getTipoPerfil());
+                            cell = row1.createCell(4);                       cell.setCellValue(avaliacao.getTipoAvaliacao());
                             cell = row1.createCell(5);                       cell.setCellValue(avaliacao.getData());
 
                 }

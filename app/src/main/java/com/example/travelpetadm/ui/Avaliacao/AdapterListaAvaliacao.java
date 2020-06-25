@@ -40,8 +40,8 @@ public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAval
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Avaliacao avaliacao = avaliacoes.get(position);
-        holder.textAvaliado.setText(avaliacao.getAvaliado());
-        holder.textAvaliador.setText(avaliacao.getAvaliador());
+        holder.textAvaliado.setText(avaliacao.getIdAvaliado());
+        holder.textAvaliador.setText(avaliacao.getIdAvaliador());
         if (avaliacao.getNotaAvaliacao() >= 4) {
             holder.textNotaAvaliacao.setText(String.valueOf(avaliacao.getNotaAvaliacao()));
             holder.textNotaAvaliacao.setTextColor(Color.GREEN);
@@ -58,7 +58,7 @@ public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAval
         }
 
 
-        switch(avaliacao.getTipoPerfil()){
+        switch(avaliacao.getTipoAvaliacao()){
             case "motorista":
                 holder.imageAvaliacao.setImageResource(R.drawable.ic_motorista);
                 break;

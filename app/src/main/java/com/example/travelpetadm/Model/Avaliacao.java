@@ -3,27 +3,29 @@ package com.example.travelpetadm.Model;
 import java.io.Serializable;
 
 public class Avaliacao implements Serializable {
-    String avaliado,
-            avaliador,
+    String  idAvaliado,
+            idAvaliador,
             observacao,
-            tipoPerfil,
+            tipoAvaliacao,
+            idViagem,
+            iddaavaliacao,
             data;
     Double notaAvaliacao;
 
-    public String getAvaliado() {
-        return avaliado;
+    public String getIdAvaliado() {
+        return idAvaliado;
     }
 
-    public void setAvaliado(String avaliado) {
-        this.avaliado = avaliado;
+    public void setIdAvaliado(String idAvaliado) {
+        this.idAvaliado = idAvaliado;
     }
 
-    public String getAvaliador() {
-        return avaliador;
+    public String getIdAvaliador() {
+        return idAvaliador;
     }
 
-    public void setAvaliador(String avaliador) {
-        this.avaliador = avaliador;
+    public void setIdAvaliador(String idAvaliador) {
+        this.idAvaliador = idAvaliador;
     }
 
     public String getObservacao() {
@@ -34,21 +36,28 @@ public class Avaliacao implements Serializable {
         this.observacao = observacao;
     }
 
-    public String getTipoPerfil() {
-        return tipoPerfil;
+    public String getTipoAvaliacao() {
+        return tipoAvaliacao;
     }
 
-
-    public Double getNotaAvaliacao() {
-        return notaAvaliacao;
+    public void setTipoAvaliacao(String tipoAvaliacao) {
+        this.tipoAvaliacao = tipoAvaliacao;
     }
 
-    public void setNotaAvaliacao(Double notaAvaliacao) {
-        this.notaAvaliacao = notaAvaliacao;
+    public String getIdViagem() {
+        return idViagem;
     }
 
-    public void setTipoPerfil(String tipoPerfil) {
-        this.tipoPerfil = tipoPerfil;
+    public void setIdViagem(String idViagem) {
+        this.idViagem = idViagem;
+    }
+
+    public String getIddaavaliacao() {
+        return iddaavaliacao;
+    }
+
+    public void setIddaavaliacao(String iddaavaliacao) {
+        this.iddaavaliacao = iddaavaliacao;
     }
 
     public String getData() {
@@ -57,5 +66,13 @@ public class Avaliacao implements Serializable {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public Double getNotaAvaliacao() {
+        return notaAvaliacao;
+    }
+
+    public void setNotaAvaliacao(Double notaAvaliacao) {
+        this.notaAvaliacao = notaAvaliacao;
     }
 }

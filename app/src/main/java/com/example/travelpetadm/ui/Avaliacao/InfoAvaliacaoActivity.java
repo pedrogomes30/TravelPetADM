@@ -54,12 +54,12 @@ public class InfoAvaliacaoActivity extends AppCompatActivity {
                     }
                 }
             }
-            textInfoAvaliadorAvaliacao.setText(String.valueOf(avaliacao.getAvaliador()));
-            textInfoAvaliadoAvaliacao.setText(String.valueOf(avaliacao.getAvaliado()));
-            textInfoTipoAvaliacao.setText(String.valueOf(avaliacao.getTipoPerfil()));
+            textInfoAvaliadorAvaliacao.setText(String.valueOf(avaliacao.getIdAvaliador()));
+            textInfoAvaliadoAvaliacao.setText(String.valueOf(avaliacao.getIdAvaliado()));
+            textInfoTipoAvaliacao.setText(String.valueOf(avaliacao.getTipoAvaliacao()));
                textInfoDataAvaliacao.setText(String.valueOf(avaliacao.getData()));
             textInfoObservacaoAvaliacao.setText(String.valueOf(avaliacao.getObservacao()));
-               switch(avaliacao.getTipoPerfil()){
+               switch(avaliacao.getTipoAvaliacao()){
                    case "motorista":
                        imageTipoAvaliacao.setImageResource(R.drawable.ic_motorista);
                        break;

@@ -1,5 +1,7 @@
 package com.example.travelpetadm.DAO;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.travelpetadm.Model.Avaliacao;
@@ -13,6 +15,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 public class AvaliacaoDAO {
     private static DatabaseReference refAvaliacao;
     private static ValueEventListener listener;
@@ -21,17 +25,19 @@ public class AvaliacaoDAO {
     //Recupera um arraylist desse objeto com a classe adapter
     public static ArrayList<Avaliacao> recuperarArrayAdapter(ArrayList<Avaliacao> avaliacaos){
         avaliacoes = avaliacaos;
-        getRefAvaliacao();
+        refAvaliacao = getRefAvaliacao();
         listener = refAvaliacao.addValueEventListener(new ValueEventListener() {
             @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 avaliacoes.clear();
                 for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                                Avaliacao avaliacao = dados.getValue(Avaliacao.class);
-                            avaliacoes.add(dados.getValue(Avaliacao.class));
+                    for(DataSnapshot dados2 : dados.getChildren()) {
+                        avaliacoes.add(dados2.getValue(Avaliacao.class));
+                    }
                 }
                 refAvaliacao.removeEventListener(listener);
                 AvaliacaoFragment.adapterListaAvaliacao.notifyDataSetChanged();
-            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {}
+            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.", databaseError.toException());}
         });
         return avaliacoes;
     }
