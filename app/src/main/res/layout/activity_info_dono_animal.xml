@@ -71,6 +71,7 @@
                     android:id="@+id/textPerfilAvaliacaoDA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="3"
                     android:text="4,6"
                     android:textAlignment="center"
                     android:textAppearance="@style/Fonte_Textos_menores"
@@ -366,9 +367,24 @@
         app:backgroundTint="@android:color/background_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabAvaliacaoDA"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="64dp"
         app:srcCompat="@drawable/ic_fab_aprovar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAvaliacaoDA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/about_play_store_color"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabAprovarDA"
+        app:maxImageSize="55dp"
+        app:srcCompat="@drawable/ic_star_border_black_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

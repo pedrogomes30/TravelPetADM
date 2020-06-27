@@ -38,7 +38,8 @@ public class Conexao {
                          statusPerfil =         "statusConta",//variavel onde verifica status de
     //cadastros em ambos os tipos de usuários.
                          statusConta =          "statusConta",
-                        statusVeiculo =         "status";
+                         statusVeiculo =        "status",
+                         notaAvaliacao =        "avaliacao";
 
     //nome de cada nó no Storage -------------------------------------------------------------------
     public static String storageAnimais =       "animais",

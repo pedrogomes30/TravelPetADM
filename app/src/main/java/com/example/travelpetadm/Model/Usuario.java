@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
     private String idUsuario,nome,sobrenome,cpf,email,statusConta,tipoUsuario, reputacao, telefone,tipoPerfil ;
-    private Double avaliacao,longitude,latitude;
+    private Double notaAvaliacao,longitude,latitude;
     private Endereco endereco;
 
     //CONSTRUTOR -----------------------------------
@@ -93,12 +93,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public Double getAvaliacao() {
-        return avaliacao;
+    public Double getNotaAvaliacao() {
+        return notaAvaliacao;
     }
 
-    public void setAvaliacao(Double avaliacao) {
-        this.avaliacao = avaliacao;
+    public void setNotaAvaliacao(Double notaAvaliacao) {
+        this.notaAvaliacao = notaAvaliacao;
     }
 
     public Double getLongitude() {

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.travelpetadm.Model.Avaliacao;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 
 public class InfoAvaliacaoActivity extends AppCompatActivity {
     private TextView textInfoNotaAvaliacao,
@@ -54,8 +55,8 @@ public class InfoAvaliacaoActivity extends AppCompatActivity {
                     }
                 }
             }
-            textInfoAvaliadorAvaliacao.setText(String.valueOf(avaliacao.getIdAvaliador()));
-            textInfoAvaliadoAvaliacao.setText(String.valueOf(avaliacao.getIdAvaliado()));
+            textInfoAvaliadorAvaliacao.setText(Encriptador.decodificarBase64(avaliacao.getIdAvaliador()));
+            textInfoAvaliadoAvaliacao.setText(Encriptador.decodificarBase64(avaliacao.getIdAvaliado()));
             textInfoTipoAvaliacao.setText(String.valueOf(avaliacao.getTipoAvaliacao()));
                textInfoDataAvaliacao.setText(String.valueOf(avaliacao.getData()));
             textInfoObservacaoAvaliacao.setText(String.valueOf(avaliacao.getObservacao()));

@@ -31,8 +31,7 @@
                 android:id="@+id/imgPerfilMO"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_margin="5dp"
                 android:src="@drawable/ic_menu_motorista" />
 
 
@@ -72,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="4,6"
+                    android:maxLength="3"
                     android:textAlignment="center"
                     android:textAppearance="@style/Fonte_Textos_menores"
                     android:textColor="@android:color/black"
@@ -359,19 +359,18 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAprovarMO"
+        android:id="@+id/fabCnh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
         android:clickable="true"
-        app:backgroundTint="@color/branco"
-        app:fabSize="normal"
+        app:backgroundTint="@color/roxo_claro"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabRejeitarMO"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/fabRejeitarMO"
-        app:maxImageSize="64dp"
-        app:srcCompat="@drawable/ic_atencao" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="46dp"
+        app:srcCompat="@drawable/ic_fab_cnh" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabRejeitarMO"
@@ -384,20 +383,36 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/fabCnh"
         app:maxImageSize="64dp"
-        app:srcCompat="@drawable/ic_fab_bloquear" />
+        app:srcCompat="@drawable/ic_fab_bloquear"
+        tools:layout_editor_absoluteY="699dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCnh"
+        android:id="@+id/fabAprovarMO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:backgroundTint="@color/roxo_claro"
+        app:backgroundTint="@color/branco"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fabRejeitarMO"
+        app:layout_constraintEnd_toStartOf="@+id/fabAvaliacao"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="46dp"
-        app:srcCompat="@drawable/ic_fab_cnh" />
+        app:layout_constraintStart_toEndOf="@+id/fabRejeitarMO"
+        app:maxImageSize="64dp"
+        app:srcCompat="@drawable/ic_atencao" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAvaliacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/about_play_store_color"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fabAprovarMO"
+        app:maxImageSize="55dp"
+        app:srcCompat="@drawable/ic_star_border_black_24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

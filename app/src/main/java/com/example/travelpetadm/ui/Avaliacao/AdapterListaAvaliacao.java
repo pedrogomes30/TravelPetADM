@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.travelpetadm.Model.Avaliacao;
 import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.R;
+import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.ui.TipoAnimal.AdapterListaTipoAnimal;
 
 import java.util.ArrayList;
@@ -40,8 +41,8 @@ public class AdapterListaAvaliacao extends RecyclerView.Adapter<AdapterListaAval
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Avaliacao avaliacao = avaliacoes.get(position);
-        holder.textAvaliado.setText(avaliacao.getIdAvaliado());
-        holder.textAvaliador.setText(avaliacao.getIdAvaliador());
+        holder.textAvaliado.setText(Encriptador.decodificarBase64(avaliacao.getIdAvaliado()));
+        holder.textAvaliador.setText(Encriptador.decodificarBase64(avaliacao.getIdAvaliador()));
         if (avaliacao.getNotaAvaliacao() >= 4) {
             holder.textNotaAvaliacao.setText(String.valueOf(avaliacao.getNotaAvaliacao()));
             holder.textNotaAvaliacao.setTextColor(Color.GREEN);

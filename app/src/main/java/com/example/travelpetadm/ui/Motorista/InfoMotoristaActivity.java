@@ -1,12 +1,10 @@
 package com.example.travelpetadm.ui.Motorista;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,22 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.travelpetadm.DAO.AnimalDAO;
 import com.example.travelpetadm.DAO.Conexao;
-import com.example.travelpetadm.DAO.DonoAnimalDAO;
-import com.example.travelpetadm.DAO.EnderecoDAO;
 import com.example.travelpetadm.DAO.MotoristaDAO;
 import com.example.travelpetadm.DAO.VeiculoDAO;
-import com.example.travelpetadm.Model.Animal;
-import com.example.travelpetadm.Model.DonoAnimal;
 import com.example.travelpetadm.Model.Endereco;
 import com.example.travelpetadm.Model.Motorista;
 import com.example.travelpetadm.Model.Veiculo;
 import com.example.travelpetadm.R;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
-import com.example.travelpetadm.ui.animais.AdapterListaAnimais;
-import com.example.travelpetadm.ui.animais.InfoAnimalActivity;
-import com.example.travelpetadm.ui.donoanimal.InfoDonoAnimalActivity;
 import com.example.travelpetadm.ui.veiculos.AdapterListaVeiculos;
 import com.example.travelpetadm.ui.veiculos.InfoVeiculosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -70,7 +60,8 @@ public class InfoMotoristaActivity extends AppCompatActivity {
             textPerfilUfMO;
     private FloatingActionButton fabAprovarMO,
                                  fabCnh,
-                                 fabRejeitarMO;
+                                 fabRejeitarMO,
+                                 fabAvaliacao;
     private RecyclerView listaPerfilMOVeiculo;
     private static ArrayList<Veiculo> veiculos = new ArrayList<>();
     private ImageView imgAprovacaoMO;
@@ -84,7 +75,6 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info_motorista);
         iniciarBundle();
         iniciarReciclerView();
-        //aprovar(motorista.getStatusPerfil());
     }
 
     @Override
@@ -92,7 +82,6 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         super.onStart();
         recuperarMotorista();
     }
-
 
     @Override
     public void onStop(){
@@ -121,9 +110,9 @@ public class InfoMotoristaActivity extends AppCompatActivity {
                 textPerfilCPFMO.setText(motorista.getCpf());
                 textPerfilEmailMO.setText(motorista.getEmail());
                 textPerfilTipoPerfilMO.setText(motorista.getTipoUsuario());
-                textPerfilAvaliacaoMO.setText(String.valueOf(motorista.getAvaliacao()));
+                textPerfilAvaliacaoMO.setText(String.valueOf(motorista.getNotaAvaliacao()));
                 textPerfilStatusMO.setText(motorista.getStatusConta());
-            if(motorista.getAvaliacao()==null)textPerfilAvaliacaoMO.setText("0,0");
+            if(motorista.getNotaAvaliacao()==null)textPerfilAvaliacaoMO.setText("0,0");
                 if (!motorista.getStatusConta().isEmpty()) {
                     if (motorista.getStatusConta().equals(Conexao.motoristaEmAnalise)) {
                         imgAprovacaoMO.setImageDrawable(getResources().getDrawable(R.drawable.ic_atencao));
@@ -158,7 +147,6 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         });
     }
 
-
     public void recuperarVeiculo (){
         veiculos.clear();
         veiculoRef = VeiculoDAO.getVeiculoRef().child(motorista.getIdUsuario());
@@ -191,6 +179,7 @@ public class InfoMotoristaActivity extends AppCompatActivity {
         fabAprovarMO = findViewById(R.id.fabAprovarMO);
         fabCnh = findViewById(R.id.fabCnh);
         fabRejeitarMO = findViewById(R.id.fabRejeitarMO);
+        fabAvaliacao = findViewById(R.id.fabAvaliacao);
         //ListView
         listaPerfilMOVeiculo = findViewById(R.id.listaPerfilMOVeiculo);
         //ImageView
@@ -239,6 +228,14 @@ public class InfoMotoristaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i =  new Intent(getApplicationContext(), ExibirCnh.class);
                 i.putExtra("ExibirCnh",motorista);
+                startActivity(i);
+            }
+        });
+        fabAvaliacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(getApplicationContext(), AvaliacaoMotoristaActivity.class);
+                i.putExtra("ExibirAvaliacoesMotorista",motorista);
                 startActivity(i);
             }
         });

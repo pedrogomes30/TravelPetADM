@@ -5,9 +5,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.travelpetadm.Model.Avaliacao;
-import com.example.travelpetadm.Model.TipoAnimal;
 import com.example.travelpetadm.ui.Avaliacao.AvaliacaoFragment;
-import com.example.travelpetadm.ui.TipoAnimal.TipoAnimalFragment;
+import com.example.travelpetadm.ui.Motorista.AvaliacaoMotoristaActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +35,23 @@ public class AvaliacaoDAO {
                 }
                 refAvaliacao.removeEventListener(listener);
                 AvaliacaoFragment.adapterListaAvaliacao.notifyDataSetChanged();
+            }@Override public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.", databaseError.toException());}
+        });
+        return avaliacoes;
+    }
+
+    public static ArrayList<Avaliacao> recuperarAvaliacaoPerfil(ArrayList<Avaliacao> avaliacaos, String idUsuario){
+        avaliacoes = avaliacaos;
+        refAvaliacao = getRefAvaliacao().child(idUsuario);
+        listener = refAvaliacao.addValueEventListener(new ValueEventListener() {
+            @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                avaliacoes.clear();
+                for(DataSnapshot dados: dataSnapshot.getChildren()) {
+                        avaliacoes.add(dados.getValue(Avaliacao.class));
+                }
+                refAvaliacao.removeEventListener(listener);
+                AvaliacaoMotoristaActivity.adapterListaAvaliacao.notifyDataSetChanged();
             }@Override public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w(TAG, "Failed to read value.", databaseError.toException());}
         });

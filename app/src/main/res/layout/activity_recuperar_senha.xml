@@ -68,6 +68,7 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:paddingLeft="5dp"
+            android:textColor="@color/preto"
             android:textSize="14sp" />
 
         <Button

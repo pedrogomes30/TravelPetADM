@@ -1,21 +1,16 @@
 package com.example.travelpetadm.ui.donoanimal;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,15 +18,12 @@ import com.bumptech.glide.Glide;
 import com.example.travelpetadm.DAO.AnimalDAO;
 import com.example.travelpetadm.DAO.Conexao;
 import com.example.travelpetadm.DAO.DonoAnimalDAO;
-import com.example.travelpetadm.DAO.EnderecoDAO;
-import com.example.travelpetadm.Model.Adm;
 import com.example.travelpetadm.Model.Animal;
 import com.example.travelpetadm.Model.DonoAnimal;
 import com.example.travelpetadm.Model.Endereco;
 import com.example.travelpetadm.R;
-import com.example.travelpetadm.helper.Encriptador;
 import com.example.travelpetadm.helper.RecyclerItemClickListener;
-import com.example.travelpetadm.ui.Avaliacao.AdapterListaAvaliacao;
+import com.example.travelpetadm.ui.Motorista.AvaliacaoMotoristaActivity;
 import com.example.travelpetadm.ui.animais.AdapterListaAnimais;
 import com.example.travelpetadm.ui.animais.InfoAnimalActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -39,21 +31,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.EventListener;
-import java.util.concurrent.CountDownLatch;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static androidx.core.os.LocaleListCompat.create;
-import static com.example.travelpetadm.DAO.AnimalDAO.getAnimalReference;
-import static com.example.travelpetadm.DAO.AnimalDAO.recuperarArrayAnimais;
 
 public class InfoDonoAnimalActivity extends AppCompatActivity {
     public static AdapterListaAnimais adapterListaAnimal;
@@ -78,7 +59,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
             textPerfilCidadeDA,
             textPerfilRuaDA,
             textPerfilUfDA;
-    private FloatingActionButton fabAprovarDA;
+    private FloatingActionButton fabAprovarDA, fabAvaliacaoDA;
     private RecyclerView listaPerfilDAAnimal;
     private static ArrayList<Animal> animais = new ArrayList<>();
     private ImageView imgAprovacao;
@@ -115,6 +96,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
         textPerfilRuaDA = findViewById(R.id.textPerfilRuaDA);
         textPerfilUfDA = findViewById(R.id.textPerfilUfDA);
         fabAprovarDA = findViewById(R.id.fabAprovarDA);
+        fabAvaliacaoDA = findViewById(R.id.fabAvaliacaoDA);
         //ListView
         listaPerfilDAAnimal = findViewById(R.id.listaPerfilDAAnimal);
         listaPerfilDAAnimal.setHasFixedSize(true);
@@ -143,9 +125,9 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                     textPerfilCPFDA.setText(donoAnimal.getCpf());
                     textPerfilEmailDA.setText(donoAnimal.getEmail());
                     textPerfilTipoPerfilDA.setText(donoAnimal.getTipoUsuario());
-                    textPerfilAvaliacaoDA.setText(String.valueOf(donoAnimal.getAvaliacao()));
+                    textPerfilAvaliacaoDA.setText(String.valueOf(donoAnimal.getNotaAvaliacao()));
                     textPerfilStatusDA.setText(donoAnimal.getStatusConta());
-                    if(donoAnimal.getAvaliacao()==null)textPerfilAvaliacaoDA.setText("0,0");
+                    if(donoAnimal.getNotaAvaliacao()==null)textPerfilAvaliacaoDA.setText("0,0");
                     if (!donoAnimal.getStatusConta().isEmpty()) {
                         if (donoAnimal.getStatusConta().equals(Conexao.donoAnimalAtivo)) {
                             imgAprovacao.setImageDrawable(getResources().getDrawable(R.drawable.ic_aprovar));
@@ -192,6 +174,14 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
                         }
                     }
                 }
+            }
+        });
+        fabAvaliacaoDA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(getApplicationContext(), AvaliacaoDonoAnimalActivity.class);
+                i.putExtra("ExibirAvaliacoesDonoAnimal",donoAnimal);
+                startActivity(i);
             }
         });
     }
@@ -272,6 +262,7 @@ public class InfoDonoAnimalActivity extends AppCompatActivity {
             }
         });
     }
+
     public void alert(String S){
         Toast.makeText(this,S,Toast.LENGTH_SHORT).show();
     }

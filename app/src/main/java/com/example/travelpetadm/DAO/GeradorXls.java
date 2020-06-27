@@ -472,7 +472,7 @@ public class GeradorXls extends AppCompatActivity {
             cell = row1.createCell(2);cell.setCellValue(listaDonoAnimal.get(i).getSobrenome());
             cell = row1.createCell(3);cell.setCellValue(listaDonoAnimal.get(i).getCpf());
             cell = row1.createCell(4);cell.setCellValue(listaDonoAnimal.get(i).getEmail());
-            cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaDonoAnimal.get(i).getAvaliacao()));
+            cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaDonoAnimal.get(i).getNotaAvaliacao()));
             cell = row1.createCell(6);cell.setCellValue(listaDonoAnimal.get(i).getTelefone());
             cell = row1.createCell(7);cell.setCellValue(listaDonoAnimal.get(i).getStatusConta());
             cell = row1.createCell(8);cell.setCellValue(listaDonoAnimal.get(i).getFotoPerfilUrl());
@@ -536,7 +536,7 @@ public class GeradorXls extends AppCompatActivity {
                     cell = row1.createCell(2);cell.setCellValue(listaMotoristas.get(i).getSobrenome());
                     cell = row1.createCell(3);cell.setCellValue(listaMotoristas.get(i).getCpf());
                     cell = row1.createCell(4);cell.setCellValue(listaMotoristas.get(i).getEmail());
-                    cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaMotoristas.get(i).getAvaliacao()));
+                    cell = row1.createCell(5);cell.setCellValue(String.valueOf(listaMotoristas.get(i).getNotaAvaliacao()));
                     cell = row1.createCell(6);cell.setCellValue(listaMotoristas.get(i).getTelefone());
                     cell = row1.createCell(7);cell.setCellValue(listaMotoristas.get(i).getStatusConta());
                     cell = row1.createCell(8);cell.setCellValue(listaMotoristas.get(i).getRegistroCnh());
