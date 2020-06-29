@@ -84,7 +84,6 @@ public class AnimaisFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        //animalRef.removeEventListener(valueEventListenerAnimal);
     }
 
     public void iniciarComponentes(View view){

@@ -127,7 +127,7 @@ public class AdicionarTipoAnimalActivity extends AppCompatActivity {
                 textEditarTARaca.setText(tipoanimal.getNomeRacaAnimal());
                 textEditarTAObservacao.setText(String.valueOf(tipoanimal.getDescricao()));
                 btSalvarFt.setVisibility(View.VISIBLE);
-                ref.child(tipoanimal.getEspecie()).child(tipoanimal.getNomeRacaAnimal()).addListenerForSingleValueEvent(new ValueEventListener() {
+                ref.child(tipoanimal.getEspecie()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         tipoanimal = dataSnapshot.getValue(TipoAnimal.class);
